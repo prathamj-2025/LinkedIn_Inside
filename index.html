@@ -38,6 +38,10 @@
   :focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px;}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
   svg{display:block;}
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-results-button{-webkit-appearance:none;appearance:none;display:none;}
+  input[type="search"]{-webkit-appearance:none;appearance:none;}
 
   /* ---------------- global nav ---------------- */
   .gnav{position:sticky;top:0;z-index:70;background:#fff;border-bottom:1px solid var(--line);}
@@ -132,6 +136,7 @@
   .fsearch .mag{position:absolute;left:13px;top:10px;color:var(--t2);}
   .fclear{position:absolute;right:6px;top:6px;width:24px;height:24px;border-radius:50%;
           display:flex;align-items:center;justify-content:center;color:var(--t2);}
+  .fclear[hidden]{display:none;}
   .fclear:hover{background:rgba(0,0,0,.08);}
 
   .sortrow{display:flex;align-items:center;gap:12px;margin:12px 0 8px;}
@@ -259,6 +264,26 @@
   .lrow .s{font-size:14px;color:var(--t2);}
   .gbox{width:48px;height:48px;border-radius:4px;background:var(--blue-tint);color:var(--blue);
         display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+  /* poll */
+  .poll{padding:10px 16px 0;}
+  .popt{display:block;width:100%;text-align:left;border:1px solid var(--blue);color:var(--blue);
+        border-radius:100px;padding:8px 16px;font-size:14px;font-weight:600;background:#fff;margin-bottom:8px;}
+  .popt:hover{background:var(--blue-tint);box-shadow:inset 0 0 0 1px var(--blue);}
+  .pres{position:relative;margin-bottom:8px;border-radius:4px;overflow:hidden;background:#f2f2f2;}
+  .pres .fill{position:absolute;top:0;left:0;bottom:0;background:#cfe1f2;}
+  .pres .lab{position:relative;display:flex;justify-content:space-between;gap:10px;padding:9px 12px;font-size:14px;}
+  .pres.mine .lab{font-weight:600;}
+  .pvotes{font-size:12px;color:var(--t2);padding:0 16px 2px;}
+  #pollBox{margin-top:4px;}
+  #pollBox input{width:100%;height:38px;border:1px solid var(--line-mid);border-radius:4px;
+                 padding:0 12px;font-size:14px;margin-bottom:8px;}
+  #pollBox[hidden]{display:none;}
+  .shrow{display:flex;gap:12px;padding:8px 4px;width:100%;text-align:left;align-items:center;border-radius:6px;}
+  .shrow:hover{background:rgba(0,0,0,.04);}
+  .shrow input{width:18px;height:18px;flex-shrink:0;accent-color:var(--blue);cursor:pointer;}
+  .shrow .n{font-size:14px;font-weight:600;}
+  .shrow .s{font-size:12px;color:var(--t2);}
 
   .dock{position:fixed;right:24px;bottom:0;width:290px;background:#fff;border:1px solid var(--line);
         border-bottom:none;border-radius:8px 8px 0 0;z-index:60;box-shadow:0 0 8px rgba(0,0,0,.1);}
@@ -502,10 +527,19 @@
           <button class="pill" data-t="Idea">Idea</button>
           <button class="pill" data-t="Learning opportunity">Learning opportunity</button>
           <button class="pill" data-t="Employee community">Employee community</button>
+          <button class="pill" data-t="Poll">Poll</button>
         </div>
       </div>
 
       <textarea id="ptext" placeholder="What are you working on, stuck on, or organizing?" aria-label="Your post"></textarea>
+
+      <div id="pollBox" hidden>
+        <label style="display:block;font-size:12px;font-weight:600;color:var(--t2);margin-bottom:8px">Poll options</label>
+        <input type="text" class="popt-in" placeholder="Option 1" aria-label="Poll option 1" />
+        <input type="text" class="popt-in" placeholder="Option 2" aria-label="Poll option 2" />
+        <input type="text" class="popt-in" placeholder="Option 3 (optional)" aria-label="Poll option 3" />
+        <input type="text" class="popt-in" placeholder="Option 4 (optional)" aria-label="Poll option 4" />
+      </div>
 
       <div class="fld" style="margin-top:8px">
         <label for="aud">Who can see this</label>
@@ -549,6 +583,28 @@
       </button>
     </div>
     <div class="mbody" id="listBody"></div>
+  </div>
+</div>
+
+<div class="scrim" id="shareModal" hidden>
+  <div class="mdl" role="dialog" aria-modal="true" aria-labelledby="shTtl">
+    <div class="mhead">
+      <h2 id="shTtl">Send inside Northstar</h2>
+      <button class="xbtn" data-close="shareModal" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
+      </button>
+    </div>
+    <div class="mbody">
+      <div class="mnote" style="margin-bottom:14px">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;margin-top:2px"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
+        <span id="shNote">Internal posts can only be sent to verified Northstar employees.</span>
+      </div>
+      <div id="shList" style="max-height:280px;overflow-y:auto"></div>
+    </div>
+    <div class="mfoot">
+      <span style="font-size:13px;color:var(--t3)" id="shCount">No one selected</span>
+      <button class="b-pri" id="shSend" disabled>Send</button>
+    </div>
   </div>
 </div>
 
@@ -789,6 +845,14 @@
      b:"Most budget questions I get are things a dashboard could answer. What have we spent, against what, how much is left.\n\nIdea: a self-serve view for team leads, updated weekly. I would rather spend my time on the decisions than on being a lookup service."},
 
     /* ---------- Employee community ---------- */
+    /* ---------- Poll ---------- */
+    {id:"pl1",a:"tom",cat:"Poll",t:"7h",aud:"Entire Organization",rx:58,lk:false,sv:false,cm:[],
+     b:"Quick one before I rewrite the planning template. How far ahead does your team actually plan, in a way that survives contact with reality?",
+     poll:{voted:null,opts:[{t:"Two weeks",v:41},{t:"One quarter",v:88},{t:"Two quarters",v:23},{t:"We plan, then improvise",v:106}]}},
+    {id:"pl2",a:"aiko",cat:"Poll",t:"3d",aud:"Entire Organization",rx:44,lk:false,sv:false,cm:[],
+     b:"Design system question. When a component you need does not exist yet, what do you actually do?",
+     poll:{voted:null,opts:[{t:"Ask a designer directly",v:74},{t:"Build a one-off",v:52},{t:"Use the closest existing one",v:61},{t:"Ship it slightly ugly",v:29}]}},
+
     {id:"c1",a:"priya",cat:"Employee community",t:"2d",aud:"Entire Organization",rx:119,lk:false,sv:false,
      cm:[{by:"yuki",x:"Adding this to the APAC newsletter so the Tokyo and Bengaluru teams see it in time."}],
      b:"Northstar Women in Engineering is opening our monthly mentoring circles to anyone across the company, not just engineering.\n\nThe next circle is on negotiating scope, which is the thing most people tell us they struggle with. Sign-ups close Friday. Everyone is welcome, including people who only want to listen."},
@@ -862,6 +926,25 @@
 
   var LOCK='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>';
 
+  function pollHTML(po){
+    if(!po.poll) return "";
+    var total=po.poll.opts.reduce(function(s,o){return s+o.v;},0);
+    var body;
+    if(po.poll.voted===null){
+      body=po.poll.opts.map(function(o,i){
+        return '<button class="popt jvote" data-i="'+i+'">'+esc(o.t)+'</button>';}).join("");
+    } else {
+      body=po.poll.opts.map(function(o,i){
+        var pct= total? Math.round(o.v/total*100) : 0;
+        return '<div class="pres'+(po.poll.voted===i?" mine":"")+'">'+
+          '<div class="fill" style="width:'+pct+'%"></div>'+
+          '<div class="lab"><span>'+esc(o.t)+(po.poll.voted===i?" \u2713":"")+'</span><span>'+pct+'%</span></div></div>';}).join("");
+    }
+    return '<div class="poll">'+body+'</div>'+
+      '<div class="pvotes">'+total+' vote'+(total===1?"":"s")+
+      (po.poll.voted===null?' \u00b7 select an option to see results':'')+'</div>';
+  }
+
   function postHTML(po){
     var a=P[po.a];
     var cms=po.cm.map(function(c){var cp=P[c.by];
@@ -880,6 +963,7 @@
         '<button class="pmore" aria-label="More options"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>'+
       '</div>'+
       '<div class="pbody">'+esc(po.b)+'</div>'+
+      pollHTML(po)+
       '<div class="psocial">'+
         '<svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#378fe9"/><path d="M6.5 10.5h2.2v7.2H6.5zm4-4.6 3.7 4.3h2.9a1.4 1.4 0 0 1 1.3 1.9l-1.5 4.7a1.4 1.4 0 0 1-1.3 1h-5.8v-7.6z" fill="#fff"/></svg>'+
         '<span>'+po.rx+'</span>'+
@@ -978,6 +1062,18 @@
     openM("listModal");
   }
 
+  function openShare(po){
+    var a=P[po.a];
+    $("#shNote").textContent="Sending "+a.name+"'s post. Internal posts can only be sent to verified Northstar employees.";
+    $("#shList").innerHTML=Object.keys(P).filter(function(id){return id!==ME;}).map(function(id){
+      var q=P[id];
+      return '<label class="shrow"><input type="checkbox" class="shbox" />'+av(q,"s40")+
+        '<span><span class="n">'+esc(q.name)+'</span><br><span class="s">'+esc(q.title)+
+        ' \u00b7 '+esc(q.office)+'</span></span></label>';}).join("");
+    $("#shCount").textContent="No one selected"; $("#shSend").disabled=true;
+    openM("shareModal");
+  }
+
   function openGroups(){
     $("#listTtl").textContent="My employee groups";
     $("#listBody").innerHTML=GROUPS.map(function(g){
@@ -988,6 +1084,7 @@
   }
 
   var type="Project update";
+  function d_pollInputs(){return document.querySelectorAll("#pollBox .popt-in");}
 
   $("#pills").addEventListener("click",function(e){
     var b=e.target.closest("[data-f]"); if(!b)return;
@@ -1048,9 +1145,21 @@
       if(k==="like"){ po.lk=!po.lk; po.rx+=po.lk?1:-1; render(); }
       else if(k==="save"){ po.sv=!po.sv;
         toast(po.sv?"Post saved to your internal saves.":"Post removed from your saves."); render(); }
-      else if(k==="send"){ toast("Sent inside Northstar. Internal posts cannot be shared outside the company."); }
+      else if(k==="send"){ openShare(po); }
       else { var w=art.querySelector(".cwrap"); w.hidden=!w.hidden;
              if(!w.hidden) w.querySelector("input").focus(); }
+      return;
+    }
+
+    var vt=e.target.closest(".jvote");
+    if(vt){
+      var va=vt.closest("[data-p]");
+      var vp=POSTS.filter(function(x){return x.id===va.getAttribute("data-p");})[0];
+      if(vp&&vp.poll&&vp.poll.voted===null){
+        var vi=parseInt(vt.getAttribute("data-i"),10);
+        vp.poll.voted=vi; vp.poll.opts[vi].v+=1;
+        render(); toast("Vote recorded. Only Northstar employees can see this poll.");
+      }
       return;
     }
 
@@ -1072,12 +1181,26 @@
     }
   });
 
+  $("#shList").addEventListener("change",function(){
+    var k=this.querySelectorAll(".shbox:checked").length;
+    $("#shCount").textContent = k===0 ? "No one selected" : k+" colleague"+(k===1?"":"s")+" selected";
+    $("#shSend").disabled = (k===0);
+  });
+  $("#shSend").addEventListener("click",function(){
+    var k=$("#shList").querySelectorAll(".shbox:checked").length;
+    closeM("shareModal");
+    toast("Sent to "+k+" colleague"+(k===1?"":"s")+" inside Northstar Technologies.");
+  });
+
   $("#openComp").addEventListener("click",function(){openM("compModal");});
   $("#types").addEventListener("click",function(e){
     var b=e.target.closest("[data-t]"); if(!b)return;
     type=b.getAttribute("data-t");
     Array.prototype.forEach.call(this.querySelectorAll(".pill"),function(p){p.classList.remove("on");});
     b.classList.add("on");
+    $("#pollBox").hidden=(type!=="Poll");
+    $("#ptext").setAttribute("placeholder", type==="Poll"
+      ? "Ask your question…" : "What are you working on, stuck on, or organizing?");
   });
   $("#aud").addEventListener("change",function(){$("#audChip").textContent=this.value;});
 
@@ -1090,11 +1213,21 @@
 
   $("#pub").addEventListener("click",function(){
     var v=txt.value.trim(); if(!v)return;
+    var poll=null;
+    if(type==="Poll"){
+      var opts=Array.prototype.map.call(d_pollInputs(),function(i){return i.value.trim();})
+                 .filter(function(s){return s.length;});
+      if(opts.length<2){ toast("A poll needs at least two options."); return; }
+      poll={voted:null,opts:opts.map(function(o){return {t:o,v:0};})};
+    }
     POSTS.unshift({id:"n"+Date.now(),a:ME,cat:type,t:"Just now",aud:$("#aud").value,
-                   b:v,rx:0,cm:[],lk:false,sv:false});
+                   b:v,rx:0,cm:[],lk:false,sv:false,poll:poll});
     closeM("compModal");
     txt.value=""; $("#cct").textContent="0 characters"; this.disabled=true;
     type="Project update";
+    Array.prototype.forEach.call(d_pollInputs(),function(i){i.value="";});
+    $("#pollBox").hidden=true;
+    txt.setAttribute("placeholder","What are you working on, stuck on, or organizing?");
     Array.prototype.forEach.call($("#types").querySelectorAll(".pill"),function(p,i){
       p.classList.toggle("on",i===0);});
     $("#aud").selectedIndex=0; $("#audChip").textContent="Entire Organization";
