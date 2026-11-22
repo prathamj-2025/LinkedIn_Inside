@@ -3,37 +3,43 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LinkedIn Inside — Northstar Technologies</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<title>LinkedIn Inside | Google</title>
 <style>
   :root{
     --page:#f4f2ee;
     --card:#ffffff;
+    --edge:rgba(140,140,140,.2);
     --line:rgba(0,0,0,.08);
     --line-mid:rgba(0,0,0,.15);
     --line-strong:rgba(0,0,0,.3);
+    --pill-edge:#8c8c8c;
     --t1:rgba(0,0,0,.9);
+    --t75:rgba(0,0,0,.75);
     --t2:rgba(0,0,0,.6);
     --t3:rgba(0,0,0,.45);
+    --ink:#1f1f1f;
+    --meta:#666666;
+    --hover:rgba(0,0,0,.08);
+    --hover-soft:rgba(0,0,0,.04);
     --blue:#0a66c2;
     --blue-d:#004182;
-    --blue-tint:#eef3f8;
+    --blue-tint:rgba(112,181,249,.15);
     --green:#01754f;
     --green-d:#014c34;
+    --green-tint:#e6f2ec;
     --otw:#dce6f1;
     --r:8px;
+    --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,Oxygen,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     background:var(--page);
     color:var(--t1);
-    font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:14px;line-height:1.42;-webkit-font-smoothing:antialiased;
+    font-family:var(--font);
+    font-size:14px;line-height:1.25;-webkit-font-smoothing:antialiased;
   }
-  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0;}
+  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0;text-align:inherit;}
   input,select,textarea{font:inherit;color:inherit;}
   :focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px;}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
@@ -42,285 +48,348 @@
   input[type="search"]::-webkit-search-decoration,
   input[type="search"]::-webkit-search-results-button{-webkit-appearance:none;appearance:none;display:none;}
   input[type="search"]{-webkit-appearance:none;appearance:none;}
+  .ico{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 
   /* ---------------- global nav ---------------- */
-  .gnav{position:sticky;top:0;z-index:70;background:#fff;border-bottom:1px solid var(--line);}
+  .gnav{position:sticky;top:0;z-index:70;background:#fff;box-shadow:0 1px 0 var(--edge);}
   .gnav-in{max-width:1128px;margin:0 auto;height:52px;display:flex;align-items:center;gap:8px;}
   .logo{width:34px;height:34px;border-radius:4px;background:var(--blue);color:#fff;
-        display:flex;align-items:center;justify-content:center;font-weight:700;font-size:19px;
-        letter-spacing:-1px;flex-shrink:0;font-family:Helvetica,Arial,sans-serif;}
+        display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;
+        letter-spacing:-1px;flex-shrink:0;font-family:Helvetica,Arial,sans-serif;padding:4px 0 0 1px;}
   .gsearch{position:relative;width:280px;flex-shrink:0;}
-  .gsearch input{width:100%;height:34px;border:1px solid var(--line-mid);border-radius:100px;
-                 background:#fff;padding:0 14px 0 36px;font-size:14px;}
+  .gsearch input{width:100%;height:34px;border:1px solid var(--line-strong);border-radius:999px;
+                 background:#fff;padding:0 16px 0 40px;font-size:14px;}
   .gsearch input::placeholder{color:var(--t2);}
-  .gsearch .mag{position:absolute;left:13px;top:9px;color:var(--t1);}
+  .gsearch input:focus{outline:none;border-color:var(--t1);box-shadow:inset 0 0 0 1px var(--t1);}
+  .gsearch .mag{position:absolute;left:14px;top:9px;color:var(--t1);}
   .gnav-right{display:flex;align-items:center;margin-left:auto;height:52px;}
-  .gitem{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
-         min-width:80px;height:52px;color:var(--t2);font-size:12px;
-         border-bottom:2px solid transparent;position:relative;padding:0 4px;}
+  .gitem{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+         min-width:80px;height:52px;color:var(--t2);font-size:12px;line-height:15px;
+         border-bottom:2px solid transparent;position:relative;padding:2px 4px 0;}
   .gitem:hover{color:var(--t1);}
-  .gitem.sel{color:rgba(0,0,0,.9);border-bottom-color:rgba(0,0,0,.9);}
-  .gitem .lbl{white-space:nowrap;}
-  .gdot{position:absolute;top:2px;left:calc(50% + 4px);background:#cb112d;color:#fff;
-        font-size:10px;font-weight:600;line-height:1;padding:2px 5px;border-radius:9px;}
-  .gdiv{width:1px;height:36px;background:var(--line);margin:0 4px;}
+  .gitem.sel{color:var(--t1);border-bottom-color:var(--t1);}
+  .gitem .lbl{white-space:nowrap;display:flex;align-items:center;gap:2px;}
+  .gdot{position:absolute;top:4px;left:calc(50% + 2px);background:#cb112d;color:#fff;
+        font-size:11px;font-weight:600;line-height:1;padding:2px 5px;border-radius:999px;
+        box-shadow:0 0 0 2px #fff;}
+  .gdiv{width:1px;height:52px;background:var(--line);margin:0 4px;}
   .gav{width:24px;height:24px;border-radius:50%;overflow:hidden;}
 
   /* ---------------- layout ---------------- */
   .page{max-width:1128px;margin:0 auto;padding:24px 0 90px;}
-  .grid{display:grid;grid-template-columns:225px minmax(0,1fr) 300px;gap:24px;align-items:start;}
+  .grid{display:grid;grid-template-columns:216px minmax(0,552px) 312px;gap:24px;align-items:start;}
   .rail-left,.rail-right{position:sticky;top:76px;}
 
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;}
+  .card{background:var(--card);border-radius:var(--r);box-shadow:0 0 0 1px var(--edge);overflow:hidden;}
   .stack > * + *{margin-top:8px;}
   .rail-left .card + .card,.rail-right .card + .card{margin-top:8px;}
 
   /* ---------------- left rail ---------------- */
-  .idcard .cover{height:56px;background:linear-gradient(105deg,#a8b4b8 0 46%,#c8d3d6 46% 62%,#b9c6ca 62%);}
-  .idcard .body{padding:0 12px 12px;text-align:center;}
-  .idcard .av{width:72px;height:72px;border-radius:50%;margin:-38px auto 8px;border:2px solid #fff;position:relative;z-index:2;
-              display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:600;}
-  .idcard .nm{font-size:16px;font-weight:600;line-height:1.25;}
-  .idcard .hl{font-size:12px;color:var(--t2);margin-top:4px;}
-  .idcard .lo{font-size:12px;color:var(--t2);margin-top:2px;}
+  .idcard .cover{height:58px;background:linear-gradient(100deg,#a0b4b7 0 40%,#c9d5d8 40% 58%,#b3c3c7 58%);}
+  .idcard .body{padding:0 16px 16px;}
+  .idcard .av{width:76px;height:76px;margin:-38px 0 12px;border:2px solid #fff;position:relative;z-index:2;
+              font-size:26px;}
+  .idcard .nm{font-size:20px;font-weight:600;line-height:25px;}
+  .idcard .hl{font-size:12px;line-height:15px;color:var(--t1);margin-top:4px;}
+  .idcard .lo{font-size:12px;line-height:15px;color:var(--t2);margin-top:4px;}
   .vbadge{display:inline-flex;align-items:center;gap:4px;margin-top:8px;
-          background:#e6f2ec;color:var(--green);border-radius:100px;padding:2px 9px 2px 7px;
-          font-size:12px;font-weight:600;}
-  .idcard .orgrow{border-top:1px solid var(--line);margin-top:12px;padding-top:10px;
-                  display:flex;align-items:center;gap:8px;text-align:left;}
-  .idcard .orgrow span.t{font-size:13px;font-weight:600;}
+          background:var(--green-tint);color:var(--green);border-radius:999px;padding:2px 8px 2px 6px;
+          font-size:12px;line-height:15px;font-weight:600;}
+  .idcard .orgrow{margin-top:12px;display:flex;align-items:center;gap:8px;}
+  .idcard .orgrow span.t{font-size:12px;font-weight:600;line-height:15px;}
 
-  .railnav{padding:4px 0;}
-  .rlink{display:flex;align-items:center;gap:10px;width:100%;text-align:left;
-         padding:8px 12px;font-size:14px;font-weight:600;color:var(--t2);}
-  .rlink:hover{background:rgba(0,0,0,.04);color:var(--t1);}
-  .rlink.on{color:var(--green);background:#eef5f1;}
-  .rlink .ct{margin-left:auto;font-size:13px;color:var(--t3);font-weight:600;}
+  .railnav{padding:8px 0;}
+  .rlink{display:flex;align-items:center;gap:8px;width:100%;
+         padding:10px 16px;font-size:12px;line-height:15px;font-weight:600;color:var(--t1);}
+  .rlink svg{flex-shrink:0;}
+  .rlink:hover{background:var(--hover-soft);}
+  .rlink.on{color:var(--green);background:var(--green-tint);}
+  .rlink .ct{margin-left:auto;font-size:12px;color:var(--blue);font-weight:600;}
 
   /* ---------------- company header ---------------- */
-  .chead .cover{height:80px;background:linear-gradient(105deg,#8fa3ab 0 44%,#c3d0d5 44% 63%,#aebcc2 63%);}
+  .chead .cover{height:84px;background:linear-gradient(100deg,#8aa0a8 0 42%,#c3d0d5 42% 62%,#a9b9bf 62%);}
   .chead .body{padding:0 16px 16px;}
-  .clogo{width:72px;height:72px;border-radius:8px;background:#fff;border:1px solid var(--line);
-         margin-top:-36px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;}
-  .chead h1{font-size:24px;font-weight:600;margin:10px 0 0;line-height:1.2;letter-spacing:-.2px;}
-  .chead .sub{font-size:16px;margin-top:2px;}
-  .chead .meta{font-size:14px;color:var(--t2);margin-top:4px;}
-  .privbox{margin-top:14px;background:var(--otw);border-radius:8px;padding:12px 14px;
+  .clogo{width:72px;height:72px;border-radius:4px;background:#fff;box-shadow:0 0 0 1px var(--edge);
+         margin-top:-36px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
+         border:4px solid #fff;}
+  .gtile{display:flex;align-items:center;justify-content:center;font-weight:700;color:#3c4043;
+         font-family:var(--font);letter-spacing:-.5px;line-height:1;}
+  .chead h1{font-size:24px;font-weight:600;margin:12px 0 0;line-height:30px;}
+  .chead .sub{font-size:16px;line-height:20px;margin-top:2px;}
+  .chead .meta{font-size:14px;line-height:17.5px;color:var(--t2);margin-top:4px;}
+  .privbox{margin-top:16px;background:var(--otw);border-radius:8px;padding:12px 16px;
            display:flex;gap:10px;align-items:flex-start;}
   .privbox b{font-weight:600;}
-  .privbox .txt{font-size:14px;}
-  .privbox .sm{font-size:13px;color:var(--t2);margin-top:4px;}
+  .privbox .txt{font-size:14px;line-height:17.5px;}
+  .privbox .sm{font-size:12px;line-height:15px;color:var(--t2);margin-top:4px;}
 
   /* ---------------- composer ---------------- */
-  .composer{padding:12px 16px;}
+  .composer{padding:12px 16px 4px;}
   .composer .row{display:flex;gap:8px;align-items:center;}
-  .cbtn{flex:1;text-align:left;border:1px solid var(--line-mid);border-radius:100px;
-        height:48px;padding:0 16px;font-size:14px;font-weight:600;color:var(--t2);background:#fff;}
-  .cbtn:hover{background:rgba(0,0,0,.04);}
-  .ctypes{display:flex;justify-content:space-around;margin-top:8px;}
-  .ctype{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:4px;
-         font-size:14px;font-weight:600;color:var(--t2);}
-  .ctype:hover{background:rgba(0,0,0,.04);}
+  .cbtn{flex:1;text-align:left;border:1px solid var(--line-strong);border-radius:24px;
+        height:48px;padding:0 16px;font-size:16px;line-height:20px;font-weight:600;color:var(--t1);background:#fff;}
+  .cbtn:hover{background:var(--hover-soft);}
+  .ctypes{display:flex;justify-content:space-around;margin-top:4px;}
+  .ctype{display:flex;align-items:center;gap:8px;padding:12px 8px;border-radius:4px;
+         font-size:16px;line-height:20px;font-weight:600;color:var(--t75);}
+  .ctype:hover{background:var(--hover);}
 
   /* ---------------- filters ---------------- */
   .filters{padding:12px 16px;}
   .pills{display:flex;flex-wrap:wrap;gap:8px;}
-  .pill{border:1px solid var(--line-strong);border-radius:100px;padding:5px 14px;
-        font-size:14px;font-weight:600;color:var(--t2);background:#fff;white-space:nowrap;}
-  .pill:hover{background:rgba(0,0,0,.05);color:var(--t1);box-shadow:inset 0 0 0 1px var(--line-strong);}
+  .pill{border:1px solid var(--pill-edge);border-radius:999px;height:32px;padding:0 12px;
+        font-size:14px;font-weight:600;color:var(--t75);background:#fff;white-space:nowrap;}
+  .pill:hover{background:var(--hover-soft);color:var(--t1);box-shadow:inset 0 0 0 1px var(--t75);border-color:var(--t75);}
   .pill.on{background:var(--green);border-color:var(--green);color:#fff;}
-  .pill.on:hover{background:var(--green-d);box-shadow:none;color:#fff;}
+  .pill.on:hover{background:var(--green-d);border-color:var(--green-d);box-shadow:none;color:#fff;}
   .fsearch{position:relative;margin-top:12px;}
-  .fsearch input{width:100%;height:36px;border:1px solid var(--line-mid);border-radius:100px;
-                 padding:0 36px;font-size:14px;background:#fff;}
-  .fsearch .mag{position:absolute;left:13px;top:10px;color:var(--t2);}
+  .fsearch input{width:100%;height:36px;border:1px solid var(--line-strong);border-radius:999px;
+                 padding:0 36px 0 40px;font-size:14px;background:#fff;}
+  .fsearch input::placeholder{color:var(--t2);}
+  .fsearch input:focus{outline:none;border-color:var(--t1);box-shadow:inset 0 0 0 1px var(--t1);}
+  .fsearch .mag{position:absolute;left:14px;top:10px;color:var(--t2);}
   .fclear{position:absolute;right:6px;top:6px;width:24px;height:24px;border-radius:50%;
           display:flex;align-items:center;justify-content:center;color:var(--t2);}
   .fclear[hidden]{display:none;}
-  .fclear:hover{background:rgba(0,0,0,.08);}
+  .fclear:hover{background:var(--hover);}
 
-  .sortrow{display:flex;align-items:center;gap:12px;margin:12px 0 8px;}
-  .sortrow .hr{flex:1;height:1px;background:var(--line-mid);}
-  .sortbtn{font-size:14px;color:var(--t2);display:flex;align-items:center;gap:4px;padding:2px 4px;}
+  .sortrow{display:flex;align-items:center;justify-content:flex-end;margin:4px 0 0;padding:0 2px;}
+  .sortbtn{font-size:12px;line-height:15px;color:var(--t2);display:flex;align-items:center;gap:2px;padding:2px 0;}
   .sortbtn b{color:var(--t1);font-weight:600;}
+  .sortbtn:hover b{color:var(--blue);}
 
   /* ---------------- post ---------------- */
-  .post{margin-bottom:8px;}
-  .post .phead{display:flex;gap:8px;padding:12px 16px 0;}
+  .post{margin-bottom:8px;box-shadow:none;border:1px solid var(--edge);}
+  .post .phead{display:flex;gap:8px;padding:12px 12px 0;}
   .av{border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
-      color:#fff;font-weight:600;width:48px;height:48px;font-size:16px;}
+      color:#fff;font-weight:600;width:48px;height:48px;font-size:17px;letter-spacing:.2px;}
+  .av.s24{width:24px;height:24px;font-size:9px;}
   .av.s32{width:32px;height:32px;font-size:12px;}
-  .av.s40{width:40px;height:40px;font-size:13px;}
+  .av.s40{width:40px;height:40px;font-size:14px;}
+  .pav{border-radius:50%;}
   .pident{min-width:0;flex:1;}
-  .pname{font-size:14px;font-weight:600;color:var(--t1);}
+  .pnrow{display:flex;align-items:baseline;gap:4px;min-width:0;}
+  .pname{font-size:16px;line-height:20px;font-weight:600;color:var(--t1);white-space:nowrap;}
   .pname:hover{color:var(--blue);text-decoration:underline;}
-  .pdeg{font-size:12px;color:var(--t2);}
-  .phl{font-size:12px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .pmeta{font-size:12px;color:var(--t2);display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:1px;}
+  .pdeg{font-size:12px;line-height:15px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .phl{font-size:12px;line-height:15px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px;}
+  .pmeta{font-size:12px;line-height:15px;color:var(--t2);display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:2px;}
+  .pmeta svg{display:inline-block;}
   .pmore{width:32px;height:32px;border-radius:50%;color:var(--t2);display:flex;align-items:center;
-         justify-content:center;flex-shrink:0;}
-  .pmore:hover{background:rgba(0,0,0,.08);}
-  .pbody{padding:8px 16px 0;font-size:14px;white-space:pre-line;}
-  .psocial{display:flex;align-items:center;gap:4px;padding:8px 16px 0;font-size:12px;color:var(--t2);}
-  .pacts{display:flex;margin:4px 8px;border-top:1px solid var(--line);padding-top:4px;}
-  .act{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
-       padding:10px 4px;border-radius:4px;color:var(--t2);font-size:14px;font-weight:600;}
-  .act:hover{background:rgba(0,0,0,.06);}
+         justify-content:center;flex-shrink:0;margin:-4px -4px 0 0;}
+  .pmore:hover{background:var(--hover);color:var(--t1);}
+  .pbody{padding:12px 12px 8px;font-size:14px;line-height:20px;white-space:pre-line;color:var(--t1);}
+  .pacts{display:flex;align-items:center;gap:2px;height:44px;padding:0 12px;}
+  .act{display:flex;align-items:center;gap:4px;height:36px;padding:4px 8px;border-radius:4px;
+       color:var(--t75);font-size:14px;line-height:18px;font-weight:600;}
+  .act:hover{background:var(--hover);color:var(--t1);}
+  .act .n:empty{display:none;}
   .act.on{color:var(--blue);}
-  .act.sv.on{color:var(--green);}
-  .cwrap{border-top:1px solid var(--line);padding:12px 16px 14px;}
-  .cmt{display:flex;gap:8px;margin-bottom:10px;}
-  .bub{background:#f2f2f2;border-radius:8px;padding:8px 12px;flex:1;min-width:0;}
-  .bub .n{font-size:13px;font-weight:600;}
-  .bub .r{font-size:12px;color:var(--t3);margin-bottom:4px;}
-  .bub .x{font-size:14px;}
+  .act.on:hover{color:var(--blue-d);}
+  .act.sv.on{color:var(--t1);}
+  .rxs{margin-left:auto;display:flex;align-items:center;padding-right:2px;}
+  .rxs .rx{width:16px;height:16px;border-radius:50%;box-shadow:0 0 0 1.5px #fff;display:flex;
+           align-items:center;justify-content:center;}
+  .rxs .rx + .rx{margin-left:-4px;}
+  .cwrap{padding:4px 12px 12px;}
+  .cmt{display:flex;gap:4px;margin-top:12px;}
+  .cmt .av{margin-right:4px;}
+  .bub{background:#f2f2f2;border-radius:0 8px 8px 8px;padding:8px 12px;flex:1;min-width:0;}
+  .bub .n{font-size:14px;line-height:17.5px;font-weight:600;}
+  .bub .r{font-size:12px;line-height:15px;color:var(--t2);margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .bub .x{font-size:14px;line-height:20px;}
   .cform{display:flex;gap:8px;align-items:center;}
-  .cform input{flex:1;height:36px;border:1px solid var(--line-mid);border-radius:100px;padding:0 14px;font-size:14px;}
+  .cform input{flex:1;height:40px;border:1px solid var(--line-strong);border-radius:999px;padding:0 16px;font-size:14px;}
+  .cform input::placeholder{color:var(--t2);}
+  .cform input:focus{outline:none;border-color:var(--t1);box-shadow:inset 0 0 0 1px var(--t1);}
 
   .empty{padding:40px 24px;text-align:center;}
-  .empty h3{margin:0 0 6px;font-size:16px;font-weight:600;}
-  .empty p{margin:0;color:var(--t2);font-size:14px;}
+  .empty h3{margin:0 0 6px;font-size:20px;line-height:25px;font-weight:600;}
+  .empty p{margin:0;color:var(--t2);font-size:14px;line-height:20px;}
 
   /* ---------------- right rail ---------------- */
-  .rhead{padding:12px 16px 4px;}
-  .rhead h2{margin:0;font-size:16px;font-weight:600;}
-  .rhead .sm{font-size:12px;color:var(--t2);margin-top:2px;}
-  .prow{display:flex;gap:8px;padding:8px 16px;width:100%;text-align:left;align-items:flex-start;}
-  .prow:hover{background:rgba(0,0,0,.04);}
-  .prow .n{font-size:14px;font-weight:600;}
-  .prow .r{font-size:12px;color:var(--t2);}
-  .trow{display:flex;justify-content:space-between;gap:8px;width:100%;text-align:left;padding:7px 16px;}
-  .trow:hover{background:rgba(0,0,0,.04);}
-  .trow .n{font-size:14px;font-weight:600;}
-  .trow .c{font-size:12px;color:var(--t2);flex-shrink:0;}
-  .erow{display:flex;gap:10px;padding:8px 16px;align-items:flex-start;}
-  .dbox{width:40px;flex-shrink:0;border:1px solid var(--line);border-radius:6px;text-align:center;padding:2px 0 4px;}
-  .dbox .m{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:.5px;}
-  .dbox .d{font-size:16px;font-weight:600;line-height:1.1;}
-  .erow .t{font-size:14px;font-weight:600;}
-  .erow .s{font-size:12px;color:var(--t2);}
-  .rfoot{padding:6px 16px 12px;}
-  .rfoot button{font-size:14px;font-weight:600;color:var(--t2);display:flex;align-items:center;gap:6px;}
-  .rfoot button:hover{color:var(--t1);}
+  .rail-right .card{padding:8px 0;}
+  .rhead{padding:8px 16px 4px;}
+  .rhead h2{margin:0;font-size:20px;line-height:25px;font-weight:600;color:var(--ink);}
+  .rhead .sm{font-size:12px;line-height:15px;color:var(--meta);margin-top:2px;}
+  .prow{display:flex;gap:12px;padding:8px 16px;width:100%;text-align:left;align-items:flex-start;}
+  .prow:hover{background:var(--hover-soft);}
+  .prow .n{font-size:14px;line-height:17.5px;font-weight:600;color:var(--ink);}
+  .prow .r{font-size:12px;line-height:15px;color:var(--meta);}
+  .trow{display:block;width:100%;text-align:left;padding:6px 16px;}
+  .trow:hover{background:var(--hover-soft);}
+  .trow:hover .n{color:var(--blue);text-decoration:underline;}
+  .trow .n{display:block;font-size:14px;line-height:17.5px;font-weight:600;color:var(--ink);}
+  .trow .c{display:block;font-size:12px;line-height:18px;color:var(--meta);}
+  .erow{display:flex;gap:12px;padding:8px 16px;align-items:flex-start;}
+  .dbox{width:40px;flex-shrink:0;border-radius:4px;text-align:center;overflow:hidden;box-shadow:0 0 0 1px var(--edge);}
+  .dbox .m{font-size:10px;line-height:16px;font-weight:600;color:#fff;background:#cb112d;letter-spacing:.4px;}
+  .dbox .d{font-size:16px;font-weight:600;line-height:22px;}
+  .erow .t{font-size:14px;line-height:17.5px;font-weight:600;color:var(--ink);}
+  .erow .s{font-size:12px;line-height:18px;color:var(--meta);}
+  .rfoot{padding:4px 16px 4px;}
+  .rfoot button{font-size:14px;line-height:17.5px;font-weight:600;color:var(--t75);display:flex;align-items:center;gap:4px;
+                padding:6px 8px;margin-left:-8px;border-radius:4px;}
+  .rfoot button:hover{background:var(--hover);color:var(--t1);}
+
+  .sitefoot{padding:16px 8px;text-align:center;}
+  .flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;}
+  .flinks button{font-size:12px;line-height:15px;color:var(--t2);}
+  .flinks button:hover{color:var(--blue);text-decoration:underline;}
+  .fcopy{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:12px;line-height:15px;color:var(--t1);}
+  .fcopy .mini{width:16px;height:16px;border-radius:2px;background:var(--blue);color:#fff;font:700 11px/16px Helvetica,Arial,sans-serif;
+               text-align:center;letter-spacing:-.5px;}
 
   /* ---------------- buttons ---------------- */
-  .b-pri{background:var(--blue);color:#fff;border-radius:100px;padding:6px 16px;font-size:16px;font-weight:600;}
+  .b-pri{background:var(--blue);color:#fff;border-radius:999px;min-height:32px;padding:6px 16px;font-size:16px;line-height:20px;font-weight:600;
+         display:inline-flex;align-items:center;gap:4px;}
   .b-pri:hover{background:var(--blue-d);}
-  .b-pri:disabled{background:rgba(0,0,0,.08);color:var(--t3);cursor:not-allowed;}
-  .b-out{border:1px solid var(--blue);color:var(--blue);border-radius:100px;padding:5px 15px;
-         font-size:16px;font-weight:600;background:#fff;}
-  .b-out:hover{background:var(--blue-tint);box-shadow:inset 0 0 0 1px var(--blue);}
-  .b-gray{border:1px solid var(--line-strong);color:var(--t1);border-radius:100px;padding:5px 15px;
-          font-size:16px;font-weight:600;background:#fff;}
-  .b-gray:hover{background:rgba(0,0,0,.05);}
+  .b-pri:disabled{background:rgba(0,0,0,.08);color:rgba(0,0,0,.3);cursor:not-allowed;}
+  .b-out{box-shadow:inset 0 0 0 1px var(--blue);color:var(--blue);border-radius:999px;min-height:32px;padding:6px 16px;
+         font-size:16px;line-height:20px;font-weight:600;background:#fff;display:inline-flex;align-items:center;gap:4px;}
+  .b-out:hover{background:var(--blue-tint);box-shadow:inset 0 0 0 2px var(--blue);color:var(--blue-d);}
+  .b-gray{box-shadow:inset 0 0 0 1px var(--t75);color:var(--t75);border-radius:999px;min-height:32px;padding:6px 16px;
+          font-size:16px;line-height:20px;font-weight:600;background:#fff;}
+  .b-gray:hover{background:var(--hover-soft);box-shadow:inset 0 0 0 2px var(--t75);color:var(--t1);}
 
   /* ---------------- modals ---------------- */
-  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:120;display:flex;
-         align-items:flex-start;justify-content:center;padding:44px 16px;overflow-y:auto;}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:120;display:flex;
+         align-items:flex-start;justify-content:center;padding:48px 16px;overflow-y:auto;}
   .scrim[hidden]{display:none;}
-  .mdl{background:#fff;border-radius:8px;width:100%;max-width:560px;
-       box-shadow:0 12px 28px rgba(0,0,0,.3);overflow:hidden;}
-  .mdl.big{max-width:640px;}
+  .mdl{background:#fff;border-radius:8px;width:100%;max-width:552px;
+       box-shadow:0 0 0 1px var(--edge),0 12px 28px rgba(0,0,0,.3);overflow:hidden;}
+  .mdl.big{max-width:744px;background:var(--page);box-shadow:0 12px 28px rgba(0,0,0,.3);}
   .mhead{display:flex;align-items:center;justify-content:space-between;gap:12px;
-         padding:14px 20px;border-bottom:1px solid var(--line);}
-  .mhead h2{margin:0;font-size:20px;font-weight:600;}
-  .xbtn{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--t2);}
-  .xbtn:hover{background:rgba(0,0,0,.08);}
-  .mbody{padding:16px 20px;}
-  .mfoot{padding:12px 20px;border-top:1px solid var(--line);display:flex;align-items:center;
+         padding:16px 24px;border-bottom:1px solid var(--line);}
+  .mhead h2{margin:0;font-size:20px;line-height:25px;font-weight:600;}
+  .xbtn{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0;}
+  .xbtn:hover{background:var(--hover);color:var(--t1);}
+  .mbody{padding:16px 24px;}
+  .mfoot{padding:12px 24px;border-top:1px solid var(--line);display:flex;align-items:center;
          justify-content:space-between;gap:12px;}
   .fld{margin-bottom:16px;}
-  .fld > label{display:block;font-size:12px;font-weight:600;color:var(--t2);margin-bottom:8px;}
-  #ptext{width:100%;min-height:140px;border:none;font-size:16px;resize:vertical;line-height:1.5;outline:none;}
-  #aud{width:100%;height:40px;border:1px solid var(--line-mid);border-radius:4px;padding:0 10px;
+  .fld > label{display:block;font-size:14px;line-height:17.5px;font-weight:600;color:var(--t75);margin-bottom:8px;}
+  #ptext{width:100%;min-height:160px;border:none;font-size:18px;line-height:24px;resize:vertical;outline:none;}
+  #ptext::placeholder{color:var(--t2);}
+  #aud{width:100%;height:40px;border:1px solid var(--t2);border-radius:4px;padding:0 12px;
        background:#fff;font-size:14px;}
-  .mnote{background:var(--otw);border-radius:8px;padding:11px 14px;font-size:14px;
-         display:flex;gap:9px;align-items:flex-start;}
-  .aud-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--blue);color:var(--blue);
-            border-radius:100px;padding:3px 12px;font-size:14px;font-weight:600;}
+  .mnote{background:var(--otw);border-radius:8px;padding:12px 16px;font-size:14px;line-height:17.5px;
+         display:flex;gap:10px;align-items:flex-start;}
+  .aud-chip{display:inline-flex;align-items:center;gap:6px;box-shadow:inset 0 0 0 1px var(--t2);color:var(--t75);
+            border-radius:999px;padding:2px 12px;font-size:14px;line-height:20px;font-weight:600;}
 
-  .pcover{height:110px;background:linear-gradient(105deg,#8fa3ab 0 44%,#c3d0d5 44% 63%,#aebcc2 63%);position:relative;}
-  .pcover .xbtn{position:absolute;top:10px;right:10px;background:#fff;}
-  .ptop{padding:0 20px 16px;position:relative;z-index:2;}
-  .ptop .av{width:120px;height:120px;margin-top:-60px;border:4px solid #fff;font-size:40px;position:relative;z-index:2;}
-  .pn{font-size:24px;font-weight:600;margin-top:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-  .ph{font-size:16px;margin-top:2px;}
-  .pl{font-size:14px;color:var(--t2);margin-top:4px;}
-  .pbtns{margin-top:14px;display:flex;gap:8px;}
-  .psec{border-top:8px solid var(--page);padding:16px 20px;}
-  .psec h3{margin:0 0 10px;font-size:20px;font-weight:600;}
-  .psec p{margin:0;font-size:14px;}
-  .xitem{display:flex;gap:12px;padding:8px 0;}
-  .xlogo{width:40px;height:40px;border-radius:4px;flex-shrink:0;display:flex;align-items:center;
-         justify-content:center;color:#fff;font-size:15px;font-weight:600;}
-  .xitem .t{font-size:16px;font-weight:600;}
-  .xitem .c{font-size:14px;}
-  .xitem .y{font-size:14px;color:var(--t2);}
-  .skills{display:flex;flex-wrap:wrap;gap:8px;}
-  .skill{background:#f2f2f2;border-radius:4px;padding:5px 12px;font-size:14px;}
-  .lrow{display:flex;gap:12px;padding:10px 4px;width:100%;text-align:left;align-items:flex-start;border-radius:6px;}
-  .lrow:hover{background:rgba(0,0,0,.04);}
-  .lrow .n{font-size:16px;font-weight:600;}
-  .lrow .s{font-size:14px;color:var(--t2);}
-  .gbox{width:48px;height:48px;border-radius:4px;background:var(--blue-tint);color:var(--blue);
+  .ptopcard{background:#fff;border-radius:8px;overflow:hidden;}
+  .pcover{height:150px;background:linear-gradient(100deg,#8aa0a8 0 42%,#c3d0d5 42% 62%,#a9b9bf 62%);position:relative;}
+  .pcover .xbtn{position:absolute;top:12px;right:12px;background:#fff;color:var(--t75);box-shadow:0 0 0 1px var(--edge);}
+  .ptop{padding:0 24px 24px;position:relative;z-index:2;}
+  .ptop .av{width:152px;height:152px;margin-top:-112px;border:4px solid #fff;font-size:50px;position:relative;z-index:2;}
+  .pgrid{display:flex;gap:24px;align-items:flex-start;margin-top:12px;}
+  .pgrid .main{flex:1;min-width:0;}
+  .porg{display:flex;align-items:center;gap:8px;width:200px;flex-shrink:0;font-size:14px;line-height:17.5px;font-weight:600;margin-top:6px;}
+  .pn{font-size:24px;line-height:30px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .pn .vbadge{margin-top:0;}
+  .ph{font-size:16px;line-height:20px;margin-top:4px;}
+  .pl{font-size:14px;line-height:17.5px;color:var(--t2);margin-top:8px;}
+  .pl a,.pl button{color:var(--blue);font-weight:600;}
+  .pbtns{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;}
+  .psec{background:#fff;border-radius:8px;margin-top:8px;padding:24px 24px 12px;}
+  .psec h3{margin:0 0 12px;font-size:20px;line-height:25px;font-weight:600;}
+  .psec p{margin:0 0 12px;font-size:14px;line-height:20px;}
+  .xitem{display:flex;gap:8px;padding:0 0 12px;}
+  .xitem + .xitem{padding-top:12px;border-top:1px solid var(--line);}
+  .xitem > div:last-child{flex:1;min-width:0;}
+  .xlogo{width:48px;height:48px;border-radius:4px;flex-shrink:0;display:flex;align-items:center;
+         justify-content:center;color:#fff;font-size:18px;font-weight:600;margin-right:4px;}
+  .xlogo.g{background:#fff;box-shadow:0 0 0 1px var(--edge);}
+  .xitem .t{font-size:14px;line-height:20px;font-weight:600;}
+  .xitem .c{font-size:14px;line-height:20px;}
+  .xitem .y{font-size:14px;line-height:20px;color:var(--t2);}
+  .skills{margin:0;padding:0;list-style:none;}
+  .skills li{font-size:14px;line-height:20px;font-weight:600;padding:12px 0;}
+  .skills li + li{border-top:1px solid var(--line);}
+  .lrow{display:flex;gap:12px;padding:12px 0;width:100%;text-align:left;align-items:flex-start;}
+  .lrow + .lrow{border-top:1px solid var(--line);}
+  .lrow:hover .n{color:var(--blue);text-decoration:underline;}
+  .lrow .n{font-size:16px;line-height:20px;font-weight:600;}
+  .lrow .s{font-size:14px;line-height:20px;color:var(--t2);}
+  .lrow .s b{font-weight:400;color:var(--t1);}
+  .gbox{width:48px;height:48px;border-radius:8px;background:var(--otw);color:var(--blue);
         display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
   /* poll */
-  .poll{padding:10px 16px 0;}
-  .popt{display:block;width:100%;text-align:left;border:1px solid var(--blue);color:var(--blue);
-        border-radius:100px;padding:8px 16px;font-size:14px;font-weight:600;background:#fff;margin-bottom:8px;}
-  .popt:hover{background:var(--blue-tint);box-shadow:inset 0 0 0 1px var(--blue);}
-  .pres{position:relative;margin-bottom:8px;border-radius:4px;overflow:hidden;background:#f2f2f2;}
-  .pres .fill{position:absolute;top:0;left:0;bottom:0;background:#cfe1f2;}
-  .pres .lab{position:relative;display:flex;justify-content:space-between;gap:10px;padding:9px 12px;font-size:14px;}
+  .poll{padding:4px 12px 0;}
+  .popt{display:block;width:100%;text-align:center;box-shadow:inset 0 0 0 1px var(--blue);color:var(--blue);
+        border-radius:999px;padding:8px 16px;font-size:16px;line-height:20px;font-weight:600;background:#fff;margin-bottom:8px;}
+  .popt:hover{background:var(--blue-tint);box-shadow:inset 0 0 0 2px var(--blue);}
+  .pres{position:relative;margin-bottom:8px;border-radius:4px;overflow:hidden;background:#fff;}
+  .pres .fill{position:absolute;top:0;left:0;bottom:0;background:#e0dfdc;border-radius:4px;}
+  .pres.mine .fill{background:#d0e8ff;}
+  .pres .lab{position:relative;display:flex;justify-content:space-between;gap:10px;padding:8px 12px;font-size:14px;line-height:20px;}
   .pres.mine .lab{font-weight:600;}
-  .pvotes{font-size:12px;color:var(--t2);padding:0 16px 2px;}
+  .pvotes{font-size:14px;line-height:17.5px;color:var(--t2);padding:0 12px 4px;}
   #pollBox{margin-top:4px;}
-  #pollBox input{width:100%;height:38px;border:1px solid var(--line-mid);border-radius:4px;
+  #pollBox input{width:100%;height:40px;border:1px solid var(--t2);border-radius:4px;
                  padding:0 12px;font-size:14px;margin-bottom:8px;}
   #pollBox[hidden]{display:none;}
-  .shrow{display:flex;gap:12px;padding:8px 4px;width:100%;text-align:left;align-items:center;border-radius:6px;}
-  .shrow:hover{background:rgba(0,0,0,.04);}
-  .shrow input{width:18px;height:18px;flex-shrink:0;accent-color:var(--blue);cursor:pointer;}
-  .shrow .n{font-size:14px;font-weight:600;}
-  .shrow .s{font-size:12px;color:var(--t2);}
+  .shrow{display:flex;gap:12px;padding:8px 0;width:100%;text-align:left;align-items:center;cursor:pointer;}
+  .shrow + .shrow{border-top:1px solid var(--line);}
+  .shrow input{width:20px;height:20px;flex-shrink:0;accent-color:var(--green);cursor:pointer;margin:0 4px 0 0;}
+  .shrow .n{font-size:14px;line-height:17.5px;font-weight:600;}
+  .shrow .s{font-size:12px;line-height:15px;color:var(--t2);}
 
-  .dock{position:fixed;right:24px;bottom:0;width:290px;background:#fff;border:1px solid var(--line);
-        border-bottom:none;border-radius:8px 8px 0 0;z-index:60;box-shadow:0 0 8px rgba(0,0,0,.1);}
-  .dock-h{display:flex;align-items:center;gap:8px;padding:8px 12px;}
-  .dock-h .t{font-size:16px;font-weight:600;flex:1;}
-  .dock-h button{color:var(--t2);width:28px;height:28px;border-radius:50%;
+  .dock{position:fixed;right:24px;bottom:0;width:288px;background:#fff;
+        border-radius:8px 8px 0 0;z-index:60;box-shadow:0 0 0 1px var(--edge),0 4px 12px rgba(0,0,0,.15);}
+  .dock-h{display:flex;align-items:center;gap:8px;padding:8px 8px 8px 12px;height:48px;}
+  .dock-h .t{font-size:14px;line-height:17.5px;font-weight:600;flex:1;}
+  .dock-h .avw{position:relative;}
+  .dock-h .avw::after{content:"";position:absolute;right:-1px;bottom:-1px;width:10px;height:10px;border-radius:50%;
+                      background:#01754f;box-shadow:0 0 0 2px #fff;}
+  .dock-h button{color:var(--t2);width:32px;height:32px;border-radius:50%;
                  display:flex;align-items:center;justify-content:center;}
-  .dock-h button:hover{background:rgba(0,0,0,.08);}
-  .dock-b{border-top:1px solid var(--line);padding:14px 14px 18px;font-size:14px;color:var(--t2);}
+  .dock-h button:hover{background:var(--hover);color:var(--t1);}
+  .dock-b{border-top:1px solid var(--line);padding:16px;font-size:14px;color:var(--t2);}
   .dock-b[hidden]{display:none;}
 
-  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(10px);
-         background:#000;color:#fff;padding:12px 20px;border-radius:4px;font-size:14px;z-index:200;
-         opacity:0;pointer-events:none;transition:opacity .16s,transform .16s;max-width:calc(100% - 32px);}
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  .toast{position:fixed;left:24px;bottom:24px;display:flex;align-items:flex-start;gap:12px;
+         background:#fff;color:var(--t1);padding:16px;border-radius:8px;font-size:14px;line-height:20px;z-index:200;
+         box-shadow:0 0 0 1px var(--edge),0 4px 12px rgba(0,0,0,.15);
+         width:400px;max-width:calc(100% - 48px);
+         opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .16s,transform .16s;}
+  .toast.show{opacity:1;transform:translateY(0);}
+  .toast .ok{color:var(--green);flex-shrink:0;}
 
-  @media (max-width:1128px){ .page{padding-left:16px;padding-right:16px;} .gnav-in{padding:0 16px;} }
+  @media (max-width:1176px){ .page{padding-left:24px;padding-right:24px;} .gnav-in{padding:0 24px;}
+    .grid{grid-template-columns:216px minmax(0,1fr) 300px;} }
   @media (max-width:1000px){
     .grid{grid-template-columns:minmax(0,1fr) 300px;}
     .rail-left{display:none;}
     .gsearch{width:200px;}
+    .gitem{min-width:64px;}
   }
   @media (max-width:860px){
+    .page{padding-left:16px;padding-right:16px;} .gnav-in{padding:0 16px;}
     .grid{grid-template-columns:minmax(0,1fr);}
     .rail-right{display:none;}
     .gsearch{display:none;}
-    .gitem{min-width:56px;}
+    .gitem{min-width:52px;}
     .gitem .lbl{display:none;}
-    .gitem.inside .lbl{display:block;}
+    .gitem.inside .lbl{display:flex;}
     .gdiv,.gitem.biz,.gitem.learn{display:none;}
     .dock{display:none;}
+    .pgrid{flex-direction:column;gap:12px;}
+    .porg{width:auto;}
   }
   @media (max-width:560px){
-    .act .lbl{display:none;}
-    .chead h1{font-size:20px;}
-    .scrim{padding:16px 10px;}
-    .ptop .av{width:96px;height:96px;margin-top:-48px;font-size:32px;}
+    .gnav-in{gap:4px;}
+    .gnav-right{flex:1;justify-content:flex-end;}
+    .gitem{min-width:40px;padding:2px 2px 0;}
+    .chead h1{font-size:20px;line-height:25px;}
+    .ctype{font-size:14px;gap:6px;padding:10px 4px;}
+    .scrim{padding:16px 8px;}
+    .ptop{padding:0 16px 16px;}
+    .ptop .av{width:104px;height:104px;margin-top:-72px;font-size:34px;}
+    .psec{padding:16px 16px 8px;}
+    .toast{left:16px;bottom:16px;max-width:calc(100% - 32px);}
   }
 </style>
 </head>
@@ -328,50 +397,50 @@
 
 <header class="gnav">
   <div class="gnav-in">
-    <div class="logo">in</div>
+    <div class="logo" aria-label="LinkedIn">in</div>
     <div class="gsearch">
-      <span class="mag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span>
+      <span class="mag"><svg width="16" height="16" viewBox="0 0 24 24" class="ico" style="stroke-width:2.4"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.6-4.6"/></svg></span>
       <input type="search" id="gs" placeholder="I'm looking for…" aria-label="Search" />
     </div>
 
     <nav class="gnav-right" aria-label="Primary">
       <button class="gitem" data-nav="Home">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" class="ico"><path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9v10.5a1 1 0 001 1h4v-6h3v6h4a1 1 0 001-1V9"/></svg>
         <span class="lbl">Home</span>
       </button>
       <button class="gitem" data-nav="My Network">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 12A3.5 3.5 0 104 8.5 3.5 3.5 0 007.5 12z"/></svg>
-        <span class="lbl">My Network</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" class="ico"><circle cx="8.5" cy="8" r="3.2"/><path d="M2.8 20v-1.8A4.2 4.2 0 017 14h3a4.2 4.2 0 014.2 4.2V20z"/><circle cx="16.5" cy="9" r="2.6"/><path d="M15.6 14h1.6a3.8 3.8 0 013.8 3.8V20h-4.4"/></svg>
+        <span class="lbl">Network</span>
       </button>
       <button class="gitem" data-nav="Jobs">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" class="ico"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5a1.5 1.5 0 011.5-1.5h4a1.5 1.5 0 011.5 1.5V7"/><path d="M3 12.5h18"/></svg>
         <span class="lbl">Jobs</span>
       </button>
       <button class="gitem" data-nav="Messaging">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4H8a7 7 0 000 14v4l7.75-4.05A6.96 6.96 0 0023 11a7 7 0 00-7-7zM8.5 12.5a1.5 1.5 0 111.5-1.5 1.5 1.5 0 01-1.5 1.5zm3.5 0a1.5 1.5 0 111.5-1.5 1.5 1.5 0 01-1.5 1.5zm3.5 0A1.5 1.5 0 1117 11a1.5 1.5 0 01-1.5 1.5z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" class="ico"><path d="M12 3.8c-4.8 0-8.5 3.3-8.5 7.6 0 2.2 1 4.2 2.7 5.6L5.5 20.5l4-1.9c.8.2 1.6.3 2.5.3 4.8 0 8.5-3.3 8.5-7.5S16.8 3.8 12 3.8z"/><circle cx="8.3" cy="11.4" r=".6" fill="currentColor"/><circle cx="12" cy="11.4" r=".6" fill="currentColor"/><circle cx="15.7" cy="11.4" r=".6" fill="currentColor"/></svg>
         <span class="lbl">Messaging</span>
       </button>
       <button class="gitem" data-nav="Notifications">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" class="ico"><path d="M6 16.5V11a6 6 0 0112 0v5.5l1.8 2H4.2z"/><path d="M10 20.5a2 2 0 004 0"/></svg>
         <span class="gdot">5</span>
         <span class="lbl">Notifications</span>
       </button>
       <button class="gitem inside sel" data-nav="Inside" aria-current="page">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21V6l7-4 7 4v3h4v12zM7 9h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm8 0h2v2h-2zm0 4h2v2h-2zm-8 0h2v4h-2z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21V7.2L11 3v4.4l10 3.4V21h-7v-4h-4v4zm3-11v2h2v-2zm0 4v2h2v-2zm4-4v2h2v-2zm0 4v2h2v-2zm5 0v2h2v-2zm0 4v2h2v-2z"/></svg>
         <span class="lbl">Inside</span>
       </button>
       <button class="gitem" data-nav="Me">
         <span class="gav" id="gav"></span>
-        <span class="lbl">Me <svg style="display:inline" width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></span>
+        <span class="lbl">Me <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.8 3.6 6.4l1-1L8 8.8l3.4-3.4 1 1z"/></svg></span>
       </button>
       <span class="gdiv"></span>
       <button class="gitem biz" data-nav="For Business">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4zM3 10h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4zM3 17h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4z"/></svg>
-        <span class="lbl">For Business <svg style="display:inline" width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="1.8"/><circle cx="12" cy="5" r="1.8"/><circle cx="19" cy="5" r="1.8"/><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/><circle cx="5" cy="19" r="1.8"/><circle cx="12" cy="19" r="1.8"/><circle cx="19" cy="19" r="1.8"/></svg>
+        <span class="lbl">For Business <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.8 3.6 6.4l1-1L8 8.8l3.4-3.4 1 1z"/></svg></span>
       </button>
-      <button class="gitem learn" data-nav="Learning">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2zM9 16V8l7 4z"/></svg>
-        <span class="lbl">Learning</span>
+      <button class="gitem learn" data-nav="Advertise">
+        <svg width="24" height="24" viewBox="0 0 24 24" class="ico"><path d="M19.5 12a7.5 7.5 0 11-7.5-7.5"/><path d="M15.5 12a3.5 3.5 0 11-3.5-3.5"/><path d="M12 12l7-7m0 0h-3.5M19 5v3.5"/></svg>
+        <span class="lbl">Advertise</span>
       </button>
     </nav>
   </div>
@@ -385,15 +454,15 @@
         <div class="cover"></div>
         <div class="body">
           <div class="av" id="railAv"></div>
-          <div class="nm">Pratham Jain</div>
-          <div class="hl">Product Manager, Product Strategy</div>
-          <div class="lo">Los Angeles, California</div>
+          <div class="nm" id="railName"></div>
+          <div class="hl" id="railTitle"></div>
+          <div class="lo" id="railOffice"></div>
           <span class="vbadge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5zm-1.2 14.2L7 12.4l1.4-1.4 2.4 2.4 4.8-4.8L17 10z"/></svg>
             Verified employee</span>
           <div class="orgrow">
-            <svg viewBox="0 0 40 40" width="22" height="22"><path d="M20 3l4.6 11.4L36 19l-11.4 4.6L20 35l-4.6-11.4L4 19l11.4-4.6z" fill="#0a66c2"/></svg>
-            <span class="t">Northstar Technologies</span>
+            <div class="gtile" style="width:24px;height:24px;font-size:16px;border-radius:4px;box-shadow:0 0 0 1px rgba(140,140,140,.3)">G</div>
+            <span class="t">Google</span>
           </div>
         </div>
       </section>
@@ -401,15 +470,15 @@
       <section class="card">
         <div class="railnav">
           <button class="rlink" id="lkSaved">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4v16l-7-5-7 5V4z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3v19l-6-4.5L6 22V3z"/></svg>
             Saved internal posts <span class="ct" id="savedCt">0</span>
           </button>
           <button class="rlink" id="lkGroups">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a3 3 0 110 6 3 3 0 010-6zM5 8.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm14 0a2.5 2.5 0 110-5 2.5 2.5 0 010 5zM12 11c3.3 0 6 1.9 6 4.2V19H6v-3.8C6 12.9 8.7 11 12 11z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4a3 3 0 110 6 3 3 0 010-6zM5.5 7a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm13 0a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM12 11.5c3.3 0 6 1.9 6 4.2V20H6v-4.3c0-2.3 2.7-4.2 6-4.2zM4.6 13.2A5.6 5.6 0 004 15.7V20H1v-3.6c0-1.6 1.6-3 3.6-3.2zm14.8 0c2 .2 3.6 1.6 3.6 3.2V20h-3v-4.3c0-.9-.2-1.7-.6-2.5z"/></svg>
             My employee groups <span class="ct">4</span>
           </button>
           <button class="rlink" id="lkDir">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h13a1 1 0 011 1v18a1 1 0 01-1 1H6a2 2 0 01-2-2V4a2 2 0 012-2zm6.5 6a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM8 17.5c0-1.7 2-2.8 4.5-2.8s4.5 1.1 4.5 2.8z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h13a1 1 0 011 1v18a1 1 0 01-1 1H6a2 2 0 01-2-2V4a2 2 0 012-2zm6.5 5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM8 17.5c0-1.7 2-2.8 4.5-2.8s4.5 1.1 4.5 2.8z"/></svg>
             Company directory
           </button>
         </div>
@@ -421,14 +490,14 @@
       <section class="card chead">
         <div class="cover"></div>
         <div class="body">
-          <div class="clogo"><svg viewBox="0 0 40 40" width="44" height="44"><path d="M20 3l4.6 11.4L36 19l-11.4 4.6L20 35l-4.6-11.4L4 19l11.4-4.6z" fill="#0a66c2"/></svg></div>
+          <div class="clogo"><div class="gtile" style="font-size:40px">G</div></div>
           <h1>LinkedIn Inside</h1>
-          <div class="sub">Northstar Technologies</div>
-          <div class="meta">8,412 verified employees &middot; 11 offices in 7 countries</div>
+          <div class="sub">Google</div>
+          <div class="meta">Verified Google employees only &middot; Offices worldwide</div>
           <div class="privbox">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;margin-top:2px"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;margin-top:1px"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
             <div>
-              <div class="txt"><b>Private space.</b> Posts are visible only to verified Northstar employees.</div>
+              <div class="txt"><b>Private space.</b> Posts are visible only to verified Google employees.</div>
               <div class="sm">Nothing here appears on your public LinkedIn profile or feed. Access depends on verified current employment and is removed if you leave the company.</div>
             </div>
           </div>
@@ -438,15 +507,15 @@
       <section class="card composer">
         <div class="row">
           <div class="av" id="compAv"></div>
-          <button class="cbtn" id="openComp">Share an update with Northstar employees…</button>
+          <button class="cbtn" id="openComp">Share with Google employees</button>
         </div>
         <div class="ctypes">
           <button class="ctype" data-quick="Project update">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0a66c2"><path d="M3 3h18v4H3zm0 6h11v4H3zm0 6h18v4H3z"/></svg> Project update</button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#378fe9"><path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm2 4v2h12V7zm0 4v2h12v-2zm0 4v2h8v-2z"/></svg> Project update</button>
           <button class="ctype" data-quick="Question">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#c37d16"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2zm1.6-6.3-.9.9a2.2 2.2 0 00-.7 1.9h-2v-.5a3 3 0 01.9-2.1l1.2-1.2a1.7 1.7 0 10-2.9-1.2H8.2a3.8 3.8 0 117.4 2.2z"/></svg> Question</button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#e06847"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15.5h-2v-2h2zm1.7-6.6-.9.9c-.6.6-.8 1.1-.8 2.2h-2v-.5c0-.9.4-1.8 1-2.4l1.2-1.3a1.7 1.7 0 10-2.9-1.2H8.3a3.7 3.7 0 117.4 0c0 .9-.4 1.7-1 2.3z"/></svg> Question</button>
           <button class="ctype" data-quick="Event">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#01754f"><path d="M7 2v2h10V2h2v2h3v18H2V4h3V2zm13 8H4v10h16z"/></svg> Event</button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#5f9b41"><path d="M7 2v2h10V2h2v2h2a1 1 0 011 1v15a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1h2V2zm13 7H4v10h16zm-9 3h5v5h-5z"/></svg> Event</button>
         </div>
       </section>
 
@@ -461,8 +530,8 @@
           <button class="pill" data-f="learning">Learning</button>
         </div>
         <div class="fsearch">
-          <span class="mag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span>
-          <input type="search" id="fs" placeholder="Search posts, employees, departments and topics" aria-label="Search inside Northstar" />
+          <span class="mag"><svg width="16" height="16" viewBox="0 0 24 24" class="ico" style="stroke-width:2.4"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.6-4.6"/></svg></span>
+          <input type="search" id="fs" placeholder="Search posts, employees, departments and topics" aria-label="Search inside Google" />
           <button class="fclear" id="fclear" hidden aria-label="Clear search">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
           </button>
@@ -470,9 +539,8 @@
       </section>
 
       <div class="sortrow">
-        <div class="hr"></div>
-        <button class="sortbtn" id="sortBtn">Sort by: <b id="sortLbl">Top</b>
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11L3 6h10z"/></svg></button>
+        <button class="sortbtn" id="sortBtn">Sort by:&nbsp;<b id="sortLbl">Top</b>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.8 3.6 6.4l1-1L8 8.8l3.4-3.4 1 1z"/></svg></button>
       </div>
 
       <div id="feed" aria-live="polite"></div>
@@ -480,10 +548,10 @@
 
     <aside class="rail-right">
       <section class="card">
-        <div class="rhead"><h2>People to know</h2><div class="sm">Colleagues posting in your company</div></div>
+        <div class="rhead"><h2>People to know</h2><div class="sm">Colleagues posting inside Google</div></div>
         <div id="ptk"></div>
         <div class="rfoot"><button id="dirBtn">View company directory
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 5l7 7-7 7v-4H4v-6h9z"/></svg></button></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" class="ico" style="stroke-width:2"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></button></div>
       </section>
 
       <section class="card">
@@ -495,6 +563,20 @@
         <div class="rhead"><h2>Upcoming company events</h2></div>
         <div id="events"></div>
       </section>
+
+      <footer class="sitefoot">
+        <div class="flinks">
+          <button data-nav="About">About</button>
+          <button data-nav="Accessibility">Accessibility</button>
+          <button data-nav="Help Center">Help Center</button>
+          <button data-nav="Privacy &amp; Terms">Privacy &amp; Terms</button>
+          <button data-nav="Ad Choices">Ad Choices</button>
+          <button data-nav="Advertising">Advertising</button>
+          <button data-nav="Business Services">Business Services</button>
+          <button data-nav="More">More</button>
+        </div>
+        <div class="fcopy"><span class="mini" aria-hidden="true">in</span> Concept prototype &middot; USC MOR 530</div>
+      </footer>
     </aside>
   </div>
 </div>
@@ -502,18 +584,18 @@
 <div class="scrim" id="compModal" hidden>
   <div class="mdl" role="dialog" aria-modal="true" aria-labelledby="compTtl">
     <div class="mhead">
-      <h2 id="compTtl">Share with Northstar employees</h2>
+      <h2 id="compTtl">Share with Google employees</h2>
       <button class="xbtn" data-close="compModal" aria-label="Close">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 12 19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6z"/></svg>
       </button>
     </div>
     <div class="mbody">
-      <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px">
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px">
         <div class="av" id="modAv"></div>
         <div>
-          <div style="font-size:16px;font-weight:600">Pratham Jain</div>
+          <div style="font-size:16px;line-height:20px;font-weight:600" id="modName"></div>
           <div style="margin-top:4px"><span class="aud-chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
             <span id="audChip">Entire Organization</span></span></div>
         </div>
       </div>
@@ -534,7 +616,7 @@
       <textarea id="ptext" placeholder="What are you working on, stuck on, or organizing?" aria-label="Your post"></textarea>
 
       <div id="pollBox" hidden>
-        <label style="display:block;font-size:12px;font-weight:600;color:var(--t2);margin-bottom:8px">Poll options</label>
+        <label style="display:block;font-size:14px;font-weight:600;color:var(--t75);margin-bottom:8px">Poll options</label>
         <input type="text" class="popt-in" placeholder="Option 1" aria-label="Poll option 1" />
         <input type="text" class="popt-in" placeholder="Option 2" aria-label="Poll option 2" />
         <input type="text" class="popt-in" placeholder="Option 3 (optional)" aria-label="Poll option 3" />
@@ -552,23 +634,26 @@
       </div>
 
       <div class="mnote">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;margin-top:2px"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
-        <span>This post will remain inside Northstar Technologies and will not appear on your public LinkedIn profile.</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;margin-top:0"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
+        <span>This post will remain inside Google and will not appear on your public LinkedIn profile.</span>
       </div>
     </div>
     <div class="mfoot">
-      <span style="font-size:13px;color:var(--t3)" id="cct">0 characters</span>
-      <button class="b-pri" id="pub" disabled>Publish</button>
+      <span style="font-size:12px;color:var(--t2)" id="cct">0 characters</span>
+      <button class="b-pri" id="pub" disabled>Post</button>
     </div>
   </div>
 </div>
 
 <div class="scrim" id="profModal" hidden>
   <div class="mdl big" role="dialog" aria-modal="true" aria-labelledby="pfName">
-    <div class="pcover">
-      <button class="xbtn" data-close="profModal" aria-label="Close profile">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
-      </button>
+    <div class="ptopcard">
+      <div class="pcover">
+        <button class="xbtn" data-close="profModal" aria-label="Close profile">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 12 19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6z"/></svg>
+        </button>
+      </div>
+      <div id="profTop"></div>
     </div>
     <div id="profBody"></div>
   </div>
@@ -579,30 +664,30 @@
     <div class="mhead">
       <h2 id="listTtl">Company directory</h2>
       <button class="xbtn" data-close="listModal" aria-label="Close">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 12 19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6z"/></svg>
       </button>
     </div>
-    <div class="mbody" id="listBody"></div>
+    <div class="mbody" id="listBody" style="padding-top:4px;padding-bottom:4px"></div>
   </div>
 </div>
 
 <div class="scrim" id="shareModal" hidden>
   <div class="mdl" role="dialog" aria-modal="true" aria-labelledby="shTtl">
     <div class="mhead">
-      <h2 id="shTtl">Send inside Northstar</h2>
+      <h2 id="shTtl">Send inside Google</h2>
       <button class="xbtn" data-close="shareModal" aria-label="Close">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 12 19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6z"/></svg>
       </button>
     </div>
     <div class="mbody">
-      <div class="mnote" style="margin-bottom:14px">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;margin-top:2px"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
-        <span id="shNote">Internal posts can only be sent to verified Northstar employees.</span>
+      <div class="mnote" style="margin-bottom:12px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
+        <span id="shNote">Internal posts can only be sent to verified Google employees.</span>
       </div>
-      <div id="shList" style="max-height:280px;overflow-y:auto"></div>
+      <div id="shList" style="max-height:300px;overflow-y:auto"></div>
     </div>
     <div class="mfoot">
-      <span style="font-size:13px;color:var(--t3)" id="shCount">No one selected</span>
+      <span style="font-size:14px;color:var(--t2)" id="shCount">No one selected</span>
       <button class="b-pri" id="shSend" disabled>Send</button>
     </div>
   </div>
@@ -610,35 +695,38 @@
 
 <div class="dock">
   <div class="dock-h">
-    <div class="av s32" id="dockAv"></div>
+    <span class="avw"><span class="av s32" id="dockAv"></span></span>
     <span class="t">Messaging</span>
-    <button aria-label="More options"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>
-    <button id="dockToggle" aria-label="Expand messaging"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8l6 6H6z"/></svg></button>
+    <button aria-label="More options"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></button>
+    <button aria-label="Compose message"><svg width="20" height="20" viewBox="0 0 24 24" class="ico"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 00-3-3L5 17z"/><path d="M14.5 7.5l3 3"/></svg></button>
+    <button id="dockToggle" aria-label="Expand messaging"><svg width="20" height="20" viewBox="0 0 24 24" class="ico" style="stroke-width:2"><path d="M6 15l6-6 6 6"/></svg></button>
   </div>
   <div class="dock-b" id="dockBody" hidden>No new messages.</div>
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg class="ok" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1.3 14.6L6.4 12.3l1.4-1.4 2.9 2.9 5.5-5.5 1.4 1.4z"/></svg>
+  <span class="tx"></span>
+</div>
 
 <script>
 (function(){
   "use strict";
 
-  var ME="pratham";
+  var ME="khush";
 
   var P={
-    pratham:{id:"pratham",name:"Pratham Jain",ini:"PJ",c:"#4b6d8f",
+    khush:{id:"khush",name:"Khush Nandecha",ini:"KN",c:"#4b6d8f",
       title:"Product Manager, Product Strategy",dept:"Product Strategy",office:"Los Angeles, California",
-      about:"I work on how our product bets get chosen and sequenced. Spent three years building conversational AI systems before moving into product, which is mostly why I care about how decisions get written down.",
-      exp:[{t:"Product Manager, Product Strategy",c:"Northstar Technologies",y:"2024 - Present \u00b7 Los Angeles"},
-           {t:"Senior Conversational AI Engineer",c:"Vantor Labs",y:"2021 - 2024 \u00b7 Remote"}],
-      edu:[{s:"University of Southern California",d:"M.S. Engineering Management",y:"2025 - 2027"}],
-      skills:["Product Strategy","Roadmapping","Conversational AI","Stakeholder Management","Discovery Research"]},
+      about:"Product manager on the strategy team in Los Angeles. Most of my week goes into turning loose ideas into decisions a team can actually build against.",
+      exp:[{t:"Product Manager, Product Strategy",c:"Google",y:"2024 - Present \u00b7 Los Angeles"}],
+      edu:[],
+      skills:["Product Strategy","Roadmapping","Stakeholder Management","Discovery Research"]},
 
     ana:{id:"ana",name:"Ana Ribeiro",ini:"AR",c:"#7a5b82",
       title:"Senior Product Manager, Payments",dept:"Product Strategy",office:"S\u00e3o Paulo, Brazil",
       about:"I work on payments infrastructure for markets where cards are not the default. Nine years in fintech, most of it spent learning that a checkout flow which works in one country will quietly fail in the next one.",
-      exp:[{t:"Senior Product Manager, Payments",c:"Northstar Technologies",y:"2022 - Present \u00b7 S\u00e3o Paulo"},
+      exp:[{t:"Senior Product Manager, Payments",c:"Google",y:"2022 - Present \u00b7 S\u00e3o Paulo"},
            {t:"Product Manager, Merchant Tools",c:"Corva Pagamentos",y:"2019 - 2022 \u00b7 S\u00e3o Paulo"},
            {t:"Business Analyst",c:"Meridian Bank",y:"2016 - 2019 \u00b7 Rio de Janeiro"}],
       edu:[{s:"Funda\u00e7\u00e3o Getulio Vargas",d:"MBA",y:"2014 - 2016"},
@@ -648,7 +736,7 @@
     nadia:{id:"nadia",name:"Nadia Haddad",ini:"NH",c:"#5c6b96",
       title:"Principal Product Manager, Growth",dept:"Product Strategy",office:"Berlin, Germany",
       about:"I run the growth side of the product org. Most of my job is deciding which experiments are worth the engineering time and killing the ones that are not.",
-      exp:[{t:"Principal Product Manager, Growth",c:"Northstar Technologies",y:"2021 - Present \u00b7 Berlin"},
+      exp:[{t:"Principal Product Manager, Growth",c:"Google",y:"2021 - Present \u00b7 Berlin"},
            {t:"Group Product Manager",c:"Halden Software",y:"2018 - 2021 \u00b7 Berlin"},
            {t:"Product Manager",c:"Verano Mobile",y:"2015 - 2018 \u00b7 Amsterdam"}],
       edu:[{s:"Technical University of Munich",d:"M.Sc. Information Systems",y:"2013 - 2015"}],
@@ -657,7 +745,7 @@
     tom:{id:"tom",name:"Tom Beckley",ini:"TB",c:"#3f6f78",
       title:"Product Operations Manager",dept:"Product Strategy",office:"New York, New York",
       about:"I keep the product org's rituals honest. Roadmap reviews, planning cycles, and the documents nobody wants to own.",
-      exp:[{t:"Product Operations Manager",c:"Northstar Technologies",y:"2023 - Present \u00b7 New York"},
+      exp:[{t:"Product Operations Manager",c:"Google",y:"2023 - Present \u00b7 New York"},
            {t:"Chief of Staff, Product",c:"Kestrel Analytics",y:"2020 - 2023 \u00b7 New York"}],
       edu:[{s:"Boston University",d:"B.A. Political Science",y:"2013 - 2017"}],
       skills:["Product Operations","Planning","Process Design","Internal Communications"]},
@@ -665,8 +753,8 @@
     grace:{id:"grace",name:"Grace Lim",ini:"GL",c:"#5a7a4f",
       title:"Product Manager, Onboarding",dept:"Product Strategy",office:"Singapore",
       about:"I own the first seven days of the customer experience. If someone churns in week one, that is my problem to explain.",
-      exp:[{t:"Product Manager, Onboarding",c:"Northstar Technologies",y:"2023 - Present \u00b7 Singapore"},
-           {t:"Associate Product Manager",c:"Northstar Technologies",y:"2021 - 2023 \u00b7 Singapore"},
+      exp:[{t:"Product Manager, Onboarding",c:"Google",y:"2023 - Present \u00b7 Singapore"},
+           {t:"Associate Product Manager",c:"Google",y:"2021 - 2023 \u00b7 Singapore"},
            {t:"Business Analyst",c:"Pacific Rim Logistics",y:"2018 - 2021 \u00b7 Singapore"}],
       edu:[{s:"National University of Singapore",d:"B.Sc. Business Analytics",y:"2014 - 2018"}],
       skills:["Onboarding","Activation Metrics","APAC Markets","User Research","SQL"]},
@@ -674,7 +762,7 @@
     marcus:{id:"marcus",name:"Marcus Whitfield",ini:"MW",c:"#3f6b5c",
       title:"Data Analyst, Revenue Analytics",dept:"Data & Analytics",office:"Chicago, Illinois",
       about:"I build the reporting that leadership makes decisions from, which mostly means arguing about definitions. Previously in healthcare analytics.",
-      exp:[{t:"Data Analyst, Revenue Analytics",c:"Northstar Technologies",y:"2023 - Present \u00b7 Chicago"},
+      exp:[{t:"Data Analyst, Revenue Analytics",c:"Google",y:"2023 - Present \u00b7 Chicago"},
            {t:"Analytics Associate",c:"Halverson Health",y:"2020 - 2023 \u00b7 Chicago"}],
       edu:[{s:"University of Illinois Urbana-Champaign",d:"B.S. Statistics",y:"2016 - 2020"}],
       skills:["SQL","dbt","Data Governance","Looker","Financial Reporting"]},
@@ -682,7 +770,7 @@
     yuki:{id:"yuki",name:"Yuki Tanaka",ini:"YT",c:"#8a6446",
       title:"People Operations Partner, APAC",dept:"People Operations",office:"Tokyo, Japan",
       about:"I look after employee experience across our APAC offices. Most of the job is making sure people who sit eight time zones from headquarters do not feel like an afterthought.",
-      exp:[{t:"People Operations Partner, APAC",c:"Northstar Technologies",y:"2021 - Present \u00b7 Tokyo"},
+      exp:[{t:"People Operations Partner, APAC",c:"Google",y:"2021 - Present \u00b7 Tokyo"},
            {t:"HR Generalist",c:"Kaiseki Systems",y:"2018 - 2021 \u00b7 Osaka"}],
       edu:[{s:"Waseda University",d:"B.A. Sociology",y:"2014 - 2018"}],
       skills:["Employee Experience","Internal Communications","Onboarding","Event Programs"]},
@@ -690,7 +778,7 @@
     hannah:{id:"hannah",name:"Hannah Okoye",ini:"HO",c:"#41598f",
       title:"Senior UX Researcher",dept:"Design Research",office:"London, United Kingdom",
       about:"Mixed-methods researcher. I spend most of my time helping teams ask better questions, and the rest of it stopping them from asking leading ones.",
-      exp:[{t:"Senior UX Researcher",c:"Northstar Technologies",y:"2022 - Present \u00b7 London"},
+      exp:[{t:"Senior UX Researcher",c:"Google",y:"2022 - Present \u00b7 London"},
            {t:"UX Researcher",c:"Fathom Digital",y:"2019 - 2022 \u00b7 London"},
            {t:"Service Designer",c:"Blackfriars Studio",y:"2017 - 2019 \u00b7 Manchester"}],
       edu:[{s:"University College London",d:"MSc Human-Computer Interaction",y:"2016 - 2017"},
@@ -700,15 +788,15 @@
     diego:{id:"diego",name:"Diego Salazar",ini:"DS",c:"#7a5340",
       title:"Staff Software Engineer, Platform",dept:"Engineering",office:"Los Angeles, California",
       about:"Platform engineer. I care about the boring infrastructure that decides how fast everyone else can move.",
-      exp:[{t:"Staff Software Engineer, Platform",c:"Northstar Technologies",y:"2021 - Present \u00b7 Los Angeles"},
+      exp:[{t:"Staff Software Engineer, Platform",c:"Google",y:"2021 - Present \u00b7 Los Angeles"},
            {t:"Senior Software Engineer",c:"Arclight Systems",y:"2017 - 2021 \u00b7 San Diego"}],
       edu:[{s:"University of California, San Diego",d:"B.S. Computer Science",y:"2011 - 2015"}],
       skills:["Distributed Systems","Observability","Kubernetes","Incident Response","Go"]},
 
     priya:{id:"priya",name:"Priya Nair",ini:"PN",c:"#8a4a63",
       title:"Engineering Manager, Identity",dept:"Engineering",office:"Bengaluru, India",
-      about:"I manage the identity team and help run Northstar Women in Engineering. Twelve years in, still mostly interested in how teams decide things.",
-      exp:[{t:"Engineering Manager, Identity",c:"Northstar Technologies",y:"2020 - Present \u00b7 Bengaluru"},
+      about:"I manage the identity team and help run our Women in Engineering network. Twelve years in, still mostly interested in how teams decide things.",
+      exp:[{t:"Engineering Manager, Identity",c:"Google",y:"2020 - Present \u00b7 Bengaluru"},
            {t:"Senior Software Engineer",c:"Tessera Labs",y:"2016 - 2020 \u00b7 Bengaluru"},
            {t:"Software Engineer",c:"Inflex",y:"2013 - 2016 \u00b7 Pune"}],
       edu:[{s:"National Institute of Technology Karnataka",d:"B.Tech Computer Science",y:"2009 - 2013"}],
@@ -717,7 +805,7 @@
     lars:{id:"lars",name:"Lars Ebbesen",ini:"LE",c:"#55607a",
       title:"Senior Software Engineer, Search",dept:"Engineering",office:"Berlin, Germany",
       about:"I work on search relevance and the indexing pipeline behind it. Long-standing opinion that most ranking problems are actually data problems.",
-      exp:[{t:"Senior Software Engineer, Search",c:"Northstar Technologies",y:"2022 - Present \u00b7 Berlin"},
+      exp:[{t:"Senior Software Engineer, Search",c:"Google",y:"2022 - Present \u00b7 Berlin"},
            {t:"Software Engineer",c:"Nordlys Data",y:"2018 - 2022 \u00b7 Copenhagen"}],
       edu:[{s:"Technical University of Denmark",d:"M.Sc. Computer Science",y:"2016 - 2018"}],
       skills:["Search Relevance","Elasticsearch","Data Pipelines","Python","Performance Tuning"]},
@@ -725,7 +813,7 @@
     aiko:{id:"aiko",name:"Aiko Mori",ini:"AM",c:"#7a4f6b",
       title:"Staff Product Designer",dept:"Design",office:"Los Angeles, California",
       about:"I look after the design system and the parts of the product where consistency matters more than novelty.",
-      exp:[{t:"Staff Product Designer",c:"Northstar Technologies",y:"2022 - Present \u00b7 Los Angeles"},
+      exp:[{t:"Staff Product Designer",c:"Google",y:"2022 - Present \u00b7 Los Angeles"},
            {t:"Senior Product Designer",c:"Foldwork",y:"2019 - 2022 \u00b7 San Francisco"},
            {t:"Product Designer",c:"Aster Studio",y:"2016 - 2019 \u00b7 Portland"}],
       edu:[{s:"Rhode Island School of Design",d:"BFA Graphic Design",y:"2012 - 2016"}],
@@ -734,7 +822,7 @@
     renee:{id:"renee",name:"Renee Okafor",ini:"RO",c:"#8f5a5a",
       title:"Brand Marketing Manager",dept:"Marketing",office:"Los Angeles, California",
       about:"I run brand and campaign work for North America. Formerly agency side, which is why I am unreasonable about asset naming.",
-      exp:[{t:"Brand Marketing Manager",c:"Northstar Technologies",y:"2023 - Present \u00b7 Los Angeles"},
+      exp:[{t:"Brand Marketing Manager",c:"Google",y:"2023 - Present \u00b7 Los Angeles"},
            {t:"Senior Account Manager",c:"Vermillion Agency",y:"2019 - 2023 \u00b7 Los Angeles"}],
       edu:[{s:"University of California, Los Angeles",d:"B.A. Communication",y:"2015 - 2019"}],
       skills:["Brand Strategy","Campaign Management","Content","Event Marketing"]},
@@ -742,7 +830,7 @@
     sam:{id:"sam",name:"Sam Feld",ini:"SF",c:"#6f6a45",
       title:"Enterprise Account Executive",dept:"Sales",office:"Los Angeles, California",
       about:"I sell to enterprise accounts on the west coast. Eight years carrying a number, still learning where the real objection is hiding.",
-      exp:[{t:"Enterprise Account Executive",c:"Northstar Technologies",y:"2022 - Present \u00b7 Los Angeles"},
+      exp:[{t:"Enterprise Account Executive",c:"Google",y:"2022 - Present \u00b7 Los Angeles"},
            {t:"Account Executive",c:"Braylin Cloud",y:"2018 - 2022 \u00b7 Denver"}],
       edu:[{s:"University of Colorado Boulder",d:"B.S. Business Administration",y:"2014 - 2018"}],
       skills:["Enterprise Sales","Negotiation","Pipeline Management","Discovery Calls"]},
@@ -750,7 +838,7 @@
     fatima:{id:"fatima",name:"Fatima Zahra",ini:"FZ",c:"#8a5f3f",
       title:"Customer Success Manager, EMEA",dept:"Customer Success",office:"Dubai, United Arab Emirates",
       about:"I look after our largest EMEA accounts through renewal. Most of the value I add happens nine months before anyone talks about renewing.",
-      exp:[{t:"Customer Success Manager, EMEA",c:"Northstar Technologies",y:"2021 - Present \u00b7 Dubai"},
+      exp:[{t:"Customer Success Manager, EMEA",c:"Google",y:"2021 - Present \u00b7 Dubai"},
            {t:"Implementation Consultant",c:"Levant Systems",y:"2018 - 2021 \u00b7 Amman"}],
       edu:[{s:"American University of Beirut",d:"B.B.A.",y:"2014 - 2018"}],
       skills:["Customer Success","Renewals","Account Planning","Onboarding","Escalation Management"]},
@@ -758,7 +846,7 @@
     owen:{id:"owen",name:"Owen Reilly",ini:"OR",c:"#4f6b6b",
       title:"Finance Business Partner",dept:"Finance",office:"Dublin, Ireland",
       about:"I sit between finance and the engineering org. My job is making budget conversations happen before the money is already spent.",
-      exp:[{t:"Finance Business Partner",c:"Northstar Technologies",y:"2022 - Present \u00b7 Dublin"},
+      exp:[{t:"Finance Business Partner",c:"Google",y:"2022 - Present \u00b7 Dublin"},
            {t:"Senior Financial Analyst",c:"Corrib Group",y:"2018 - 2022 \u00b7 Dublin"}],
       edu:[{s:"Trinity College Dublin",d:"B.Sc. Finance",y:"2014 - 2018"}],
       skills:["FP&A","Budgeting","Vendor Management","Forecasting","Excel"]}
@@ -817,13 +905,13 @@
 
     /* ---------- Learning opportunity ---------- */
     {id:"l1",a:"hannah",cat:"Learning opportunity",t:"1d",aud:"Entire Organization",rx:88,lk:false,sv:false,
-     cm:[{by:"pratham",x:"Signing up. Half my discovery calls turn into me pitching, which is the opposite of the point."}],
+     cm:[{by:"khush",x:"Signing up. Half my discovery calls turn into me pitching, which is the opposite of the point."}],
      b:"I am running an internal session on moderating usability interviews without leading the participant. Two dates, both recorded and posted here afterwards.\n\nIt is aimed at PMs and engineers who sit in on research and want to run their own sessions. No research background needed. Bring a study you are planning and we will work through it together."},
     {id:"l2",a:"marcus",cat:"Learning opportunity",t:"2d",aud:"Entire Organization",rx:76,lk:false,sv:false,cm:[],
      b:"Running SQL for people who do not write SQL, three sessions over three weeks.\n\nThe goal is not to make you an analyst. It is to get you to the point where you can answer your own simple questions instead of waiting four days for me to answer them. Bring a question you actually have."},
     {id:"l3",a:"nadia",cat:"Learning opportunity",t:"3d",aud:"Entire Organization",rx:64,lk:false,sv:false,
      cm:[{by:"tom",x:"Would love a version of this aimed at people writing their first brief. Happy to co-run it."}],
-     b:"Session on writing a product brief that survives contact with engineering. One hour, examples from real Northstar briefs, including two of mine that were bad.\n\nOpen to anyone who writes documents that ask other people to build things. That is a much wider group than product."},
+     b:"Session on writing a product brief that survives contact with engineering. One hour, examples from real internal briefs, including two of mine that were bad.\n\nOpen to anyone who writes documents that ask other people to build things. That is a much wider group than product."},
     {id:"l4",a:"diego",cat:"Learning opportunity",t:"4d",aud:"Entire Organization",rx:49,lk:false,sv:false,cm:[],
      b:"Walking through a real incident review, start to finish, using a genuine outage from October.\n\nYou will see the timeline, the wrong hypotheses we chased, and how the writeup ended up. Useful if you have ever been added to an incident channel and had no idea what was expected of you."},
     {id:"l5",a:"yuki",cat:"Learning opportunity",t:"6d",aud:"Entire Organization",rx:58,lk:false,sv:false,cm:[],
@@ -855,9 +943,9 @@
 
     {id:"c1",a:"priya",cat:"Employee community",t:"2d",aud:"Entire Organization",rx:119,lk:false,sv:false,
      cm:[{by:"yuki",x:"Adding this to the APAC newsletter so the Tokyo and Bengaluru teams see it in time."}],
-     b:"Northstar Women in Engineering is opening our monthly mentoring circles to anyone across the company, not just engineering.\n\nThe next circle is on negotiating scope, which is the thing most people tell us they struggle with. Sign-ups close Friday. Everyone is welcome, including people who only want to listen."},
+     b:"Our Women in Engineering network is opening our monthly mentoring circles to anyone across the company, not just engineering.\n\nThe next circle is on negotiating scope, which is the thing most people tell us they struggle with. Sign-ups close Friday. Everyone is welcome, including people who only want to listen."},
     {id:"c2",a:"nadia",cat:"Employee community",t:"3d",aud:"Entire Organization",rx:67,lk:false,sv:false,cm:[],
-     b:"Parents at Northstar meets on the first Wednesday of every month, and we have moved it to a time that works for both European and US colleagues.\n\nNo agenda. Mostly logistics, school holidays, and the ongoing question of what to do in August. New parents especially welcome."},
+     b:"The working parents network meets on the first Wednesday of every month, and we have moved it to a time that works for both European and US colleagues.\n\nNo agenda. Mostly logistics, school holidays, and the ongoing question of what to do in August. New parents especially welcome."},
     {id:"c3",a:"fatima",cat:"Employee community",t:"4d",aud:"Entire Organization",rx:54,lk:false,sv:false,cm:[],
      b:"Language exchange is starting again in January. Thirty minutes a week, paired with someone learning your language while you learn theirs.\n\nWe have people offering Arabic, Portuguese, Japanese, German and Tamil so far. Beginners are the point, not a problem."},
     {id:"c4",a:"marcus",cat:"Employee community",t:"5d",aud:"Entire Organization",rx:71,lk:false,sv:false,cm:[],
@@ -876,7 +964,7 @@
               {m:"DEC",d:"18",t:"LA demo night",s:"Los Angeles office \u00b7 5:00 PM PST"},
               {m:"JAN",d:"15",t:"Berlin hack day",s:"Berlin office \u00b7 All day"}];
 
-  var GROUPS=[{t:"Northstar Women in Engineering",s:"1,240 members \u00b7 You are a member"},
+  var GROUPS=[{t:"Women in Engineering Network",s:"1,240 members \u00b7 You are a member"},
               {t:"Product Strategy Guild",s:"318 members \u00b7 You are a member"},
               {t:"Los Angeles Office",s:"602 members \u00b7 You are a member"},
               {t:"New Joiners 2024",s:"890 members \u00b7 You are a member"}];
@@ -885,15 +973,17 @@
   var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});};
 
-  var tEl=$("#toast"),tTimer;
-  function toast(m){tEl.textContent=m;tEl.classList.add("show");
-    clearTimeout(tTimer);tTimer=setTimeout(function(){tEl.classList.remove("show");},2800);}
+  var tEl=$("#toast"),tTx=tEl.querySelector(".tx"),tTimer;
+  function toast(m){tTx.textContent=m;tEl.classList.add("show");
+    clearTimeout(tTimer);tTimer=setTimeout(function(){tEl.classList.remove("show");},3200);}
 
   function av(p,cls){return '<div class="av '+(cls||"")+'" style="background:'+p.c+'" aria-hidden="true">'+p.ini+'</div>';}
 
   ["#railAv","#compAv","#modAv","#dockAv"].forEach(function(sel){
     var e=$(sel); if(e){e.style.background=P[ME].c;e.textContent=P[ME].ini;}
   });
+  $("#railName").textContent=P[ME].name; $("#railTitle").textContent=P[ME].title;
+  $("#railOffice").textContent=P[ME].office; $("#modName").textContent=P[ME].name;
   var ga=$("#gav");
   ga.style.background=P[ME].c; ga.style.color="#fff"; ga.style.fontSize="10px";
   ga.style.fontWeight="600"; ga.style.display="flex"; ga.style.alignItems="center";
@@ -924,7 +1014,23 @@
     return r;
   }
 
-  var LOCK='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>';
+  var LOCK='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>';
+  var DOT='<span aria-hidden="true">•</span>';
+  function GT(sz,fs){return '<div class="gtile" style="width:'+sz+'px;height:'+sz+'px;font-size:'+fs+'px" aria-hidden="true">G</div>';}
+  var IC={
+    like:'<svg width="20" height="20" viewBox="0 0 24 24" class="ico"><path d="M7.5 10.5v9.5H4.2a1 1 0 01-1-1v-7.5a1 1 0 011-1zm0 0 3.6-6.3a1.8 1.8 0 013.3 1.3l-.9 4.2h5.3a2 2 0 012 2.4l-1.3 6.3A2 2 0 0117.5 20H7.5"/></svg>',
+    likeOn:'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.2 10.5a1 1 0 011-1h3.8V21H4.2a1 1 0 01-1-1zm6.3-.3 3.7-6.5a2.1 2.1 0 013.9 1.5l-.8 3.8h4a2.3 2.3 0 012.3 2.8l-1.3 6.5A2.6 2.6 0 0118.7 21H9.5z"/></svg>',
+    cmt:'<svg width="20" height="20" viewBox="0 0 24 24" class="ico"><path d="M12 4C7.3 4 3.5 7.2 3.5 11.2c0 2 .9 3.8 2.5 5.1L5.4 20l3.9-1.8c.9.2 1.8.3 2.7.3 4.7 0 8.5-3.2 8.5-7.3S16.7 4 12 4z"/></svg>',
+    save:'<svg width="20" height="20" viewBox="0 0 24 24" class="ico"><path d="M6.5 3.5h11v17L12 16.4l-5.5 4.1z"/></svg>',
+    saveOn:'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5.8 3h12.4v18.5L12 16.9l-6.2 4.6z"/></svg>',
+    send:'<svg width="20" height="20" viewBox="0 0 24 24" class="ico"><path d="M20.5 3.5 3.5 10.3l6.9 3.3 3.3 6.9z"/><path d="M10.4 13.6 20.5 3.5"/></svg>',
+    plus:'<svg width="16" height="16" viewBox="0 0 24 24" class="ico" style="stroke-width:2.2"><path d="M12 5v14M5 12h14"/></svg>',
+    shield:'<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5zm-1.2 14.2L7 12.4l1.4-1.4 2.4 2.4 4.8-4.8L17 10z"/></svg>'
+  };
+  var RX='<span class="rxs" aria-hidden="true">'+
+    '<span class="rx" style="background:#378fe9"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M3 10h4v11H3zm6 0 4-7a2 2 0 013.6 1.6L15.8 9h4.4a2 2 0 012 2.4l-1.6 7.6a2.5 2.5 0 01-2.4 2H9z"/></svg></span>'+
+    '<span class="rx" style="background:#44712e"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.6 6.4L21 9l-5 4.4L17.5 20 12 16.6 6.5 20 8 13.4 3 9l6.4-.6z"/></svg></span>'+
+    '<span class="rx" style="background:#df704d"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-8.5-5.2-8.5-11.2A4.8 4.8 0 0112 6.6a4.8 4.8 0 018.5 3.2C20.5 15.8 12 21 12 21z"/></svg></span></span>';
 
   function pollHTML(po){
     if(!po.poll) return "";
@@ -953,32 +1059,29 @@
 
     return '<article class="card post" data-p="'+po.id+'">'+
       '<div class="phead">'+
-        '<button class="opro" data-per="'+a.id+'" aria-label="View profile of '+esc(a.name)+'">'+av(a)+'</button>'+
+        '<button class="opro pav" data-per="'+a.id+'" aria-label="View profile of '+esc(a.name)+'">'+av(a)+'</button>'+
         '<div class="pident">'+
-          '<div><button class="pname opro" data-per="'+a.id+'">'+esc(a.name)+'</button>'+
-            '<span class="pdeg"> &middot; '+esc(a.dept)+'</span></div>'+
-          '<div class="phl">'+esc(a.title)+' &middot; '+esc(a.office)+'</div>'+
-          '<div class="pmeta">'+esc(po.t)+' &middot; '+LOCK+' Internal &middot; '+esc(po.aud)+' &middot; '+esc(po.cat)+'</div>'+
+          '<div class="pnrow"><button class="pname opro" data-per="'+a.id+'">'+esc(a.name)+'</button>'+
+            '<span class="pdeg">'+DOT+' '+esc(a.dept)+'</span></div>'+
+          '<div class="phl">'+esc(a.title)+' · '+esc(a.office)+'</div>'+
+          '<div class="pmeta">'+esc(po.t)+' '+DOT+' '+LOCK+' Internal · '+esc(po.aud)+' · '+esc(po.cat)+'</div>'+
         '</div>'+
-        '<button class="pmore" aria-label="More options"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>'+
+        '<button class="pmore" aria-label="More options"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></button>'+
       '</div>'+
       '<div class="pbody">'+esc(po.b)+'</div>'+
       pollHTML(po)+
-      '<div class="psocial">'+
-        '<svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#378fe9"/><path d="M6.5 10.5h2.2v7.2H6.5zm4-4.6 3.7 4.3h2.9a1.4 1.4 0 0 1 1.3 1.9l-1.5 4.7a1.4 1.4 0 0 1-1.3 1h-5.8v-7.6z" fill="#fff"/></svg>'+
-        '<span>'+po.rx+'</span>'+
-        (po.cm.length?'<span style="margin-left:auto">'+po.cm.length+' comment'+(po.cm.length===1?"":"s")+'</span>':'')+
-      '</div>'+
       '<div class="pacts">'+
-        '<button class="act'+(po.lk?" on":"")+'" data-a="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 22H3V10h4zm12.4-12h-5.6l1-3.4A2.2 2.2 0 0 0 12.6 4L9 10.6V22h9a2 2 0 0 0 1.9-1.4l2-7A2 2 0 0 0 19.4 10z"/></svg><span class="lbl">'+(po.lk?"Liked":"Like")+'</span></button>'+
-        '<button class="act" data-a="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4H8a7 7 0 000 14v4l7.75-4.05A6.96 6.96 0 0023 11a7 7 0 00-7-7z"/></svg><span class="lbl">Comment</span></button>'+
-        '<button class="act sv'+(po.sv?" on":"")+'" data-a="save"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4v16l-7-5-7 5V4z"/></svg><span class="lbl">'+(po.sv?"Saved":"Save")+'</span></button>'+
-        '<button class="act" data-a="send"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 2 1 9.5l8 3.5 3.5 8z"/></svg><span class="lbl">Send</span></button>'+
+        '<button class="act'+(po.lk?" on":"")+'" data-a="like" aria-pressed="'+po.lk+'" aria-label="Like, '+po.rx+' reactions">'+
+          (po.lk?IC.likeOn:IC.like)+'<span class="n">'+(po.rx||"")+'</span></button>'+
+        '<button class="act" data-a="comment" aria-label="Comment, '+po.cm.length+' comments">'+IC.cmt+'<span class="n">'+(po.cm.length||"")+'</span></button>'+
+        '<button class="act sv'+(po.sv?" on":"")+'" data-a="save" aria-pressed="'+po.sv+'" aria-label="'+(po.sv?"Saved":"Save")+'" title="'+(po.sv?"Saved":"Save")+'">'+(po.sv?IC.saveOn:IC.save)+'</button>'+
+        '<button class="act" data-a="send" aria-label="Send" title="Send">'+IC.send+'</button>'+
+        (po.rx?RX:'')+
       '</div>'+
-      '<div class="cwrap" hidden><div class="clist">'+cms+'</div>'+
-        '<div class="cform">'+av(P[ME],"s32")+
-        '<input type="text" placeholder="Add a comment" aria-label="Add a comment" />'+
-        '<button class="b-out jsend" style="font-size:14px;padding:4px 14px">Post</button></div></div>'+
+      '<div class="cwrap" hidden><div class="cform">'+av(P[ME],"s40")+
+        '<input type="text" placeholder="Add a comment…" aria-label="Add a comment" />'+
+        '<button class="b-pri jsend" style="font-size:14px;padding:4px 16px">Post</button></div>'+
+        '<div class="clist">'+cms+'</div></div>'+
     '</article>';
   }
 
@@ -994,7 +1097,7 @@
 
   function rails(){
     $("#ptk").innerHTML=["ana","aiko","lars"].map(function(id){var p=P[id];
-      return '<button class="prow opro" data-per="'+id+'">'+av(p,"s40")+
+      return '<button class="prow opro" data-per="'+id+'">'+av(p)+
         '<span><span class="n">'+esc(p.name)+'</span><br><span class="r">'+esc(p.title)+'<br>'+
         esc(p.office)+'</span></span></button>';}).join("");
     $("#topics").innerHTML=TOPICS.map(function(t){
@@ -1026,7 +1129,9 @@
   function openProfile(id){
     var p=P[id]; if(!p) return; var me=(id===ME);
     var exp=p.exp.map(function(x){
-      return '<div class="xitem"><div class="xlogo" style="background:'+p.c+'">'+esc(x.c.charAt(0))+'</div>'+
+      var logo = x.c==="Google" ? '<div class="xlogo g">'+GT(40,26)+'</div>'
+        : '<div class="xlogo" style="background:'+p.c+'">'+esc(x.c.charAt(0))+'</div>';
+      return '<div class="xitem">'+logo+
         '<div><div class="t">'+esc(x.t)+'</div><div class="c">'+esc(x.c)+'</div>'+
         '<div class="y">'+esc(x.y)+'</div></div></div>';}).join("");
     var edu=p.edu.map(function(x){
@@ -1034,21 +1139,24 @@
         '<div><div class="t">'+esc(x.s)+'</div><div class="c">'+esc(x.d)+'</div>'+
         '<div class="y">'+esc(x.y)+'</div></div></div>';}).join("");
 
-    $("#profBody").innerHTML=
+    $("#profTop").innerHTML=
       '<div class="ptop"><div class="av" style="background:'+p.c+'">'+p.ini+'</div>'+
-        '<div class="pn" id="pfName">'+esc(p.name)+
-          '<span class="vbadge" style="margin-top:0"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Verified employee</span></div>'+
-        '<div class="ph">'+esc(p.title)+'</div>'+
-        '<div class="pl">'+esc(p.dept)+' &middot; Northstar Technologies</div>'+
-        '<div class="pl">'+esc(p.office)+'</div>'+
-        (me?'':'<div class="pbtns"><button class="b-pri jmsg" data-n="'+esc(p.name)+'">Message</button>'+
-              '<button class="b-gray jfol" data-n="'+esc(p.name)+'">Follow</button></div>')+
-      '</div>'+
-      '<div class="psec"><h3>About</h3><p>'+esc(p.about)+'</p></div>'+
-      '<div class="psec"><h3>Experience</h3>'+exp+'</div>'+
-      '<div class="psec"><h3>Education</h3>'+edu+'</div>'+
-      '<div class="psec"><h3>Skills</h3><div class="skills">'+
-        p.skills.map(function(s){return '<span class="skill">'+esc(s)+'</span>';}).join("")+'</div></div>';
+        '<div class="pgrid"><div class="main">'+
+          '<div class="pn" id="pfName">'+esc(p.name)+
+            '<span class="vbadge">'+IC.shield+' Verified employee</span></div>'+
+          '<div class="ph">'+esc(p.title)+'</div>'+
+          '<div class="pl">'+esc(p.office)+' · '+esc(p.dept)+'</div>'+
+          (me?'':'<div class="pbtns"><button class="b-pri jmsg" data-n="'+esc(p.name)+'">Message</button>'+
+                '<button class="b-out jfol" data-n="'+esc(p.name)+'">'+IC.plus+'Follow</button></div>')+
+        '</div>'+
+        '<div class="porg">'+GT(32,22)+'<span>Google</span></div></div>'+
+      '</div>';
+    $("#profBody").innerHTML=
+      '<section class="psec"><h3>About</h3><p>'+esc(p.about)+'</p></section>'+
+      '<section class="psec"><h3>Experience</h3>'+exp+'</section>'+
+      (p.edu.length?'<section class="psec"><h3>Education</h3>'+edu+'</section>':'')+
+      '<section class="psec"><h3>Skills</h3><ul class="skills">'+
+        p.skills.map(function(s){return '<li>'+esc(s)+'</li>';}).join("")+'</ul></section>';
     openM("profModal");
   }
 
@@ -1056,15 +1164,15 @@
     $("#listTtl").textContent="Company directory";
     $("#listBody").innerHTML=Object.keys(P).map(function(id){var p=P[id];
       return '<button class="lrow opro" data-per="'+id+'">'+av(p)+
-        '<span><span class="n">'+esc(p.name)+(id===ME?" (you)":"")+'</span><br>'+
-        '<span class="s">'+esc(p.title)+'<br>'+esc(p.dept)+' &middot; '+esc(p.office)+'</span></span></button>';
+        '<span><span class="n">'+esc(p.name)+(id===ME?' <span style="font-weight:400;color:var(--t2)">(you)</span>':'')+'</span><br>'+
+        '<span class="s"><b>'+esc(p.title)+'</b><br>'+esc(p.dept)+' · '+esc(p.office)+'</span></span></button>';
     }).join("");
     openM("listModal");
   }
 
   function openShare(po){
     var a=P[po.a];
-    $("#shNote").textContent="Sending "+a.name+"'s post. Internal posts can only be sent to verified Northstar employees.";
+    $("#shNote").textContent="Sending "+a.name+"'s post. Internal posts can only be sent to verified Google employees.";
     $("#shList").innerHTML=Object.keys(P).filter(function(id){return id!==ME;}).map(function(id){
       var q=P[id];
       return '<label class="shrow"><input type="checkbox" class="shbox" />'+av(q,"s40")+
@@ -1134,7 +1242,7 @@
     var mg=e.target.closest(".jmsg");
     if(mg){ closeM("profModal"); toast("Message started with "+mg.getAttribute("data-n")+"."); return; }
     var fo=e.target.closest(".jfol");
-    if(fo){ toast("Following "+fo.getAttribute("data-n")+" inside Northstar."); return; }
+    if(fo){ toast("Following "+fo.getAttribute("data-n")+" inside Google."); return; }
 
     var ac=e.target.closest(".act");
     if(ac){
@@ -1158,7 +1266,7 @@
       if(vp&&vp.poll&&vp.poll.voted===null){
         var vi=parseInt(vt.getAttribute("data-i"),10);
         vp.poll.voted=vi; vp.poll.opts[vi].v+=1;
-        render(); toast("Vote recorded. Only Northstar employees can see this poll.");
+        render(); toast("Vote recorded. Only Google employees can see this poll.");
       }
       return;
     }
@@ -1168,7 +1276,7 @@
       var a2=sd.closest("[data-p]"), inp=a2.querySelector(".cform input"), tx=inp.value.trim();
       if(!tx){inp.focus();return;}
       POSTS.filter(function(x){return x.id===a2.getAttribute("data-p");})[0].cm.push({by:ME,x:tx});
-      render(); toast("Comment posted inside Northstar Technologies."); return;
+      render(); toast("Comment posted inside Google."); return;
     }
 
     var qk=e.target.closest("[data-quick]");
@@ -1189,7 +1297,7 @@
   $("#shSend").addEventListener("click",function(){
     var k=$("#shList").querySelectorAll(".shbox:checked").length;
     closeM("shareModal");
-    toast("Sent to "+k+" colleague"+(k===1?"":"s")+" inside Northstar Technologies.");
+    toast("Sent to "+k+" colleague"+(k===1?"":"s")+" inside Google.");
   });
 
   $("#openComp").addEventListener("click",function(){openM("compModal");});
@@ -1236,7 +1344,7 @@
     Array.prototype.forEach.call($("#pills").querySelectorAll(".pill"),function(p,i){
       p.classList.toggle("on",i===0);});
     render(); window.scrollTo({top:0,behavior:"smooth"});
-    toast("Published to Northstar Technologies. Not visible outside the company.");
+    toast("Published to Google. Not visible outside the company.");
   });
 
   rails(); render();
