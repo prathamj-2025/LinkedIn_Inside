@@ -358,6 +358,79 @@
   .toast.show{opacity:1;transform:translateY(0);}
   .toast .ok{color:var(--green);flex-shrink:0;}
 
+  /* ---------------- company chat (one tool per employer) ---------------- */
+  .b-chat{box-shadow:inset 0 0 0 1px var(--t75);color:var(--t75);border-radius:999px;min-height:32px;padding:6px 16px 6px 12px;
+          font-size:16px;line-height:20px;font-weight:600;background:#fff;display:inline-flex;align-items:center;gap:6px;}
+  .b-chat:hover{background:var(--hover-soft);box-shadow:inset 0 0 0 2px var(--t75);color:var(--t1);}
+  .b-chat[aria-disabled="true"]{color:var(--t3);box-shadow:inset 0 0 0 1px var(--line-strong);cursor:default;}
+  .b-chat[aria-disabled="true"]:hover{background:#fff;box-shadow:inset 0 0 0 1px var(--line-strong);color:var(--t3);}
+  .b-chat[aria-disabled="true"] .tool{filter:grayscale(1);opacity:.55;}
+  .tool{flex-shrink:0;}
+  .pnote{margin-top:8px;font-size:12px;line-height:15px;color:var(--t2);display:flex;gap:6px;align-items:flex-start;}
+  .pnote svg{flex-shrink:0;margin-top:1px;}
+  .ptag{display:inline-flex;align-items:center;gap:4px;border-radius:4px;background:#f1e8cf;color:#5d4a10;
+        font-size:12px;line-height:15px;font-weight:600;padding:2px 6px;}
+  .hrec{display:flex;gap:12px;align-items:center;padding:12px;border-radius:8px;box-shadow:inset 0 0 0 1px var(--edge);}
+  .hrec .n{font-size:16px;line-height:20px;font-weight:600;}
+  .hrec .r{font-size:14px;line-height:17.5px;color:var(--t2);}
+  .hchan{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:12px;line-height:15px;font-weight:600;color:var(--t75);}
+  .hmsg{margin:16px 0 0;font-size:14px;line-height:20px;}
+  .hmsg + .hmsg{margin-top:8px;}
+  .hstate{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding:12px 16px;border-radius:8px;font-size:14px;line-height:20px;}
+  .hstate.ok{background:var(--green-tint);}
+  .hstate.warn{background:#fcefe6;}
+  .hstate.info{background:var(--otw);}
+  .hstate b{display:block;font-weight:600;}
+  .hstate svg{flex-shrink:0;margin-top:1px;}
+  .hstate.ok svg{color:var(--green);}
+  .hstate.warn svg{color:#b24020;}
+  .linkbtn{color:var(--blue);font-weight:600;text-decoration:none;}
+  .linkbtn:hover{text-decoration:underline;color:var(--blue-d);}
+  .spin{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-mid);border-top-color:var(--blue);
+        animation:spin .8s linear infinite;flex-shrink:0;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media (prefers-reduced-motion:reduce){.spin{animation:none;border-top-color:var(--line-mid);}}
+
+  /* ---------------- LinkedIn conversation window ---------------- */
+  .convo{position:fixed;right:320px;bottom:0;width:336px;height:440px;background:#fff;z-index:61;
+         border-radius:8px 8px 0 0;box-shadow:0 0 0 1px var(--edge),0 4px 12px rgba(0,0,0,.15);
+         display:flex;flex-direction:column;}
+  .convo[hidden]{display:none;}
+  .convo.min{height:48px;}
+  .convo.min .cv-b,.convo.min .cv-f{display:none;}
+  .cv-h{display:flex;align-items:center;gap:8px;height:48px;padding:0 4px 0 12px;border-bottom:1px solid var(--line);flex-shrink:0;}
+  .cv-h .who{flex:1;min-width:0;text-align:left;}
+  .cv-h .who .n{display:block;font-size:14px;line-height:17.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .cv-h .who .r{display:block;font-size:12px;line-height:15px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .cv-h > button:not(.who){width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0;}
+  .cv-h > button:not(.who):hover{background:var(--hover);color:var(--t1);}
+  .cv-b{flex:1;overflow-y:auto;padding:0 12px 12px;}
+  .cv-intro{display:flex;flex-direction:column;align-items:center;text-align:center;padding:16px 8px;border-bottom:1px solid var(--line);}
+  .cv-intro .av{width:72px;height:72px;margin-bottom:8px;}
+  .cv-intro .n{font-size:16px;line-height:20px;font-weight:600;}
+  .cv-intro .r{font-size:14px;line-height:17.5px;color:var(--t2);margin-top:2px;}
+  .cv-day{text-align:center;font-size:12px;line-height:15px;color:var(--t2);margin:12px 0 0;}
+  .cv-m{display:flex;gap:8px;margin-top:12px;}
+  .cv-m .hd{font-size:14px;line-height:17.5px;font-weight:600;}
+  .cv-m .hd span{font-weight:400;font-size:12px;color:var(--t2);margin-left:4px;}
+  .cv-m .x{font-size:14px;line-height:20px;white-space:pre-wrap;word-break:break-word;}
+  .cv-f{border-top:1px solid var(--line);padding:8px 12px 10px;flex-shrink:0;}
+  .cv-f textarea{width:100%;height:72px;border:none;border-radius:4px;background:#f4f2ee;padding:8px 12px;
+                 font-size:14px;line-height:20px;resize:none;}
+  .cv-f textarea::placeholder{color:var(--t2);}
+  .cv-f textarea:focus{outline:2px solid var(--blue);outline-offset:0;}
+  .cv-f .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;}
+  .cv-note{font-size:12px;line-height:15px;color:var(--t2);}
+  .cv-send{background:var(--blue);color:#fff;border-radius:999px;padding:4px 14px;font-size:14px;line-height:20px;font-weight:600;}
+  .cv-send:hover{background:var(--blue-d);}
+  .cv-send:disabled{background:rgba(0,0,0,.08);color:rgba(0,0,0,.3);cursor:not-allowed;}
+  .dk-row{display:flex;gap:10px;align-items:center;width:100%;padding:8px 12px;text-align:left;}
+  .dk-row:hover{background:var(--hover-soft);}
+  .dk-row .n{display:block;font-size:14px;line-height:17.5px;font-weight:600;color:var(--t1);}
+  .dk-row .s{display:block;font-size:12px;line-height:15px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .dk-row > span:last-child{min-width:0;flex:1;}
+  .dock-b.has{padding:4px 0;max-height:320px;overflow-y:auto;}
+
   @media (max-width:1176px){ .page{padding-left:24px;padding-right:24px;} .gnav-in{padding:0 24px;}
     .grid{grid-template-columns:216px minmax(0,1fr) 300px;} }
   @media (max-width:1000px){
@@ -376,6 +449,7 @@
     .gitem.inside .lbl{display:flex;}
     .gdiv,.gitem.biz,.gitem.learn{display:none;}
     .dock{display:none;}
+    .convo{right:8px;left:8px;width:auto;height:min(72vh,480px);}
     .pgrid{flex-direction:column;gap:12px;}
     .porg{width:auto;}
   }
@@ -659,6 +733,19 @@
   </div>
 </div>
 
+<div class="scrim" id="chatModal" hidden>
+  <div class="mdl" role="dialog" aria-modal="true" aria-labelledby="chatTtl">
+    <div class="mhead">
+      <h2 id="chatTtl" style="display:flex;align-items:center;gap:8px"></h2>
+      <button class="xbtn" data-close="chatModal" aria-label="Close and go back to the profile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 12 19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6z"/></svg>
+      </button>
+    </div>
+    <div class="mbody" id="chatBody" aria-live="polite"></div>
+    <div class="mfoot" id="chatFoot" style="flex-wrap:wrap"></div>
+  </div>
+</div>
+
 <div class="scrim" id="listModal" hidden>
   <div class="mdl" role="dialog" aria-modal="true" aria-labelledby="listTtl">
     <div class="mhead">
@@ -692,6 +779,23 @@
     </div>
   </div>
 </div>
+
+<section class="convo" id="convo" hidden role="dialog" aria-labelledby="cvName">
+  <div class="cv-h">
+    <span id="cvAv"></span>
+    <button class="who opro" id="cvWho" aria-label="View profile"><span class="n" id="cvName"></span><span class="r" id="cvRole"></span></button>
+    <button id="cvMin" aria-label="Minimize conversation"><svg width="20" height="20" viewBox="0 0 24 24" class="ico" style="stroke-width:2"><path d="M6 9l6 6 6-6"/></svg></button>
+    <button id="cvClose" aria-label="Close conversation"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 12 19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6z"/></svg></button>
+  </div>
+  <div class="cv-b" id="cvBody" aria-live="polite"></div>
+  <div class="cv-f">
+    <textarea id="cvText" placeholder="Write a message…" aria-label="Write a message"></textarea>
+    <div class="row">
+      <span class="cv-note">Prototype · messages aren't delivered</span>
+      <button class="cv-send" id="cvSend" disabled>Send</button>
+    </div>
+  </div>
+</section>
 
 <div class="dock">
   <div class="dock-h">
@@ -1170,12 +1274,19 @@
         '<div><div class="t">'+esc(e.t)+'</div><div class="s">'+esc(e.s)+'</div></div></div>';}).join("");
   }
 
-  var lastF=null;
-  function openM(id){lastF=document.activeElement;$("#"+id).hidden=false;
-    document.body.style.overflow="hidden";
+  /* modals can stack (profile -> company-chat handoff); each remembers where focus came from */
+  var mstack=[];
+  function openM(id){
+    if($("#"+id).hidden) mstack.push({id:id,f:document.activeElement});
+    $("#"+id).hidden=false; document.body.style.overflow="hidden";
     var f=$("#"+id).querySelector("button,textarea,input,select"); if(f)f.focus();}
-  function closeM(id){$("#"+id).hidden=true;document.body.style.overflow="";
-    if(lastF&&lastF.focus)lastF.focus();}
+  function closeM(id){
+    if($("#"+id).hidden) return;
+    $("#"+id).hidden=true;
+    var i=-1; mstack.forEach(function(m,k){if(m.id===id)i=k;});
+    var ent= i>=0 ? mstack.splice(i,1)[0] : null;
+    if(!mstack.length) document.body.style.overflow="";
+    if(ent&&ent.f&&ent.f.focus&&document.body.contains(ent.f)) ent.f.focus();}
 
   document.addEventListener("click",function(e){
     var c=e.target.closest("[data-close]"); if(c) closeM(c.getAttribute("data-close"));
@@ -1184,8 +1295,9 @@
     s.addEventListener("mousedown",function(e){if(e.target===s)closeM(s.id);});
   });
   document.addEventListener("keydown",function(e){
-    if(e.key==="Escape") Array.prototype.forEach.call(document.querySelectorAll(".scrim"),
-      function(s){if(!s.hidden)closeM(s.id);});
+    if(e.key!=="Escape") return;
+    if(mstack.length){ closeM(mstack[mstack.length-1].id); return; }
+    if(!$("#convo").hidden && $("#convo").contains(document.activeElement)) closeConvo();
   });
 
   function openProfile(id){
@@ -1208,8 +1320,7 @@
             '<span class="vbadge">'+IC.shield+' Verified employee</span></div>'+
           '<div class="ph">'+esc(p.title)+'</div>'+
           '<div class="pl">'+esc(p.office)+' · '+esc(p.dept)+'</div>'+
-          (me?'':'<div class="pbtns"><button class="b-pri jmsg" data-n="'+esc(p.name)+'">Message</button>'+
-                '<button class="b-out jfol" data-n="'+esc(p.name)+'">'+IC.plus+'Follow</button></div>')+
+          (me?'':contactHTML(p))+
         '</div>'+
         '<div class="porg">'+GT(32,22)+'<span>Google</span></div></div>'+
       '</div>';
@@ -1287,6 +1398,149 @@
   $("#lkDir").addEventListener("click",openDir);
   $("#dirBtn").addEventListener("click",openDir);
 
+  /* =====================================================================
+     Contacting a coworker
+     - "Message" = LinkedIn Messaging (conversation window, prototype only)
+     - "Message on <tool>" = hand-off to the employer's configured work chat
+     Nothing from posts or comments is ever copied into either route.
+     ===================================================================== */
+
+  /* Employer configuration: exactly ONE company-chat tool per employer.
+     Change chatTool to "teams" or "slack" to demo a different employer setup. */
+  var COMPANY={name:"Google", chatTool:"gchat"};
+  var TOOLS={
+    gchat:{name:"Google Chat",label:"Google Chat",icon:function(s){return '<svg class="tool" width="'+s+'" height="'+s+'" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 012 2v10a2 2 0 01-2 2h-9l-5 4v-4a2 2 0 01-2-2V5a2 2 0 012-2z" fill="#1e8e3e"/><path d="M7.5 8h9M7.5 11.5h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>';}},
+    teams:{name:"Microsoft Teams",label:"Teams",icon:function(s){return '<svg class="tool" width="'+s+'" height="'+s+'" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="4" fill="#5b5fc7"/><path d="M7 8h10v2.4h-3.8V17h-2.4v-6.6H7z" fill="#fff"/></svg>';}},
+    slack:{name:"Slack",label:"Slack",icon:function(s){return '<svg class="tool" width="'+s+'" height="'+s+'" viewBox="0 0 24 24" aria-hidden="true"><rect x="7.5" y="2.5" width="3.4" height="12" rx="1.7" fill="#36c5f0"/><rect x="13.1" y="9.5" width="3.4" height="12" rx="1.7" fill="#2eb67d"/><rect x="2.5" y="13.1" width="12" height="3.4" rx="1.7" fill="#e01e5a"/><rect x="9.5" y="7.5" width="12" height="3.4" rx="1.7" fill="#ecb22e"/></svg>';}}
+  };
+  function TOOL(){return TOOLS[COMPANY.chatTool];}
+
+  /* Demo data for the failure paths (mock only):
+     - no work-chat account linked  -> unavailable state
+     - first hand-off attempt fails  -> error state, "Try again" then succeeds */
+  var CHAT_UNMAPPED={fatima:true};
+  var CHAT_FAIL_FIRST={lars:true};
+
+  var INFOI='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>';
+  var WARNI='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 1.5 21h21zm1 15.5h-2v-2h2zm0-4h-2v-5h2z"/></svg>';
+  var OKI='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1.3 14.6L6.4 12.3l1.4-1.4 2.9 2.9 5.5-5.5 1.4 1.4z"/></svg>';
+  function firstName(p){return p.name.split(" ")[0];}
+
+  function contactHTML(p){
+    var t=TOOL(), un=!!CHAT_UNMAPPED[p.id], fn=esc(firstName(p));
+    return '<div class="pbtns">'+
+        '<button class="b-pri jmsg" data-per="'+p.id+'" aria-label="Message '+esc(p.name)+' on LinkedIn">Message</button>'+
+        '<button class="b-chat jchat" data-per="'+p.id+'"'+(un?' aria-disabled="true"':'')+
+          ' aria-label="'+(un? esc(t.name)+' is not available for '+esc(p.name) : 'Message '+esc(p.name)+' on '+esc(t.name))+'">'+
+          t.icon(18)+'Message on '+esc(t.label)+'</button>'+
+        '<button class="b-out jfol" data-n="'+esc(p.name)+'">'+IC.plus+'Follow</button>'+
+      '</div>'+
+      '<div class="pnote">'+INFOI+'<span>'+(un
+        ? fn+' doesn’t have a '+esc(t.name)+' account linked yet. Use <b>Message</b> to reach '+fn+' on LinkedIn.'
+        : '<b>Message</b> stays in LinkedIn. <b>Message on '+esc(t.label)+'</b> starts a direct chat with '+fn+' in '+esc(t.name)+', '+esc(COMPANY.name)+'’s work chat.')+
+      '</span></div>';
+  }
+
+  /* ---------- company-chat hand-off (prototype simulation) ---------- */
+  var hand={id:null,tries:0,timer:null,state:null};
+  function openHandoff(id){
+    if(!P[id]) return;
+    hand.id=id; hand.tries=0; clearTimeout(hand.timer);
+    renderHand(CHAT_UNMAPPED[id]?"unavailable":"confirm");
+    openM("chatModal"); focusHand();
+  }
+  function renderHand(state){
+    var p=P[hand.id], t=TOOL(), fn=esc(firstName(p)), co=esc(COMPANY.name), tn=esc(t.name);
+    var body='<div class="hrec">'+av(p)+'<div style="min-width:0"><div class="n">'+esc(p.name)+'</div>'+
+      '<div class="r">'+esc(p.title)+' · '+esc(p.office)+'</div>'+
+      '<div class="hchan">'+t.icon(14)+'Direct message · '+tn+'</div></div></div>';
+    var tag='<span class="ptag">Prototype simulation</span>', foot;
+    var two=function(a,b){return tag+'<span style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">'+a+b+'</span>';};
+    if(state==="confirm"){
+      body+='<p class="hmsg">You’re about to open a <b>direct conversation with '+esc(p.name)+'</b> in '+tn+', '+co+'’s work chat.</p>'+
+            '<p class="hmsg" style="color:var(--t2)">Nothing from LinkedIn Inside is copied over. Posts and comments stay here, and you start the chat yourself.</p>';
+      foot=two('<button class="b-gray" data-h="back">Cancel</button>','<button class="b-pri" data-h="go">Open '+esc(t.label)+'</button>');
+    } else if(state==="opening"){
+      body+='<div class="hstate info"><div class="spin" aria-hidden="true"></div><div><b>Opening '+tn+'…</b>Handing off to your work account.</div></div>';
+      foot=tag+'<button class="b-pri" disabled>Opening…</button>';
+    } else if(state==="done"){
+      body+='<div class="hstate ok">'+OKI+'<div><b>Hand-off simulated</b>In the real product, '+tn+' would now open a direct chat with '+esc(p.name)+'. In this prototype nothing was opened and no message was sent.</div></div>';
+      foot=two('<button class="b-gray" data-h="back">Back to profile</button>','<button class="b-pri" data-h="done">Done</button>');
+    } else if(state==="failed"){
+      body+='<div class="hstate warn">'+WARNI+'<div><b>Couldn’t open '+tn+'</b>The hand-off didn’t complete. Check that you’re signed in to '+tn+' with your work account, then try again. If it keeps failing, contact your IT help desk.</div></div>'+
+            '<p class="hmsg">Or <button class="linkbtn" data-h="linkedin">message '+fn+' on LinkedIn instead</button>.</p>';
+      foot=two('<button class="b-gray" data-h="back">Back to profile</button>','<button class="b-pri" data-h="go">Try again</button>');
+    } else {
+      body+='<div class="hstate warn">'+WARNI+'<div><b>'+tn+' isn’t available for '+fn+'</b>'+fn+' doesn’t have a '+tn+' account linked to LinkedIn Inside yet. Your IT team manages these links.</div></div>';
+      foot=two('<button class="b-gray" data-h="back">Back to profile</button>','<button class="b-pri" data-h="linkedin">Message on LinkedIn</button>');
+    }
+    $("#chatTtl").innerHTML=t.icon(24)+'<span>Message on '+esc(t.label)+'</span>';
+    $("#chatBody").innerHTML=body; $("#chatFoot").innerHTML=foot; hand.state=state;
+  }
+  function focusHand(){var b=$("#chatFoot").querySelector(".b-pri:not([disabled])")||$("#chatModal .xbtn"); if(b)b.focus();}
+  function handAction(k){
+    var id=hand.id;
+    if(k==="back"){ closeM("chatModal"); return; }
+    if(k==="done"){ closeM("chatModal"); closeM("profModal"); return; }
+    if(k==="linkedin"){ closeM("chatModal"); closeM("profModal"); openConvo(id); return; }
+    if(k==="go"){
+      hand.tries++; renderHand("opening"); $("#chatModal .xbtn").focus();
+      clearTimeout(hand.timer);
+      hand.timer=setTimeout(function(){
+        if($("#chatModal").hidden||hand.id!==id) return;
+        renderHand(CHAT_FAIL_FIRST[id]&&hand.tries===1?"failed":"done"); focusHand();
+      },1100);
+    }
+  }
+
+  /* ---------- LinkedIn Messaging conversation window (prototype: stays in this tab) ---------- */
+  var THREADS={}, cv={id:null,opener:null};
+  function nowTime(){return new Date().toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});}
+  function openConvo(id){
+    var p=P[id]; if(!p||id===ME) return;
+    cv.opener=document.activeElement; cv.id=id; THREADS[id]=THREADS[id]||[];
+    $("#cvAv").innerHTML=av(p,"s32"); $("#cvName").textContent=p.name; $("#cvRole").textContent=p.title;
+    $("#cvWho").setAttribute("data-per",id); $("#cvWho").setAttribute("aria-label","View "+p.name+"’s profile");
+    $("#cvText").value=""; $("#cvSend").disabled=true;
+    var c=$("#convo"); c.classList.remove("min"); $("#cvMin").style.transform=""; $("#cvMin").setAttribute("aria-label","Minimize conversation");
+    renderConvo(); c.hidden=false; $("#cvText").focus();
+  }
+  function renderConvo(){
+    var p=P[cv.id], th=THREADS[cv.id];
+    var h='<div class="cv-intro">'+av(p)+'<div class="n">'+esc(p.name)+'</div><div class="r">'+esc(p.title)+'</div>'+
+          '<div class="r">'+esc(p.office)+'</div></div>';
+    if(th.length) h+='<div class="cv-day">Today</div>'+th.map(function(m){var a=P[m.by];
+      return '<div class="cv-m">'+av(a,"s32")+'<div style="min-width:0"><div class="hd">'+esc(a.name)+'<span>'+esc(m.t)+'</span></div>'+
+        '<div class="x">'+esc(m.x)+'</div></div></div>';}).join("");
+    var b=$("#cvBody"); b.innerHTML=h; b.scrollTop=b.scrollHeight;
+  }
+  function sendConvo(){
+    var x=$("#cvText").value.trim(); if(!x||!cv.id) return;
+    THREADS[cv.id].push({by:ME,x:x,t:nowTime()});
+    $("#cvText").value=""; $("#cvSend").disabled=true; renderConvo(); renderDock(); $("#cvText").focus();
+  }
+  function closeConvo(){
+    $("#convo").hidden=true; var o=cv.opener; cv.id=null;
+    if(o&&o.focus&&document.body.contains(o)) o.focus();
+  }
+  function renderDock(){
+    var ids=Object.keys(THREADS).filter(function(k){return THREADS[k].length;}), b=$("#dockBody");
+    if(!ids.length){ b.classList.remove("has"); b.textContent="No new messages."; return; }
+    b.classList.add("has");
+    b.innerHTML=ids.map(function(id){var p=P[id], last=THREADS[id][THREADS[id].length-1];
+      return '<button class="dk-row" data-per="'+id+'">'+av(p,"s40")+'<span><span class="n">'+esc(p.name)+'</span>'+
+        '<span class="s">You: '+esc(last.x)+'</span></span></button>';}).join("");
+  }
+  $("#cvText").addEventListener("input",function(){$("#cvSend").disabled=!this.value.trim();});
+  $("#cvText").addEventListener("keydown",function(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendConvo();}});
+  $("#cvSend").addEventListener("click",sendConvo);
+  $("#cvClose").addEventListener("click",closeConvo);
+  $("#cvMin").addEventListener("click",function(){
+    var c=$("#convo"); c.classList.toggle("min"); var m=c.classList.contains("min");
+    this.setAttribute("aria-label",m?"Expand conversation":"Minimize conversation");
+    this.style.transform=m?"rotate(180deg)":"";
+  });
+
   $("#dockToggle").addEventListener("click",function(){
     var b=$("#dockBody"); b.hidden=!b.hidden;
     this.style.transform = b.hidden ? "" : "rotate(180deg)";
@@ -1302,7 +1556,13 @@
       $("#fclear").hidden=false; render(); window.scrollTo({top:0,behavior:"smooth"}); return; }
 
     var mg=e.target.closest(".jmsg");
-    if(mg){ closeM("profModal"); toast("Message started with "+mg.getAttribute("data-n")+"."); return; }
+    if(mg){ var mid=mg.getAttribute("data-per"); closeM("profModal"); openConvo(mid); return; }
+    var hc=e.target.closest(".jchat");
+    if(hc){ openHandoff(hc.getAttribute("data-per")); return; }
+    var hx=e.target.closest("[data-h]");
+    if(hx){ handAction(hx.getAttribute("data-h")); return; }
+    var dk=e.target.closest(".dk-row");
+    if(dk){ openConvo(dk.getAttribute("data-per")); return; }
     var fo=e.target.closest(".jfol");
     if(fo){ toast("Following "+fo.getAttribute("data-n")+" inside Google."); return; }
 
