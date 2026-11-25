@@ -465,6 +465,181 @@
     .psec{padding:16px 16px 8px;}
     .toast{left:16px;bottom:16px;max-width:calc(100% - 32px);}
   }
+  /* ---------------- pages outside Inside ---------------- */
+  .view[hidden]{display:none;}
+  .gdot[hidden]{display:none;}
+  body.r-messaging .dock{display:none;}
+  .b-sm{white-space:nowrap;font-size:14px!important;line-height:18px!important;min-height:28px!important;padding:4px 12px!important;display:inline-flex;align-items:center;justify-content:center;gap:4px;}
+  .b-gray svg,.b-out svg{flex-shrink:0;}
+  .glob{display:inline-block;}
+  .hstat{padding:12px 16px;}
+  .srow{display:flex;justify-content:space-between;gap:8px;font-size:12px;line-height:16px;font-weight:600;color:var(--t2);padding:4px 0;}
+  .srow b{color:var(--blue);font-weight:600;}
+  .idcard .nm .opro:hover{text-decoration:underline;}
+  .hidp{padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;}
+  .hidp .t{font-size:14px;line-height:20px;}
+  .hidp .t b{display:block;font-weight:600;}
+  .hidp .t span{color:var(--t2);}
+  .fbar{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;}
+  .fbar h2{margin:0;font-size:16px;line-height:20px;font-weight:600;}
+  .frow{display:flex;gap:8px;padding:8px 16px;align-items:flex-start;}
+  .frow .txt{flex:1;min-width:0;}
+  .frow .n{font-size:14px;line-height:17.5px;font-weight:600;color:var(--ink);text-align:left;}
+  .frow .n:hover{color:var(--blue);text-decoration:underline;}
+  .frow .r{font-size:12px;line-height:15px;color:var(--meta);margin:2px 0 8px;}
+  .chip-pub{display:inline-flex;align-items:center;gap:6px;}
+
+  /* menus */
+  .menu{position:fixed;z-index:150;background:#fff;border-radius:8px;min-width:220px;max-width:min(320px,calc(100vw - 16px));
+        box-shadow:0 0 0 1px var(--edge),0 4px 12px rgba(0,0,0,.15);padding:8px 0;}
+  .menu[hidden]{display:none;}
+  .mi{display:flex;gap:12px;align-items:flex-start;width:100%;padding:10px 16px;font-size:14px;line-height:20px;font-weight:600;color:var(--t75);text-align:left;}
+  .mi:hover,.mi:focus{background:var(--hover-soft);color:var(--t1);outline:none;}
+  .mi:focus-visible{box-shadow:inset 0 0 0 2px var(--blue);}
+  .mi svg{flex-shrink:0;margin-top:2px;}
+  .mi small{display:block;font-weight:400;color:var(--t2);font-size:12px;line-height:16px;}
+  .msep{height:1px;background:var(--line);margin:8px 0;}
+  .mgrp{padding:4px 16px 0;font-size:16px;line-height:20px;font-weight:600;color:var(--t1);}
+  .mhd{display:flex;gap:8px;padding:4px 16px 12px;align-items:flex-start;}
+  .mhd .n{font-size:16px;line-height:20px;font-weight:600;}
+  .mhd .r{font-size:14px;line-height:18px;color:var(--t1);}
+  .mvp{display:flex;margin:0 16px;width:calc(100% - 32px);justify-content:center;}
+
+  /* network */
+  .ngrid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;align-items:start;}
+  .ngrid > aside{position:sticky;top:76px;}
+  .mlink{display:flex;align-items:center;gap:12px;width:100%;padding:12px 16px;font-size:16px;line-height:20px;font-weight:600;color:var(--t75);text-align:left;}
+  .mlink:hover{background:var(--hover-soft);color:var(--t1);}
+  .mlink .c{margin-left:auto;font-weight:400;color:var(--t2);}
+  .sech{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;}
+  .sech h2{margin:0;font-size:16px;line-height:20px;font-weight:600;color:var(--t1);}
+  .sech .sm{font-size:14px;line-height:18px;color:var(--t2);margin-top:2px;}
+  .sech + .invr,.sech + .jrow,.sech + .nfrow{border-top:1px solid var(--line);}
+  .invr{display:flex;gap:12px;padding:12px 16px;align-items:center;}
+  .invr + .invr{border-top:1px solid var(--line);}
+  .invr .txt{flex:1;min-width:0;}
+  .invr .n{font-size:16px;line-height:20px;font-weight:600;text-align:left;}
+  .invr .n:hover{color:var(--blue);text-decoration:underline;}
+  .invr .r{font-size:14px;line-height:18px;color:var(--t2);}
+  .invr .m{font-size:12px;line-height:15px;color:var(--t2);margin-top:4px;}
+  .invr .note{font-size:14px;line-height:20px;margin-top:8px;padding:8px 12px;background:#f3f2ef;border-radius:8px;}
+  .invr .btns{display:flex;gap:8px;flex-shrink:0;}
+  .pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:12px;padding:0 16px 16px;}
+  .pcard{border-radius:8px;box-shadow:0 0 0 1px var(--edge);overflow:hidden;text-align:center;display:flex;flex-direction:column;align-items:center;padding-bottom:16px;background:#fff;}
+  .pc-cover{height:62px;width:100%;background:linear-gradient(100deg,#a0b4b7 0 40%,#c9d5d8 40% 58%,#b3c3c7 58%);}
+  .pcard .pav{margin-top:-48px;}
+  .pcard .av{width:96px;height:96px;border:2px solid #fff;}
+  .pcard .n{font-size:16px;line-height:20px;font-weight:600;margin-top:12px;padding:0 12px;text-align:center;}
+  .pcard .n:hover{text-decoration:underline;}
+  .pcard .r{font-size:14px;line-height:20px;color:var(--t2);padding:4px 12px 0;flex:1;}
+  .pcard .o{font-size:12px;line-height:16px;color:var(--t2);padding:8px 12px 12px;}
+  .pcard .b-out,.pcard .b-gray{width:calc(100% - 32px);justify-content:center;}
+
+  /* jobs */
+  .jrow{display:flex;gap:12px;padding:12px 16px;align-items:flex-start;}
+  .jrow + .jrow{border-top:1px solid var(--line);}
+  .jlogo{width:56px;height:56px;border-radius:4px;color:#fff;font-weight:600;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .jrow .txt{flex:1;min-width:0;}
+  .jt{font-size:16px;line-height:20px;font-weight:600;color:var(--blue);text-align:left;}
+  .jt:hover{text-decoration:underline;color:var(--blue-d);}
+  .jc{font-size:14px;line-height:20px;color:var(--t1);}
+  .jl{font-size:14px;line-height:20px;color:var(--t2);}
+  .jm{font-size:12px;line-height:16px;color:var(--t2);margin-top:6px;}
+  .jm .g{color:var(--green);font-weight:600;}
+  .jsv{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0;}
+  .jsv:hover{background:var(--hover);color:var(--t1);}
+  .jsv.on{color:var(--t1);}
+  .jchips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px;}
+  .jchips span{display:inline-flex;align-items:center;border-radius:4px;background:#e8f3e9;color:#1f5f2e;font-size:14px;line-height:20px;font-weight:600;padding:2px 8px;}
+  .jdesc{font-size:14px;line-height:20px;white-space:pre-line;margin:0;}
+  .jhead{display:flex;gap:12px;align-items:center;margin-bottom:4px;}
+  .jhead .jc{font-size:14px;}
+
+  /* messaging page */
+  .msg{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);height:calc(100vh - 52px - 48px);min-height:460px;}
+  .mlist{border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;}
+  .mlh{display:flex;align-items:center;gap:4px;padding:8px 8px 8px 16px;border-bottom:1px solid var(--line);min-height:48px;}
+  .mlh h1{margin:0;font-size:16px;line-height:20px;font-weight:600;flex:1;}
+  .ibtn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0;}
+  .ibtn:hover{background:var(--hover);color:var(--t1);}
+  .msearch{position:relative;padding:8px 12px;border-bottom:1px solid var(--line);}
+  .msearch input{width:100%;height:32px;border:none;border-radius:4px;background:#edf3f8;padding:0 12px 0 36px;font-size:14px;}
+  .msearch input::placeholder{color:var(--t2);}
+  .msearch input:focus{outline:2px solid var(--t1);outline-offset:-2px;}
+  .msearch .mag{position:absolute;left:24px;top:16px;color:var(--t2);}
+  .mrows{flex:1;overflow-y:auto;}
+  .mrow{display:flex;gap:10px;padding:12px 12px 12px 12px;width:100%;text-align:left;align-items:flex-start;border-left:4px solid transparent;}
+  .mrow + .mrow{box-shadow:inset 0 1px 0 var(--line);}
+  .mrow:hover{background:var(--hover-soft);}
+  .mrow.sel{background:#edf3f8;border-left-color:var(--green);}
+  .mrow .txt{flex:1;min-width:0;}
+  .mrow .top{display:flex;justify-content:space-between;gap:8px;}
+  .mrow .n{font-size:14px;line-height:20px;font-weight:600;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .mrow .tm{font-size:12px;line-height:20px;color:var(--t2);flex-shrink:0;}
+  .mrow .s{font-size:14px;line-height:18px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .mrow.un .s{color:var(--t1);font-weight:600;}
+  .mrow.un .tm{color:var(--t1);font-weight:600;}
+  .udot{width:10px;height:10px;border-radius:50%;background:var(--blue);display:inline-block;flex-shrink:0;margin-top:5px;}
+  .mempty{padding:32px 16px;text-align:center;color:var(--t2);font-size:14px;line-height:20px;}
+  .mth{display:flex;flex-direction:column;min-height:0;min-width:0;}
+  .mth-h{display:flex;gap:8px;align-items:center;padding:8px 12px 8px 16px;border-bottom:1px solid var(--line);min-height:60px;}
+  .mth-h .who{flex:1;min-width:0;text-align:left;}
+  .mth-h .who .n{display:block;font-size:16px;line-height:20px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .mth-h .who:hover .n{text-decoration:underline;}
+  .mth-h .who .r{display:block;font-size:12px;line-height:15px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  #mBack{display:none;}
+  .mth-b{flex:1;overflow-y:auto;padding:0 16px 16px;}
+  .mth .cv-f textarea{height:84px;}
+  .mth-none{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:24px;text-align:center;color:var(--t2);font-size:14px;line-height:20px;}
+  .mth-none h2{margin:0;font-size:20px;line-height:25px;color:var(--t1);font-weight:600;}
+
+  /* notifications */
+  .nfrow{display:flex;gap:4px;align-items:stretch;position:relative;}
+  .nfrow + .nfrow{border-top:1px solid var(--line);}
+  .nfrow.un{background:var(--blue-tint);}
+  .nfgo{flex:1;min-width:0;display:flex;gap:10px;align-items:flex-start;padding:16px 4px 16px 8px;text-align:left;}
+  .nfgo:hover .x{text-decoration:underline;}
+  .nfgo .ndot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:20px;background:transparent;}
+  .nfrow.un .ndot{background:var(--blue);}
+  .nfgo .x{flex:1;min-width:0;font-size:14px;line-height:20px;color:var(--t1);}
+  .nfgo .x b{font-weight:600;}
+  .nfgo .x .q{display:block;color:var(--t2);margin-top:4px;}
+  .nfside{display:flex;flex-direction:column;align-items:flex-end;gap:4px;padding:12px 8px 12px 0;flex-shrink:0;}
+  .nfside .tm{font-size:12px;line-height:16px;color:var(--t2);padding-right:8px;}
+  .nicon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;box-shadow:0 0 0 1px var(--edge);}
+  .nicon.sq{border-radius:6px;}
+  .nfpills{padding:12px 16px;}
+  .lrow.static{cursor:default;}
+  .lrow.static:hover .n{color:inherit;text-decoration:none;}
+  .lrow .rt{margin-left:auto;align-self:center;flex-shrink:0;}
+  .lempty{padding:24px 0;text-align:center;color:var(--t2);font-size:14px;line-height:20px;}
+
+  @media (max-width:1000px){ .ngrid{grid-template-columns:240px minmax(0,1fr);} }
+  @media (max-width:860px){
+    .ngrid{grid-template-columns:minmax(0,1fr);gap:8px;}
+    .ngrid > aside{position:static;}
+    .msg{grid-template-columns:minmax(0,1fr);height:calc(100vh - 52px - 32px);}
+    .msg .mth{display:none;}
+    .msg.open .mlist{display:none;}
+    .msg.open .mth{display:flex;}
+    #mBack{display:flex;}
+    .page.mpage{padding-top:16px;padding-bottom:16px;}
+  }
+  @media (max-width:560px){
+    .invr{flex-wrap:wrap;}
+    .invr .btns{width:100%;justify-content:flex-end;}
+    .pcards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 12px 12px;}
+    .pcard .av{width:72px;height:72px;}
+    .pcard .pav{margin-top:-36px;}
+    .page.mpage{padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;}
+    .page.mpage > .card{border-radius:0;}
+    .msg{height:calc(100vh - 52px);}
+  }
+  .mnote[hidden],.mth-h[hidden],.mth-b[hidden],.mth .cv-f[hidden],.mth-none[hidden]{display:none;}
+  .dk-row.un .s{color:var(--t1);font-weight:600;}
+  .dk-row .udot{margin-top:0;}
+  .flash{animation:flash 1.8s ease-out;}
+  @keyframes flash{0%,40%{box-shadow:0 0 0 2px var(--blue);}100%{box-shadow:0 0 0 2px transparent;}}
 </style>
 </head>
 <body>
@@ -491,24 +666,25 @@
         <span class="lbl">Jobs</span>
       </button>
       <button class="gitem" data-nav="Messaging">
+        <span class="gdot" id="msgDot" hidden></span>
         <svg width="24" height="24" viewBox="0 0 24 24" class="ico"><path d="M12 3.8c-4.8 0-8.5 3.3-8.5 7.6 0 2.2 1 4.2 2.7 5.6L5.5 20.5l4-1.9c.8.2 1.6.3 2.5.3 4.8 0 8.5-3.3 8.5-7.5S16.8 3.8 12 3.8z"/><circle cx="8.3" cy="11.4" r=".6" fill="currentColor"/><circle cx="12" cy="11.4" r=".6" fill="currentColor"/><circle cx="15.7" cy="11.4" r=".6" fill="currentColor"/></svg>
         <span class="lbl">Messaging</span>
       </button>
       <button class="gitem" data-nav="Notifications">
         <svg width="24" height="24" viewBox="0 0 24 24" class="ico"><path d="M6 16.5V11a6 6 0 0112 0v5.5l1.8 2H4.2z"/><path d="M10 20.5a2 2 0 004 0"/></svg>
-        <span class="gdot">5</span>
+        <span class="gdot" id="notifDot">5</span>
         <span class="lbl">Notifications</span>
       </button>
-      <button class="gitem inside sel" data-nav="Inside" aria-current="page">
+      <button class="gitem inside" data-nav="Inside">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21V7.2L11 3v4.4l10 3.4V21h-7v-4h-4v4zm3-11v2h2v-2zm0 4v2h2v-2zm4-4v2h2v-2zm0 4v2h2v-2zm5 0v2h2v-2zm0 4v2h2v-2z"/></svg>
         <span class="lbl">Inside</span>
       </button>
-      <button class="gitem" data-nav="Me">
+      <button class="gitem" data-nav="Me" aria-haspopup="menu" aria-expanded="false">
         <span class="gav" id="gav"></span>
         <span class="lbl">Me <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.8 3.6 6.4l1-1L8 8.8l3.4-3.4 1 1z"/></svg></span>
       </button>
       <span class="gdiv"></span>
-      <button class="gitem biz" data-nav="For Business">
+      <button class="gitem biz" data-nav="For Business" aria-haspopup="menu" aria-expanded="false">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="1.8"/><circle cx="12" cy="5" r="1.8"/><circle cx="19" cy="5" r="1.8"/><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/><circle cx="5" cy="19" r="1.8"/><circle cx="12" cy="19" r="1.8"/><circle cx="19" cy="19" r="1.8"/></svg>
         <span class="lbl">For Business <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.8 3.6 6.4l1-1L8 8.8l3.4-3.4 1 1z"/></svg></span>
       </button>
@@ -520,7 +696,184 @@
   </div>
 </header>
 
-<div class="page">
+<!-- ================= Home (public LinkedIn feed) ================= -->
+<div class="page view" id="v-home" hidden>
+  <div class="grid">
+    <aside class="rail-left">
+      <section class="card idcard">
+        <div class="cover"></div>
+        <div class="body">
+          <button class="opro pav" data-per="khush" aria-label="View your profile"><div class="av" id="hAv"></div></button>
+          <div class="nm"><button class="opro" data-per="khush" id="hName"></button></div>
+          <div class="hl" id="hTitle"></div>
+          <div class="lo" id="hOffice"></div>
+          <div class="orgrow">
+            <div class="gtile" style="width:24px;height:24px;font-size:16px;border-radius:4px;box-shadow:0 0 0 1px rgba(140,140,140,.3)">G</div>
+            <span class="t">Google</span>
+          </div>
+        </div>
+      </section>
+      <section class="card hstat">
+        <div class="srow"><span>Profile viewers</span><b>48</b></div>
+        <div class="srow"><span>Post impressions</span><b>1,204</b></div>
+      </section>
+      <section class="card">
+        <div class="railnav">
+          <button class="rlink" id="hkSaved">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3v19l-6-4.5L6 22V3z"/></svg>
+            Saved items <span class="ct" id="hSavedCt">0</span></button>
+          <button class="rlink" id="hkGroups">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4a3 3 0 110 6 3 3 0 010-6zM5.5 7a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm13 0a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM12 11.5c3.3 0 6 1.9 6 4.2V20H6v-4.3c0-2.3 2.7-4.2 6-4.2z"/></svg>
+            Groups</button>
+          <button class="rlink" id="hkEvents">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v2h10V2h2v2h2a1 1 0 011 1v15a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1h2V2zm13 7H4v10h16z"/></svg>
+            Events</button>
+          <button class="rlink" id="hkNews">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h13a1 1 0 011 1v3h2a1 1 0 011 1v10a3 3 0 01-3 3H6a3 3 0 01-3-3V4a1 1 0 011-1zm2 4v2h9V7zm0 4v2h9v-2zm0 4v2h6v-2z"/></svg>
+            Newsletters</button>
+        </div>
+      </section>
+    </aside>
+
+    <main class="stack">
+      <section class="card composer">
+        <div class="row">
+          <div class="av" id="hCompAv"></div>
+          <button class="cbtn jpub">Start a post</button>
+        </div>
+        <div class="ctypes">
+          <button class="ctype jpub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#5f9b41"><path d="M3 5h12a1 1 0 011 1v3.5l5-3v11l-5-3V18a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg> Video</button>
+          <button class="ctype jpub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#378fe9"><path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm4.5 4a2 2 0 100 4 2 2 0 000-4zM5 18h14l-4.5-6-3.5 4.5-2.5-3z"/></svg> Photo</button>
+          <button class="ctype jpub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#e06847"><path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm2 4v2h12V7zm0 4v2h12v-2zm0 4v2h8v-2z"/></svg> Write article</button>
+        </div>
+      </section>
+      <div id="hBar"></div>
+      <div id="homeFeed" aria-live="polite"></div>
+    </main>
+
+    <aside class="rail-right">
+      <section class="card">
+        <div class="rhead"><h2>Add to your feed</h2></div>
+        <div id="addFeed"></div>
+      </section>
+      <div class="footslot"></div>
+    </aside>
+  </div>
+</div>
+
+<!-- ================= My Network ================= -->
+<div class="page view" id="v-network" hidden>
+  <div class="ngrid">
+    <aside>
+      <section class="card">
+        <div class="sech"><h2>Manage my network</h2></div>
+        <div id="netManage" style="padding-bottom:8px"></div>
+      </section>
+      <div class="footslot"></div>
+    </aside>
+    <main class="stack">
+      <section class="card" id="netInv"></section>
+      <section class="card">
+        <div class="sech"><div><h2>People you may know from Google</h2><div class="sm">Colleagues across Google offices</div></div></div>
+        <div class="pcards" id="netGoogle"></div>
+      </section>
+      <section class="card">
+        <div class="sech"><div><h2>More suggestions for you</h2><div class="sm">Based on your profile and activity</div></div></div>
+        <div class="pcards" id="netMore"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- ================= Jobs ================= -->
+<div class="page view" id="v-jobs" hidden>
+  <div class="grid">
+    <aside class="rail-left">
+      <section class="card">
+        <div class="railnav">
+          <button class="rlink" id="jbPrefs">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h10v2H3zm14 0h4v2h-4V8h-2V4h2zM3 11h4v2H3zm8 0h10v2H11v1H9v-4h2zM3 17h10v2H3zm14 0h4v2h-4v1h-2v-4h2z"/></svg>
+            Preferences</button>
+          <button class="rlink" id="jbMy">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3v19l-6-4.5L6 22V3z"/></svg>
+            My jobs <span class="ct" id="jbCt">0</span></button>
+        </div>
+      </section>
+    </aside>
+    <main class="stack">
+      <section class="card">
+        <div class="sech"><div><h2>Top job picks for you</h2><div class="sm">Based on your profile, preferences, and activity like applies, searches, and saves</div></div>
+          <button class="b-gray b-sm" id="jbMy2">My jobs</button></div>
+        <div id="jobList"></div>
+      </section>
+    </main>
+    <aside class="rail-right"><div class="footslot"></div></aside>
+  </div>
+</div>
+
+<!-- ================= Messaging ================= -->
+<div class="page view mpage" id="v-messaging" hidden>
+  <section class="card">
+    <div class="msg" id="msgWrap">
+      <div class="mlist">
+        <div class="mlh"><h1>Messaging</h1>
+          <button class="ibtn" id="mNew" aria-label="Compose a new message"><svg width="20" height="20" viewBox="0 0 24 24" class="ico"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 00-3-3L5 17z"/><path d="M14.5 7.5l3 3"/></svg></button>
+        </div>
+        <div class="msearch">
+          <span class="mag"><svg width="14" height="14" viewBox="0 0 24 24" class="ico" style="stroke-width:2.4"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.6-4.6"/></svg></span>
+          <input type="search" id="msq" placeholder="Search messages" aria-label="Search messages" />
+        </div>
+        <div class="mrows" id="mRows"></div>
+      </div>
+      <div class="mth" id="mThread">
+        <div class="mth-none" id="mNone"><h2>Select a conversation</h2><span>Pick someone on the left, or start a new message.</span></div>
+        <div class="mth-h" id="mHead" hidden>
+          <button class="ibtn" id="mBack" aria-label="Back to conversations"><svg width="20" height="20" viewBox="0 0 24 24" class="ico" style="stroke-width:2"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <span id="mAv"></span>
+          <button class="who opro" id="mWho"><span class="n" id="mName"></span><span class="r" id="mRole"></span></button>
+        </div>
+        <div class="mth-b" id="mBody" hidden aria-live="polite"></div>
+        <div class="cv-f" id="mFoot" hidden>
+          <textarea id="mText" placeholder="Write a message…" aria-label="Write a message"></textarea>
+          <div class="row">
+            <span class="cv-note">Prototype · messages aren't delivered</span>
+            <button class="cv-send" id="mSend" disabled>Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= Notifications ================= -->
+<div class="page view" id="v-notifications" hidden>
+  <div class="grid">
+    <aside class="rail-left">
+      <section class="card" style="padding:16px">
+        <div style="font-size:16px;line-height:20px;font-weight:600">Manage your notifications</div>
+        <button class="linkbtn" id="nfSettings" style="margin-top:8px;font-size:14px">View settings</button>
+      </section>
+    </aside>
+    <main class="stack">
+      <section class="card nfpills">
+        <div class="pills" id="nfPills" role="group" aria-label="Notification filters">
+          <button class="pill on" data-nf="all">All</button>
+          <button class="pill" data-nf="jobs">Jobs</button>
+          <button class="pill" data-nf="posts">My posts</button>
+          <button class="pill" data-nf="mentions">Mentions</button>
+        </div>
+      </section>
+      <section class="card" id="nfList"></section>
+    </main>
+    <aside class="rail-right"><div class="footslot"></div></aside>
+  </div>
+</div>
+
+<!-- ================= LinkedIn Inside ================= -->
+<div class="page view" id="v-inside" hidden>
   <div class="grid">
 
     <aside class="rail-left">
@@ -668,8 +1021,7 @@
         <div class="av" id="modAv"></div>
         <div>
           <div style="font-size:16px;line-height:20px;font-weight:600" id="modName"></div>
-          <div style="margin-top:4px"><span class="aud-chip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>
+          <div style="margin-top:4px"><span class="aud-chip"><span id="audIco"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg></span>
             <span id="audChip">Entire Organization</span></span></div>
         </div>
       </div>
@@ -780,6 +1132,17 @@
   </div>
 </div>
 
+<div class="scrim" id="jobModal" hidden>
+  <div class="mdl" role="dialog" aria-modal="true" aria-labelledby="jobTtl">
+    <div class="mhead">
+      <h2 id="jobTtl"></h2>
+      <button class="xbtn" data-close="jobModal" aria-label="Close"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 12 19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6z"/></svg></button>
+    </div>
+    <div class="mbody" id="jobBody"></div>
+    <div class="mfoot" id="jobFoot" style="flex-wrap:wrap"></div>
+  </div>
+</div>
+
 <section class="convo" id="convo" hidden role="dialog" aria-labelledby="cvName">
   <div class="cv-h">
     <span id="cvAv"></span>
@@ -801,8 +1164,8 @@
   <div class="dock-h">
     <span class="avw"><span class="av s32" id="dockAv"></span></span>
     <span class="t">Messaging</span>
-    <button aria-label="More options"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></button>
-    <button aria-label="Compose message"><svg width="20" height="20" viewBox="0 0 24 24" class="ico"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 00-3-3L5 17z"/><path d="M14.5 7.5l3 3"/></svg></button>
+    <button id="dkMore" aria-label="Messaging options" aria-haspopup="menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></button>
+    <button id="dkNew" aria-label="Compose message"><svg width="20" height="20" viewBox="0 0 24 24" class="ico"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 00-3-3L5 17z"/><path d="M14.5 7.5l3 3"/></svg></button>
     <button id="dockToggle" aria-label="Expand messaging"><svg width="20" height="20" viewBox="0 0 24 24" class="ico" style="stroke-width:2"><path d="M6 15l6-6 6 6"/></svg></button>
   </div>
   <div class="dock-b" id="dockBody" hidden>No new messages.</div>
@@ -953,7 +1316,49 @@
       exp:[{t:"Finance Business Partner",c:"Google",y:"2022 - Present \u00b7 Dublin"},
            {t:"Senior Financial Analyst",c:"Corrib Group",y:"2018 - 2022 \u00b7 Dublin"}],
       edu:[{s:"Trinity College Dublin",d:"B.Sc. Finance",y:"2014 - 2018"}],
-      skills:["FP&A","Budgeting","Vendor Management","Forecasting","Excel"]}
+      skills:["FP&A","Budgeting","Vendor Management","Forecasting","Excel"]},
+
+    /* ---------- people outside Google (public LinkedIn only; never in Inside) ---------- */
+    maya:{id:"maya",name:"Maya Lindqvist",ini:"ML",c:"#3d5a73",ext:true,company:"Halden Software",deg:"2nd",
+      title:"Technical Recruiter",office:"Seattle, Washington",
+      about:"I recruit product and engineering leaders for Halden Software. I read every message, though sometimes a week late.",
+      exp:[{t:"Technical Recruiter",c:"Halden Software",y:"2021 - Present \u00b7 Seattle"},
+           {t:"Recruiting Coordinator",c:"Pinecrest Staffing",y:"2018 - 2021 \u00b7 Portland"}],
+      edu:[{s:"University of Washington",d:"B.A. Psychology",y:"2014 - 2018"}],
+      skills:["Technical Recruiting","Candidate Experience","Interviewing"]},
+    jordan:{id:"jordan",name:"Jordan Pike",ini:"JP",c:"#5a4a6e",ext:true,company:"Fieldnote Labs",deg:"2nd",
+      title:"Founder & CEO",office:"Austin, Texas",
+      about:"Building Fieldnote Labs, a small team making research tools for product teams. Before that, a decade in product management.",
+      exp:[{t:"Founder & CEO",c:"Fieldnote Labs",y:"2021 - Present \u00b7 Austin"},
+           {t:"Director of Product",c:"Brightline Health",y:"2016 - 2021 \u00b7 Austin"}],
+      edu:[],skills:["Product Management","Customer Research","Startups"]},
+    leila:{id:"leila",name:"Leila Moreau",ini:"LM",c:"#8a6a3a",ext:true,company:"Foldwork",deg:"2nd",
+      title:"Senior Product Designer",office:"Toronto, Ontario",
+      about:"Product designer working on collaboration tools. I also write a small newsletter about design critique.",
+      exp:[{t:"Senior Product Designer",c:"Foldwork",y:"2022 - Present \u00b7 Toronto"},
+           {t:"Product Designer",c:"Northbeam Studio",y:"2018 - 2022 \u00b7 Montr\u00e9al"}],
+      edu:[{s:"OCAD University",d:"BDes, Graphic Design",y:"2014 - 2018"}],
+      skills:["Product Design","Design Critique","Prototyping"]},
+    kofi:{id:"kofi",name:"Kofi Mensah",ini:"KM",c:"#2f5d6e",ext:true,company:"Kestrel Analytics",deg:"3rd+",
+      title:"Lead Data Scientist",office:"London, United Kingdom",
+      about:"I help product teams run experiments they can actually trust. Mostly that means fewer, bigger tests.",
+      exp:[{t:"Lead Data Scientist",c:"Kestrel Analytics",y:"2020 - Present \u00b7 London"},
+           {t:"Data Scientist",c:"Tallis Retail",y:"2016 - 2020 \u00b7 London"}],
+      edu:[{s:"University of Ghana",d:"B.Sc. Statistics",y:"2010 - 2014"}],
+      skills:["Experimentation","Causal Inference","Python","SQL"]},
+    rhea:{id:"rhea",name:"Rhea Kapoor",ini:"RK",c:"#5b3f6e",ext:true,company:"Verano Mobile",deg:"2nd",
+      title:"Product Manager",office:"San Francisco, California",
+      about:"Product manager on the growth team at Verano Mobile. Interested in pricing, onboarding, and the space between them.",
+      exp:[{t:"Product Manager",c:"Verano Mobile",y:"2023 - Present \u00b7 San Francisco"},
+           {t:"Associate Product Manager",c:"Lumen Pay",y:"2021 - 2023 \u00b7 San Francisco"}],
+      edu:[],skills:["Growth","Pricing","Onboarding"]},
+    tomasz:{id:"tomasz",name:"Tomasz W\u00f3jcik",ini:"TW",c:"#4a5a3a",ext:true,company:"Arclight Systems",deg:"2nd",
+      title:"Engineering Manager",office:"Krak\u00f3w, Poland",
+      about:"Engineering manager for a platform team. I write now and then about planning, estimates, and keeping teams sane.",
+      exp:[{t:"Engineering Manager",c:"Arclight Systems",y:"2020 - Present \u00b7 Krak\u00f3w"},
+           {t:"Senior Software Engineer",c:"Vistula Tech",y:"2015 - 2020 \u00b7 Krak\u00f3w"}],
+      edu:[{s:"AGH University of Krakow",d:"M.Sc. Computer Science",y:"2010 - 2015"}],
+      skills:["Engineering Management","Platform Engineering","Agile Planning"]}
   };
 
   var POSTS=[
@@ -1102,7 +1507,13 @@
     renee :{s:5,h:"curlyL",hc:"dark",  sh:"#8a5353",bg:"#f2e1e1"},
     sam   :{s:1,h:"side",  hc:"auburn",sh:"#625e3c",bg:"#edecdb",col:"shirt"},
     fatima:{s:2,h:"long",  hc:"dark",  sh:"#7a5436",bg:"#f1e6da"},
-    owen  :{s:0,h:"short", hc:"auburn",sh:"#46605f",bg:"#dfebeb",b:1}
+    owen  :{s:0,h:"short", hc:"auburn",sh:"#46605f",bg:"#dfebeb",b:1},
+    maya  :{s:0,h:"long",  hc:"blonde",sh:"#3d5a73",bg:"#dde7ef"},
+    jordan:{s:2,h:"short", hc:"dark",  sh:"#5a4a6e",bg:"#e7e1ee",b:1},
+    leila :{s:2,h:"bob",   hc:"black", sh:"#8a6a3a",bg:"#f0e8d8",g:1},
+    kofi  :{s:5,h:"buzz",  hc:"black", sh:"#2f5d6e",bg:"#dae8ec",g:1,col:"shirt"},
+    rhea  :{s:3,h:"long",  hc:"black", sh:"#5b3f6e",bg:"#ebe1f0"},
+    tomasz:{s:0,h:"side",  hc:"brown", sh:"#4a5a3a",bg:"#e3e9dc",b:1}
   };
   function face(id){
     var L=LOOK[id]||{s:2,h:"short",hc:"dark",sh:"#55607a",bg:"#e2e5ee"};
@@ -1218,21 +1629,22 @@
   }
 
   function postHTML(po){
-    var a=P[po.a];
+    if(po.hid) return hidHTML(po);
+    var a=P[po.a], pub=!!po.pub;
     var cms=po.cm.map(function(c){var cp=P[c.by];
       return '<div class="cmt">'+av(cp,"s32")+'<div class="bub"><div class="n">'+esc(cp.name)+'</div>'+
-        '<div class="r">'+esc(cp.title)+'</div><div class="x">'+esc(c.x)+'</div></div></div>';}).join("");
+        '<div class="r">'+esc(pub?headline(cp):cp.title)+'</div><div class="x">'+esc(c.x)+'</div></div></div>';}).join("");
 
     return '<article class="card post" data-p="'+po.id+'">'+
       '<div class="phead">'+
         '<button class="opro pav" data-per="'+a.id+'" aria-label="View profile of '+esc(a.name)+'">'+av(a)+'</button>'+
         '<div class="pident">'+
           '<div class="pnrow"><button class="pname opro" data-per="'+a.id+'">'+esc(a.name)+'</button>'+
-            '<span class="pdeg">'+DOT+' '+esc(a.dept)+'</span></div>'+
-          '<div class="phl">'+esc(a.title)+' · '+esc(a.office)+'</div>'+
-          '<div class="pmeta">'+esc(po.t)+' '+DOT+' '+LOCK+' Internal · '+esc(po.aud)+' · '+esc(po.cat)+'</div>'+
+            '<span class="pdeg">'+DOT+' '+esc(pub?(po.a===ME?"You":degOf(po.a)):a.dept)+'</span></div>'+
+          '<div class="phl">'+(pub?esc(headline(a)):esc(a.title)+' · '+esc(a.office))+'</div>'+
+          '<div class="pmeta">'+esc(po.t)+' '+DOT+' '+(pub?globe(12):LOCK+' Internal · '+esc(po.aud)+' · '+esc(po.cat))+'</div>'+
         '</div>'+
-        '<button class="pmore" aria-label="More options"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></button>'+
+        '<button class="pmore" aria-haspopup="menu" aria-expanded="false" aria-label="More options for '+esc(a.name)+'’s post"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></button>'+
       '</div>'+
       '<div class="pbody">'+esc(po.b)+'</div>'+
       pollHTML(po)+
@@ -1259,6 +1671,7 @@
         :"No posts match this filter. Try another filter, or share the first update.")+'</p></div>';
     $("#savedCt").textContent=POSTS.filter(function(p){return p.sv;}).length;
     $("#lkSaved").classList.toggle("on",st.view==="saved");
+    renderHome();
   }
 
   function rails(){
@@ -1296,6 +1709,7 @@
   });
   document.addEventListener("keydown",function(e){
     if(e.key!=="Escape") return;
+    if(!menuEl.hidden){ closeMenu(true); return; }
     if(mstack.length){ closeM(mstack[mstack.length-1].id); return; }
     if(!$("#convo").hidden && $("#convo").contains(document.activeElement)) closeConvo();
   });
@@ -1317,12 +1731,13 @@
       '<div class="ptop"><div class="av" style="background:'+LOOK[p.id].bg+'" aria-hidden="true">'+face(p.id)+'</div>'+
         '<div class="pgrid"><div class="main">'+
           '<div class="pn" id="pfName">'+esc(p.name)+
-            '<span class="vbadge">'+IC.shield+' Verified employee</span></div>'+
-          '<div class="ph">'+esc(p.title)+'</div>'+
-          '<div class="pl">'+esc(p.office)+' · '+esc(p.dept)+'</div>'+
-          (me?'':contactHTML(p))+
+            (p.ext?'<span style="font-size:14px;font-weight:400;color:var(--t2)">· '+esc(degOf(id))+'</span>':'<span class="vbadge">'+IC.shield+' Verified employee</span>')+'</div>'+
+          '<div class="ph">'+esc(p.ext?headline(p):p.title)+'</div>'+
+          '<div class="pl">'+esc(p.office)+' · '+esc(p.ext?p.company:p.dept)+'</div>'+
+          (me?'':p.ext?extContactHTML(p):contactHTML(p))+
         '</div>'+
-        '<div class="porg">'+GT(32,22)+'<span>Google</span></div></div>'+
+        '<div class="porg">'+(p.ext?'<div class="xlogo" style="background:'+p.c+';width:32px;height:32px;font-size:16px;margin:0" aria-hidden="true">'+esc(p.company.charAt(0))+'</div><span>'+esc(p.company)
+          :GT(32,22)+'<span>Google')+'</span></div></div>'+
       '</div>';
     $("#profBody").innerHTML=
       '<section class="psec"><h3>About</h3><p>'+esc(p.about)+'</p></section>'+
@@ -1333,9 +1748,14 @@
     openM("profModal");
   }
 
+  function extContactHTML(p){
+    return '<div class="pbtns"><button class="b-pri jmsg" data-per="'+p.id+'" aria-label="Message '+esc(p.name)+' on LinkedIn">Message</button>'+
+      (CONN[p.id]==="c"?'':conBtn(p.id,"b-out"))+folBtn(p.id,"b-gray")+'</div>';
+  }
+
   function openDir(){
     $("#listTtl").textContent="Company directory";
-    $("#listBody").innerHTML=Object.keys(P).map(function(id){var p=P[id];
+    $("#listBody").innerHTML=Object.keys(P).filter(function(id){return !P[id].ext;}).map(function(id){var p=P[id];
       return '<button class="lrow opro" data-per="'+id+'">'+av(p)+
         '<span><span class="n">'+esc(p.name)+(id===ME?' <span style="font-weight:400;color:var(--t2)">(you)</span>':'')+'</span><br>'+
         '<span class="s"><b>'+esc(p.title)+'</b><br>'+esc(p.dept)+' · '+esc(p.office)+'</span></span></button>';
@@ -1343,14 +1763,18 @@
     openM("listModal");
   }
 
+  var sharePub=false;
   function openShare(po){
-    var a=P[po.a];
-    $("#shNote").textContent="Sending "+a.name+"'s post. Internal posts can only be sent to verified Google employees.";
-    $("#shList").innerHTML=Object.keys(P).filter(function(id){return id!==ME;}).map(function(id){
+    var a=P[po.a]; sharePub=!!po.pub;
+    $("#shTtl").textContent=sharePub?"Send":"Send inside Google";
+    $("#shareModal .mnote svg").style.display=sharePub?"none":"";
+    $("#shNote").textContent=sharePub?"Sending "+a.name+"’s post as a LinkedIn message."
+      :"Sending "+a.name+"'s post. Internal posts can only be sent to verified Google employees.";
+    $("#shList").innerHTML=Object.keys(P).filter(function(id){return id!==ME&&(sharePub||!P[id].ext);}).map(function(id){
       var q=P[id];
       return '<label class="shrow"><input type="checkbox" class="shbox" />'+av(q,"s40")+
-        '<span><span class="n">'+esc(q.name)+'</span><br><span class="s">'+esc(q.title)+
-        ' \u00b7 '+esc(q.office)+'</span></span></label>';}).join("");
+        '<span><span class="n">'+esc(q.name)+'</span><br><span class="s">'+(sharePub?esc(headline(q)):esc(q.title)+
+        ' \u00b7 '+esc(q.office))+'</span></span></label>';}).join("");
     $("#shCount").textContent="No one selected"; $("#shSend").disabled=true;
     openM("shareModal");
   }
@@ -1378,19 +1802,14 @@
   fs.addEventListener("input",function(){st.q=this.value.trim();$("#fclear").hidden=!this.value;render();});
   $("#fclear").addEventListener("click",function(){fs.value="";st.q="";this.hidden=true;render();fs.focus();});
   $("#gs").addEventListener("input",function(){
-    fs.value=this.value;st.q=this.value.trim();$("#fclear").hidden=!this.value;render();});
+    if(cur==="inside"){ fs.value=this.value;st.q=this.value.trim();$("#fclear").hidden=!this.value;render(); return; }
+    hq=this.value.trim(); if(cur!=="home") go("home"); else renderHome();});
 
   $("#sortBtn").addEventListener("click",function(){
     st.sort = st.sort==="Top" ? "Recent" : "Top";
     $("#sortLbl").textContent=st.sort; render();
   });
 
-  Array.prototype.forEach.call(document.querySelectorAll("[data-nav]"),function(b){
-    b.addEventListener("click",function(){
-      if(this.getAttribute("data-nav")==="Inside")return;
-      toast("This prototype covers LinkedIn Inside only.");
-    });
-  });
 
   $("#lkSaved").addEventListener("click",function(){
     st.view = st.view==="saved" ? "feed" : "saved"; render();});
@@ -1433,7 +1852,7 @@
         '<button class="b-chat jchat" data-per="'+p.id+'"'+(un?' aria-disabled="true"':'')+
           ' aria-label="'+(un? esc(t.name)+' is not available for '+esc(p.name) : 'Message '+esc(p.name)+' on '+esc(t.name))+'">'+
           t.icon(18)+'Message on '+esc(t.label)+'</button>'+
-        '<button class="b-out jfol" data-n="'+esc(p.name)+'">'+IC.plus+'Follow</button>'+
+        folBtn(p.id,"b-out")+
       '</div>'+
       '<div class="pnote">'+INFOI+'<span>'+(un
         ? fn+' doesn’t have a '+esc(t.name)+' account linked yet. Use <b>Message</b> to reach '+fn+' on LinkedIn.'
@@ -1482,7 +1901,7 @@
     var id=hand.id;
     if(k==="back"){ closeM("chatModal"); return; }
     if(k==="done"){ closeM("chatModal"); closeM("profModal"); return; }
-    if(k==="linkedin"){ closeM("chatModal"); closeM("profModal"); openConvo(id); return; }
+    if(k==="linkedin"){ closeM("chatModal"); closeM("profModal"); startMsg(id); return; }
     if(k==="go"){
       hand.tries++; renderHand("opening"); $("#chatModal .xbtn").focus();
       clearTimeout(hand.timer);
@@ -1499,24 +1918,19 @@
   function openConvo(id){
     var p=P[id]; if(!p||id===ME) return;
     cv.opener=document.activeElement; cv.id=id; THREADS[id]=THREADS[id]||[];
-    $("#cvAv").innerHTML=av(p,"s32"); $("#cvName").textContent=p.name; $("#cvRole").textContent=p.title;
+    $("#cvAv").innerHTML=av(p,"s32"); $("#cvName").textContent=p.name; $("#cvRole").textContent=p.ext?headline(p):p.title;
+    delete UNREAD[id]; msgBadge(); renderDock();
     $("#cvWho").setAttribute("data-per",id); $("#cvWho").setAttribute("aria-label","View "+p.name+"’s profile");
     $("#cvText").value=""; $("#cvSend").disabled=true;
     var c=$("#convo"); c.classList.remove("min"); $("#cvMin").style.transform=""; $("#cvMin").setAttribute("aria-label","Minimize conversation");
     renderConvo(); c.hidden=false; $("#cvText").focus();
   }
   function renderConvo(){
-    var p=P[cv.id], th=THREADS[cv.id];
-    var h='<div class="cv-intro">'+av(p)+'<div class="n">'+esc(p.name)+'</div><div class="r">'+esc(p.title)+'</div>'+
-          '<div class="r">'+esc(p.office)+'</div></div>';
-    if(th.length) h+='<div class="cv-day">Today</div>'+th.map(function(m){var a=P[m.by];
-      return '<div class="cv-m">'+av(a,"s32")+'<div style="min-width:0"><div class="hd">'+esc(a.name)+'<span>'+esc(m.t)+'</span></div>'+
-        '<div class="x">'+esc(m.x)+'</div></div></div>';}).join("");
-    var b=$("#cvBody"); b.innerHTML=h; b.scrollTop=b.scrollHeight;
+    var b=$("#cvBody"); b.innerHTML=threadHTML(cv.id); b.scrollTop=b.scrollHeight;
   }
   function sendConvo(){
     var x=$("#cvText").value.trim(); if(!x||!cv.id) return;
-    THREADS[cv.id].push({by:ME,x:x,t:nowTime()});
+    THREADS[cv.id].push({by:ME,x:x,t:nowTime(),d:"Today"}); bump(cv.id);
     $("#cvText").value=""; $("#cvSend").disabled=true; renderConvo(); renderDock(); $("#cvText").focus();
   }
   function closeConvo(){
@@ -1524,12 +1938,12 @@
     if(o&&o.focus&&document.body.contains(o)) o.focus();
   }
   function renderDock(){
-    var ids=Object.keys(THREADS).filter(function(k){return THREADS[k].length;}), b=$("#dockBody");
+    var ids=listIds().filter(function(k){return lastOf(k);}), b=$("#dockBody");
     if(!ids.length){ b.classList.remove("has"); b.textContent="No new messages."; return; }
     b.classList.add("has");
-    b.innerHTML=ids.map(function(id){var p=P[id], last=THREADS[id][THREADS[id].length-1];
-      return '<button class="dk-row" data-per="'+id+'">'+av(p,"s40")+'<span><span class="n">'+esc(p.name)+'</span>'+
-        '<span class="s">You: '+esc(last.x)+'</span></span></button>';}).join("");
+    b.innerHTML=ids.map(function(id){var p=P[id], u=!!UNREAD[id];
+      return '<button class="dk-row'+(u?" un":"")+'" data-per="'+id+'" aria-label="'+esc(p.name)+(u?", unread":"")+'">'+av(p,"s40")+'<span><span class="n">'+esc(p.name)+'</span>'+
+        '<span class="s">'+esc(snip(id))+'</span></span>'+(u?'<i class="udot"></i>':'')+'</button>';}).join("");
   }
   $("#cvText").addEventListener("input",function(){$("#cvSend").disabled=!this.value.trim();});
   $("#cvText").addEventListener("keydown",function(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendConvo();}});
@@ -1556,7 +1970,7 @@
       $("#fclear").hidden=false; render(); window.scrollTo({top:0,behavior:"smooth"}); return; }
 
     var mg=e.target.closest(".jmsg");
-    if(mg){ var mid=mg.getAttribute("data-per"); closeM("profModal"); openConvo(mid); return; }
+    if(mg){ var mid=mg.getAttribute("data-per"); closeM("profModal"); startMsg(mid); return; }
     var hc=e.target.closest(".jchat");
     if(hc){ openHandoff(hc.getAttribute("data-per")); return; }
     var hx=e.target.closest("[data-h]");
@@ -1564,17 +1978,16 @@
     var dk=e.target.closest(".dk-row");
     if(dk){ openConvo(dk.getAttribute("data-per")); return; }
     var fo=e.target.closest(".jfol");
-    if(fo){ toast("Following "+fo.getAttribute("data-n")+" inside Google."); return; }
+    if(fo){ toggleFollow(fo.getAttribute("data-fol")); return; }
 
     var ac=e.target.closest(".act");
     if(ac){
       var art=ac.closest("[data-p]");
-      var po=POSTS.filter(function(x){return x.id===art.getAttribute("data-p");})[0];
+      var po=findPost(art.getAttribute("data-p"));
       if(!po)return;
       var k=ac.getAttribute("data-a");
       if(k==="like"){ po.lk=!po.lk; po.rx+=po.lk?1:-1; render(); }
-      else if(k==="save"){ po.sv=!po.sv;
-        toast(po.sv?"Post saved to your internal saves.":"Post removed from your saves."); render(); }
+      else if(k==="save"){ toggleSave(po); }
       else if(k==="send"){ openShare(po); }
       else { var w=art.querySelector(".cwrap"); w.hidden=!w.hidden;
              if(!w.hidden) w.querySelector("input").focus(); }
@@ -1584,11 +1997,11 @@
     var vt=e.target.closest(".jvote");
     if(vt){
       var va=vt.closest("[data-p]");
-      var vp=POSTS.filter(function(x){return x.id===va.getAttribute("data-p");})[0];
+      var vp=findPost(va.getAttribute("data-p"));
       if(vp&&vp.poll&&vp.poll.voted===null){
         var vi=parseInt(vt.getAttribute("data-i"),10);
         vp.poll.voted=vi; vp.poll.opts[vi].v+=1;
-        render(); toast("Vote recorded. Only Google employees can see this poll.");
+        render(); toast(vp.pub?"Vote recorded.":"Vote recorded. Only Google employees can see this poll.");
       }
       return;
     }
@@ -1597,8 +2010,8 @@
     if(sd){
       var a2=sd.closest("[data-p]"), inp=a2.querySelector(".cform input"), tx=inp.value.trim();
       if(!tx){inp.focus();return;}
-      POSTS.filter(function(x){return x.id===a2.getAttribute("data-p");})[0].cm.push({by:ME,x:tx});
-      render(); toast("Comment posted inside Google."); return;
+      var cp2=findPost(a2.getAttribute("data-p")); cp2.cm.push({by:ME,x:tx});
+      render(); toast(cp2.pub?"Comment posted.":"Comment posted inside Google."); return;
     }
 
     var qk=e.target.closest("[data-quick]");
@@ -1607,22 +2020,22 @@
       type=want;
       Array.prototype.forEach.call($("#types").querySelectorAll(".pill"),function(p){
         p.classList.toggle("on",p.getAttribute("data-t")===want);});
-      openM("compModal"); return;
+      openComposer("inside"); return;
     }
   });
 
   $("#shList").addEventListener("change",function(){
     var k=this.querySelectorAll(".shbox:checked").length;
-    $("#shCount").textContent = k===0 ? "No one selected" : k+" colleague"+(k===1?"":"s")+" selected";
+    $("#shCount").textContent = k===0 ? "No one selected" : k+(sharePub?(k===1?" person":" people"):" colleague"+(k===1?"":"s"))+" selected";
     $("#shSend").disabled = (k===0);
   });
   $("#shSend").addEventListener("click",function(){
     var k=$("#shList").querySelectorAll(".shbox:checked").length;
     closeM("shareModal");
-    toast("Sent to "+k+" colleague"+(k===1?"":"s")+" inside Google.");
+    toast(sharePub?"Sent to "+k+(k===1?" person":" people")+" on LinkedIn.":"Sent to "+k+" colleague"+(k===1?"":"s")+" inside Google.");
   });
 
-  $("#openComp").addEventListener("click",function(){openM("compModal");});
+  $("#openComp").addEventListener("click",function(){openComposer("inside");});
   $("#types").addEventListener("click",function(e){
     var b=e.target.closest("[data-t]"); if(!b)return;
     type=b.getAttribute("data-t");
@@ -1643,6 +2056,12 @@
 
   $("#pub").addEventListener("click",function(){
     var v=txt.value.trim(); if(!v)return;
+    if(compMode==="public"){
+      PUB.unshift({id:"h"+Date.now(),a:ME,t:"Just now",pub:true,b:v,rx:0,cm:[],lk:false,sv:false,poll:null});
+      closeM("compModal"); txt.value=""; $("#cct").textContent="0 characters"; this.disabled=true;
+      hv="feed"; hq=""; $("#gs").value=""; renderHome(); window.scrollTo({top:0,behavior:"smooth"});
+      toast("Post shared to your LinkedIn feed."); return;
+    }
     var poll=null;
     if(type==="Poll"){
       var opts=Array.prototype.map.call(d_pollInputs(),function(i){return i.value.trim();})
@@ -1669,7 +2088,515 @@
     toast("Published to Google. Not visible outside the company.");
   });
 
-  rails(); render();
+
+  /* =====================================================================
+     The rest of LinkedIn around Inside: Home, My Network, Jobs, Messaging,
+     Notifications, plus the Me / For Business / post menus.
+     All of it is mock data held in memory; nothing is sent anywhere.
+     ===================================================================== */
+  function each(sel,fn){Array.prototype.forEach.call(document.querySelectorAll(sel),fn);}
+  function notPart(x){toast(x+" isn’t part of this prototype.");}
+  function headline(p){return p.title+" at "+(p.ext?p.company:"Google");}
+  var CONN={ana:"c",diego:"c",aiko:"c",lars:"c",priya:"c",jordan:"c"};
+  function degOf(id){return CONN[id]==="c"?"1st":(P[id].deg||"2nd");}
+  var FOLLOW={};
+  function globe(s){return '<svg class="ico glob" width="'+s+'" height="'+s+'" viewBox="0 0 24 24" style="stroke-width:2" aria-label="Public"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>';}
+  var IC2={
+    check:'<svg width="16" height="16" viewBox="0 0 24 24" class="ico" style="stroke-width:2.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    person:'<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 4a4 4 0 110 8 4 4 0 010-8zm-7 16c0-3.3 3.1-6 7-6s7 2.7 7 6zm17-12v3h3v2h-3v3h-2v-3h-3v-2h3V8z"/></svg>',
+    more:'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg>',
+    chart:'<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 20V10h3v10zm6.5 0V4h3v16zM17 20v-7h3v7z"/></svg>',
+    lockS:'<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8 0V7a3 3 0 016 0v2z"/></svg>'
+  };
+  function folBtn(id,cls){var on=!!FOLLOW[id];
+    return '<button class="'+cls+' jfol" data-fol="'+id+'" aria-pressed="'+on+'">'+(on?IC2.check+"Following":IC.plus+"Follow")+'</button>';}
+  function conBtn(id,cls){var pd=CONN[id]==="p";
+    return '<button class="'+cls+' jcon" data-con="'+id+'" aria-pressed="'+pd+'" aria-label="'+(pd?"Withdraw invitation to ":"Invite ")+esc(P[id].name)+(pd?"":" to connect")+'">'+(pd?"Pending":IC2.person+"Connect")+'</button>';}
+  function syncBtns(){
+    each("[data-fol]",function(b){var on=!!FOLLOW[b.getAttribute("data-fol")];
+      b.setAttribute("aria-pressed",on); b.innerHTML=on?IC2.check+"Following":IC.plus+"Follow";});
+    each("[data-con]",function(b){var id=b.getAttribute("data-con"),pd=CONN[id]==="p";
+      b.setAttribute("aria-pressed",pd); b.innerHTML=pd?"Pending":IC2.person+"Connect";
+      b.setAttribute("aria-label",(pd?"Withdraw invitation to ":"Invite ")+P[id].name+(pd?"":" to connect"));});
+  }
+  function toggleFollow(id){FOLLOW[id]=!FOLLOW[id]; syncBtns();
+    toast(FOLLOW[id]?"You’re now following "+P[id].name+".":"You unfollowed "+P[id].name+".");}
+  function toggleConn(id){
+    if(CONN[id]==="p"){ delete CONN[id]; toast("Invitation to "+P[id].name+" withdrawn."); }
+    else { CONN[id]="p"; toast("Invitation sent to "+P[id].name+"."); }
+    syncBtns();
+  }
+
+  /* ---------- public LinkedIn feed (Home) ---------- */
+  var PUB=[
+    {id:"h1",a:"jordan",t:"3h",rx:214,lk:false,sv:false,pub:true,poll:null,
+     b:"We spent three months building a dashboard nobody opened.\n\nThe problem wasn't the charts. We never asked what decision it was supposed to help someone make. Now every metrics request starts with one question: what will you do differently if this number goes up?\n\nIt has killed about half our dashboard requests, which turned out to be the point.",
+     cm:[{by:"leila",x:"The “what will you do differently” question works for design reviews too."},
+         {by:"kofi",x:"Half of analytics work is talking people out of dashboards. Kindly."}]},
+    {id:"h2",a:"diego",t:"5h",rx:96,lk:false,sv:false,pub:true,poll:null,
+     b:"Giving a talk at a developer conference in Mexico City next month on keeping platform migrations boring. Boring is the goal.\n\nIf you're going and want to compare notes on migrations, find me after the session.",
+     cm:[{by:"diego",x:"Khush Nandecha this is the talk I mentioned. Would love your read on the outline."}]},
+    {id:"h5",a:"kofi",t:"1d",rx:37,lk:false,sv:false,pub:true,
+     b:"How does your team decide an experiment is finished?",cm:[],
+     poll:{voted:null,opts:[{t:"Fixed duration, set up front",v:142},{t:"Once we hit the sample size",v:208},
+                            {t:"When the result looks significant",v:61},{t:"Honestly, we don't decide",v:87}]}},
+    {id:"h3",a:"leila",t:"1d",rx:88,lk:false,sv:false,pub:true,poll:null,cm:[],
+     b:"One change that improved every design review I run: I share the problem statement 24 hours before the review, and the designs only in the room.\n\nPeople arrive having thought about the problem instead of already forming opinions about button colours."},
+    {id:"h4",a:"khush",t:"2d",rx:63,lk:false,sv:false,pub:true,poll:null,
+     b:"Two years into product strategy work, and the most useful habit I've picked up is a boring one: I write the decision down before the meeting, not after.\n\nIf I can't write it in two sentences, the meeting isn't ready to happen yet.",
+     cm:[{by:"rhea",x:"Writing it down first is underrated. Stealing this."}]},
+    {id:"h6",a:"maya",t:"2d",rx:41,lk:false,sv:false,pub:true,poll:null,cm:[],
+     b:"We're hiring a Senior Product Manager for the platform team at Halden Software. Seattle or remote within the US.\n\nYou'd own the APIs our customers build on. If you've shipped developer-facing products and like working closely with engineering, send me a message."},
+    {id:"h7",a:"tomasz",t:"4d",rx:152,lk:false,sv:false,pub:true,poll:null,
+     b:"Our team stopped estimating tickets in points six months ago. We now ask one question: does this fit in a week? If not, we split it.\n\nPlanning went from ninety minutes to twenty. Delivery dates didn't get worse.",
+     cm:[{by:"lars",x:"We tried this in Berlin. The hard part turned out to be splitting the work, not estimating it."}]}
+  ];
+  function findPost(id){return POSTS.concat(PUB).filter(function(x){return x.id===id;})[0];}
+  function hidHTML(po){var del=po.hid==="deleted";
+    return '<div class="card hidp" data-p="'+po.id+'"><div class="t"><b>'+(del?"Post deleted":"Post hidden")+'</b>'+
+      '<span>'+(del?"Your post was removed from the feed.":"You won’t see this post in your feed.")+'</span></div>'+
+      '<button class="b-gray b-sm jundo" data-p="'+po.id+'">Undo</button></div>';}
+
+  var hv="feed", hq="";
+  function renderHome(){
+    var L=PUB.filter(function(po){
+      if(hv==="saved"&&!po.sv) return false;
+      if(hv==="mine"&&po.a!==ME) return false;
+      if(!hq) return true; var a=P[po.a];
+      return [po.b,a.name,headline(a)].join(" ").toLowerCase().indexOf(hq.toLowerCase())!==-1;});
+    $("#hBar").innerHTML=(hv!=="feed"||hq)?'<section class="card fbar"><h2>'+
+      (hv==="saved"?"Saved posts":hv==="mine"?"Your posts and activity":"Posts matching “"+esc(hq)+"”")+
+      '</h2><button class="b-gray b-sm" id="hBack">Back to feed</button></section>':"";
+    $("#homeFeed").innerHTML=L.length?L.map(postHTML).join(""):
+      '<div class="card empty"><h3>Nothing here yet</h3><p>'+(hv==="saved"?"Save a post from your feed and it will collect here."
+        :hq?"No posts match your search. Try a different word.":"No posts to show.")+'</p></div>';
+    $("#hSavedCt").textContent=PUB.filter(function(p){return p.sv;}).length;
+    $("#hkSaved").classList.toggle("on",hv==="saved");
+  }
+  function renderAdd(){
+    $("#addFeed").innerHTML=["tomasz","leila","kofi"].map(function(id){var p=P[id];
+      return '<div class="frow"><button class="opro pav" data-per="'+id+'" aria-label="View profile of '+esc(p.name)+'">'+av(p)+'</button>'+
+        '<div class="txt"><button class="n opro" data-per="'+id+'">'+esc(p.name)+'</button><div class="r">'+esc(headline(p))+'</div>'+
+        folBtn(id,"b-gray b-sm")+'</div></div>';}).join("");
+  }
+
+  /* ---------- composer: public post or Inside post ---------- */
+  var compMode="inside";
+  function openComposer(mode){
+    compMode=mode; var pub=(mode==="public");
+    $("#compTtl").textContent=pub?"Create a post":"Share with Google employees";
+    $("#types").parentNode.hidden=pub; $("#aud").parentNode.hidden=pub;
+    $("#compModal .mnote").hidden=pub;
+    $("#pollBox").hidden=pub||type!=="Poll";
+    $("#audIco").innerHTML=pub?globe(14):IC2.lockS;
+    $("#audChip").textContent=pub?"Anyone":$("#aud").value;
+    $("#ptext").setAttribute("placeholder",pub?"What do you want to talk about?":
+      (type==="Poll"?"Ask your question…":"What are you working on, stuck on, or organizing?"));
+    openM("compModal");
+  }
+
+  /* ---------- lists in the shared list modal ---------- */
+  var PGROUPS=[{t:"Product Strategy Practitioners",s:"84,210 members"},{t:"Los Angeles Product Community",s:"12,940 members"},
+               {t:"Payments and Fintech Professionals",s:"221,380 members"}];
+  var PEVENTS=[{t:"Product leadership roundtable",s:"Wed, Dec 10 · Online · 1,204 attendees"},
+               {t:"LA product meetup: pricing experiments",s:"Thu, Dec 18 · Los Angeles · 186 attendees"}];
+  var PAGES=[{t:"Google",s:"Company · You work here",g:1},{t:"Fieldnote Labs",s:"Company · 8,412 followers"},
+             {t:"Halden Software",s:"Company · 64,310 followers"},{t:"Kestrel Analytics",s:"Company · 22,905 followers"}];
+  var NEWS=[{t:"The Roadmap Review",s:"Weekly · by Jordan Pike"},{t:"Notes on Pricing",s:"Monthly · 41,200 subscribers"},
+            {t:"Design Critique Club",s:"Every two weeks · by Leila Moreau"}];
+  function openList(title,rows,note){
+    $("#listTtl").textContent=title;
+    $("#listBody").innerHTML=rows.map(function(r){
+      return '<div class="lrow static">'+(r.g?'<div class="gbox" style="background:#fff;box-shadow:0 0 0 1px var(--edge)">'+GT(30,20)+'</div>'
+          :'<div class="gbox" style="font-size:20px;font-weight:600" aria-hidden="true">'+esc(r.t.charAt(0))+'</div>')+
+        '<span><span class="n">'+esc(r.t)+'</span><br><span class="s">'+esc(r.s)+'</span></span></div>';}).join("")+
+      (note?'<div class="lempty" style="padding:12px 0">'+esc(note)+'</div>':'');
+    openM("listModal");
+  }
+  function byName(a,b){return P[a].name<P[b].name?-1:1;}
+  function openPeople(title,ids,empty,note,cls){
+    $("#listTtl").textContent=title;
+    $("#listBody").innerHTML=ids.length?ids.map(function(id){var p=P[id];
+      return '<button class="lrow '+(cls||"opro")+'" data-per="'+id+'">'+av(p)+'<span><span class="n">'+esc(p.name)+'</span><br>'+
+        '<span class="s">'+esc(headline(p))+'</span></span></button>';}).join("")+
+      (note?'<div class="lempty" style="padding:12px 0">'+esc(note)+'</div>':''):'<div class="lempty">'+esc(empty)+'</div>';
+    openM("listModal");
+  }
+  function openNewMsg(){
+    openPeople("New message",Object.keys(P).filter(function(id){return id!==ME;}).sort(byName),"","","jnew");
+  }
+
+  /* ---------- My Network ---------- */
+  var INV=[{id:"maya",m:"4 mutual connections",note:"Hi Khush, I recruit for product roles at Halden Software. Would be good to be connected.",st:""},
+           {id:"rhea",m:"12 mutual connections",st:""}];
+  function connIds(){return Object.keys(CONN).filter(function(k){return CONN[k]==="c";}).sort(byName);}
+  function pcardHTML(id){var p=P[id];
+    return '<div class="pcard"><div class="pc-cover"></div><button class="opro pav" data-per="'+id+'" aria-label="View profile of '+esc(p.name)+'">'+av(p)+'</button>'+
+      '<button class="n opro" data-per="'+id+'">'+esc(p.name)+'</button><div class="r">'+esc(p.ext?headline(p):p.title)+'</div>'+
+      '<div class="o">'+esc(p.ext?p.office:"Google · "+p.office)+'</div>'+conBtn(id,"b-out b-sm")+'</div>';}
+  function renderNetwork(){
+    var n=connIds().length;
+    $("#netManage").innerHTML=[["conn","Connections",(498+n).toLocaleString()],["follow","Following & followers",""],
+      ["groups","Groups",PGROUPS.length],["events","Events",PEVENTS.length],["pages","Pages",PAGES.length],["news","Newsletters",NEWS.length]]
+      .map(function(r){return '<button class="mlink" data-mn="'+r[0]+'">'+r[1]+'<span class="c">'+r[2]+'</span></button>';}).join("");
+    var pend=INV.filter(function(i){return !i.st;}).length, rows=INV.filter(function(i){return i.st!=="ignored";});
+    $("#netInv").innerHTML='<div class="sech"><h2>Invitations'+(pend?' ('+pend+')':'')+'</h2></div>'+
+      (rows.length?rows.map(function(i){var p=P[i.id],a='<button class="opro pav" data-per="'+i.id+'" aria-label="View profile of '+esc(p.name)+'">'+av(p)+'</button>';
+        if(i.st==="accepted") return '<div class="invr">'+a+'<div class="txt"><div class="r" style="color:var(--t1)"><b>'+esc(p.name)+'</b> is now a connection.</div></div>'+
+          '<div class="btns"><button class="b-out b-sm jmsg" data-per="'+i.id+'">Message</button></div></div>';
+        return '<div class="invr">'+a+'<div class="txt"><button class="n opro" data-per="'+i.id+'">'+esc(p.name)+'</button>'+
+          '<div class="r">'+esc(headline(p))+'</div><div class="m">'+esc(i.m)+'</div>'+(i.note?'<div class="note">'+esc(i.note)+'</div>':'')+'</div>'+
+          '<div class="btns"><button class="b-gray b-sm" data-inv="ignore" data-per="'+i.id+'" aria-label="Ignore invitation from '+esc(p.name)+'">Ignore</button>'+
+          '<button class="b-out b-sm" data-inv="accept" data-per="'+i.id+'" aria-label="Accept invitation from '+esc(p.name)+'">Accept</button></div></div>';}).join("")
+        :'<div class="invr"><div class="txt" style="color:var(--t2);font-size:14px">No pending invitations.</div></div>');
+    var nc=function(id){return CONN[id]!=="c";};
+    $("#netGoogle").innerHTML=["nadia","tom","grace","hannah","owen","renee"].filter(nc).map(pcardHTML).join("");
+    $("#netMore").innerHTML=["leila","kofi","tomasz"].filter(nc).map(pcardHTML).join("");
+  }
+
+  /* ---------- Jobs ---------- */
+  var JOBS=[
+    {id:"j1",t:"Senior Product Manager, Platform",c:"Halden Software",col:"#2f6f8f",loc:"Seattle, WA",mode:"Hybrid",ty:"Full-time",ago:"2 days ago",ap:"48 applicants",hint:"1 connection works here",
+     d:"Halden Software builds the APIs that thousands of logistics companies run on. We're looking for a senior product manager to own our public platform: the APIs, SDKs, and developer documentation.\n\nYou'll work closely with a team of twelve engineers, talk to developers every week, and set the roadmap for how customers build on Halden.\n\nYou probably have 5+ years in product management, have shipped developer-facing products, and can read an API spec without help."},
+    {id:"j2",t:"Product Manager, Growth",c:"Verano Mobile",col:"#8a4f6e",loc:"San Francisco, CA",mode:"On-site",ty:"Full-time",ago:"1 week ago",ap:"Over 100 applicants",hint:"",
+     d:"Verano Mobile makes a budgeting app used by four million people. The growth team owns everything from the first install to the first month.\n\nYou'll run experiments on onboarding and pricing, work with design and data science, and decide what we stop doing as often as what we start.\n\n3+ years of product experience, ideally on a consumer subscription product."},
+    {id:"j3",t:"Product Strategy Lead",c:"Fieldnote Labs",col:"#4f6b3a",loc:"Austin, TX",mode:"Remote",ty:"Full-time",ago:"3 days ago",ap:"27 applicants",hint:"Jordan Pike works here",
+     d:"Fieldnote Labs is a 40-person company building research tools for product teams. We need someone to help us decide which markets and customers to focus on next.\n\nYou'll work directly with the founder, size opportunities, talk to customers, and turn that into a plan the whole company can follow.\n\nStrategy or product background, comfortable with ambiguity, happy in a small team."},
+    {id:"j4",t:"Group Product Manager, Data",c:"Kestrel Analytics",col:"#5a4f8a",loc:"New York, NY",mode:"Hybrid",ty:"Full-time",ago:"5 days ago",ap:"61 applicants",hint:"",
+     d:"Kestrel Analytics helps retailers understand what's actually driving their sales. You'll lead three product managers across our data platform and experimentation products.\n\nThe job is part people management and part product: hiring, coaching, and owning a roadmap that spans ingestion to reporting.\n\n8+ years in product, including 2+ managing product managers."},
+    {id:"j5",t:"Product Manager, Developer Tools",c:"Arclight Systems",col:"#7a5a2f",loc:"United States",mode:"Remote",ty:"Full-time",ago:"1 day ago",ap:"19 applicants",hint:"",
+     d:"Arclight Systems makes infrastructure monitoring tools for engineering teams. We're hiring a product manager for our CLI and integrations.\n\nYou'll spend a lot of time with engineers, both ours and our customers', and ship small improvements often.\n\nBackground in software engineering or technical product management preferred."},
+    {id:"j6",t:"Senior Product Manager, Payments",c:"Corva Pagamentos",col:"#2f7a6a",loc:"São Paulo, Brazil",mode:"Hybrid",ty:"Full-time",ago:"2 weeks ago",ap:"Over 100 applicants",hint:"1 connection works here",
+     d:"Corva Pagamentos processes payments for small merchants across Brazil. You'll own the checkout and payment methods roadmap, including Pix and instalment payments.\n\nPortuguese and English required. Experience with payments or fintech strongly preferred."}
+  ];
+  var JSAVE={};
+  function savedJobs(){return JOBS.filter(function(j){return JSAVE[j.id];});}
+  function jobById(id){return JOBS.filter(function(j){return j.id===id;})[0];}
+  function jsvBtn(j){var s=!!JSAVE[j.id];
+    return '<button class="jsv'+(s?" on":"")+'" data-js="'+j.id+'" aria-pressed="'+s+'" aria-label="'+(s?"Unsave ":"Save ")+esc(j.t)+'" title="'+(s?"Saved":"Save")+'">'+(s?IC.saveOn:IC.save)+'</button>';}
+  function renderJobs(){
+    $("#jobList").innerHTML=JOBS.map(function(j){
+      return '<div class="jrow"><div class="jlogo" style="background:'+j.col+'" aria-hidden="true">'+esc(j.c.charAt(0))+'</div>'+
+        '<div class="txt"><button class="jt jjob" data-j="'+j.id+'">'+esc(j.t)+'</button><div class="jc">'+esc(j.c)+'</div>'+
+        '<div class="jl">'+esc(j.loc)+' ('+esc(j.mode)+')</div><div class="jm">'+(j.hint?'<span class="g">'+esc(j.hint)+'</span> · ':'')+esc(j.ago)+'</div></div>'+
+        jsvBtn(j)+'</div>';}).join("");
+    var n=savedJobs().length; $("#jbCt").textContent=n; $("#jbMy2").textContent="My jobs"+(n?" ("+n+")":"");
+  }
+  var jobOpen=null;
+  function openJob(id){var j=jobById(id); if(!j) return; jobOpen=id;
+    $("#jobTtl").textContent=j.t;
+    $("#jobBody").innerHTML='<div class="jhead"><div class="jlogo" style="background:'+j.col+';width:48px;height:48px;font-size:20px" aria-hidden="true">'+esc(j.c.charAt(0))+'</div>'+
+      '<div><div class="jc" style="font-weight:600">'+esc(j.c)+'</div><div class="jl">'+esc(j.loc)+' · '+esc(j.ago)+' · '+esc(j.ap)+'</div></div></div>'+
+      '<div class="jchips"><span>'+esc(j.mode)+'</span><span>'+esc(j.ty)+'</span></div>'+
+      '<h3 style="margin:0 0 8px;font-size:16px;line-height:20px;font-weight:600">About the job</h3><p class="jdesc">'+esc(j.d)+'</p>';
+    renderJobFoot(); openM("jobModal");
+  }
+  function renderJobFoot(){var j=jobById(jobOpen); if(!j) return; var s=!!JSAVE[j.id];
+    $("#jobFoot").innerHTML='<span class="ptag">Prototype</span><span style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">'+
+      '<button class="b-out" data-js="'+j.id+'" aria-pressed="'+s+'">'+(s?"Saved":"Save")+'</button>'+
+      '<button class="b-pri japply" data-j="'+j.id+'">Apply</button></span>';}
+  function toggleJob(id){JSAVE[id]=!JSAVE[id]; var j=jobById(id);
+    renderJobs(); if(!$("#jobModal").hidden) renderJobFoot();
+    toast(JSAVE[id]?"Job saved. Find it in My jobs.":"Job removed from My jobs.");
+    var f=document.querySelector('#jobModal:not([hidden]) [data-js="'+id+'"]')||document.querySelector('#jobList [data-js="'+id+'"]'); if(f) f.focus();
+    return j;}
+
+  /* ---------- Messaging page (shares THREADS with the pop-up window) ---------- */
+  THREADS.maya=[{by:"maya",d:"Monday",t:"9:12 AM",x:"Hi Khush, I came across your profile while looking for product people with strategy backgrounds. We're hiring a Senior PM for the platform team at Halden Software. Open to a short call next week?"}];
+  THREADS.jordan=[{by:ME,d:"Nov 18",t:"4:30 PM",x:"Your dashboard post landed with our team. We're having the same argument right now."},
+                  {by:"jordan",d:"Nov 18",t:"5:02 PM",x:"Glad it helped. Happy to share the one-page template we use for metrics requests if that's useful."}];
+  var UNREAD={maya:true}, TORDER=["maya","jordan"], mSel=null;
+  function bump(id){var i=TORDER.indexOf(id); if(i>=0) TORDER.splice(i,1); TORDER.unshift(id);}
+  function lastOf(id){var th=THREADS[id]; return th&&th.length?th[th.length-1]:null;}
+  function snip(id){var l=lastOf(id); return l?(l.by===ME?"You: ":"")+l.x:"Start a conversation";}
+  function whenOf(id){var l=lastOf(id); return l?(l.d==="Today"?l.t:l.d):"";}
+  function listIds(){var ids=TORDER.filter(function(k){return lastOf(k);}); if(mSel&&ids.indexOf(mSel)<0) ids.unshift(mSel); return ids;}
+  function msgBadge(){var n=Object.keys(UNREAD).filter(function(k){return UNREAD[k];}).length, d=$("#msgDot");
+    d.hidden=!n; d.textContent=n;}
+  function threadHTML(id){
+    var p=P[id], th=THREADS[id]||[], day=null;
+    var h='<div class="cv-intro">'+av(p)+'<div class="n">'+esc(p.name)+'</div><div class="r">'+esc(p.ext?headline(p):p.title)+'</div>'+
+          '<div class="r">'+esc(p.office)+'</div></div>';
+    th.forEach(function(m){var a=P[m.by];
+      if(m.d!==day){day=m.d; h+='<div class="cv-day">'+esc(day)+'</div>';}
+      h+='<div class="cv-m">'+av(a,"s32")+'<div style="min-width:0"><div class="hd">'+esc(a.name)+'<span>'+esc(m.t)+'</span></div>'+
+         '<div class="x">'+esc(m.x)+'</div></div></div>';});
+    return h;
+  }
+  function renderMsgList(){
+    var q=$("#msq").value.trim().toLowerCase();
+    var ids=listIds().filter(function(id){ if(!q) return true;
+      return (P[id].name+" "+(THREADS[id]||[]).map(function(m){return m.x;}).join(" ")).toLowerCase().indexOf(q)!==-1;});
+    $("#mRows").innerHTML=ids.length?ids.map(function(id){var p=P[id],u=!!UNREAD[id];
+      return '<button class="mrow'+(id===mSel?" sel":"")+(u?" un":"")+'" data-mt="'+id+'"'+(id===mSel?' aria-current="true"':'')+
+        ' aria-label="'+esc(p.name)+(u?", unread":"")+'">'+av(p)+'<span class="txt"><span class="top"><span class="n">'+esc(p.name)+'</span>'+
+        '<span class="tm">'+esc(whenOf(id))+'</span></span><span class="s" style="display:block">'+esc(snip(id))+'</span></span>'+
+        (u?'<i class="udot"></i>':'')+'</button>';}).join("")
+      :'<div class="mempty">'+(q?"No conversations match your search.":"No messages yet. Start one with the pencil button.")+'</div>';
+  }
+  function renderMsgThread(){
+    var has=!!mSel;
+    $("#mNone").hidden=has; $("#mHead").hidden=!has; $("#mBody").hidden=!has; $("#mFoot").hidden=!has;
+    $("#msgWrap").classList.toggle("open",has);
+    if(!has) return; var p=P[mSel];
+    $("#mAv").innerHTML=av(p,"s40"); $("#mName").textContent=p.name; $("#mRole").textContent=headline(p);
+    $("#mWho").setAttribute("data-per",mSel); $("#mWho").setAttribute("aria-label","View "+p.name+"’s profile");
+    var b=$("#mBody"); b.innerHTML=threadHTML(mSel); b.scrollTop=b.scrollHeight;
+  }
+  function selectThread(id,noFocus){
+    if(!P[id]||id===ME) return;
+    mSel=id; THREADS[id]=THREADS[id]||[]; delete UNREAD[id];
+    $("#mText").value=""; $("#mSend").disabled=true;
+    renderMsgList(); renderMsgThread(); msgBadge(); renderDock();
+    if(!noFocus) $("#mText").focus();
+  }
+  function sendPage(){
+    var x=$("#mText").value.trim(); if(!x||!mSel) return;
+    THREADS[mSel].push({by:ME,x:x,t:nowTime(),d:"Today"}); bump(mSel);
+    $("#mText").value=""; $("#mSend").disabled=true;
+    renderMsgList(); renderMsgThread(); renderDock(); $("#mText").focus();
+  }
+  function startMsg(id){ if(cur==="messaging") selectThread(id); else openConvo(id); }
+  $("#mText").addEventListener("input",function(){$("#mSend").disabled=!this.value.trim();});
+  $("#mText").addEventListener("keydown",function(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendPage();}});
+  $("#mSend").addEventListener("click",sendPage);
+  $("#msq").addEventListener("input",renderMsgList);
+  $("#mBack").addEventListener("click",function(){var was=mSel; mSel=null; renderMsgList(); renderMsgThread();
+    var r=was&&document.querySelector('[data-mt="'+was+'"]'); if(r) r.focus();});
+  $("#mNew").addEventListener("click",openNewMsg);
+
+  /* ---------- Notifications ---------- */
+  var NOTIFS=[
+    {id:"n1",k:"posts",who:"rhea",t:"2h",un:true,go:"home",post:"h4",open:true,
+     x:"<b>Rhea Kapoor</b> commented on your post: <span class=\"q\">“Writing it down first is underrated. Stealing this.”</span>"},
+    {id:"n2",k:"inside",ic:"inside",t:"3h",un:true,go:"inside",
+     x:"<b>LinkedIn Inside</b> · There are new posts from Google employees in Product Strategy. Open Inside to see them."},
+    {id:"n8",k:"other",who:"jordan",t:"3h",go:"home",post:"h1",
+     x:"<b>Jordan Pike</b> posted: <span class=\"q\">We spent three months building a dashboard nobody opened.</span>"},
+    {id:"n3",k:"jobs",ic:"job",t:"5h",un:true,go:"jobs",
+     x:"<b>Senior Product Manager, Platform</b> at Halden Software and 5 more jobs match your preferences."},
+    {id:"n4",k:"mentions",who:"diego",t:"5h",un:true,go:"home",post:"h2",open:true,
+     x:"<b>Diego Salazar</b> mentioned you in a comment."},
+    {id:"n5",k:"other",who:"maya",t:"1d",un:true,go:"network",
+     x:"<b>Maya Lindqvist</b> invited you to connect."},
+    {id:"n7",k:"other",who:"kofi",t:"1d",go:"home",post:"h5",
+     x:"<b>Kofi Mensah</b>’s poll ends in 2 days. You haven’t voted yet."},
+    {id:"n6",k:"posts",ic:"chart",t:"2d",go:"home",post:"h4",
+     x:"Your post reached <b>1,204 impressions</b> this week."}
+  ];
+  var nf="all";
+  function renderNotifs(){
+    var L=NOTIFS.filter(function(n){return nf==="all"||n.k===nf;});
+    $("#nfList").innerHTML=L.length?L.map(function(n){
+      var ic=n.who?av(P[n.who]):n.ic==="inside"?'<div class="nicon sq">'+GT(30,20)+'</div>'
+        :n.ic==="job"?'<div class="jlogo" style="width:48px;height:48px;font-size:20px;background:#2f6f8f" aria-hidden="true">H</div>'
+        :'<div class="nicon" style="color:var(--blue)">'+IC2.chart+'</div>';
+      return '<div class="nfrow'+(n.un?" un":"")+'"><button class="nfgo" data-ngo="'+n.id+'"><span class="ndot" aria-hidden="true"></span>'+ic+
+        '<span class="x">'+(n.un?'<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Unread. </span>':'')+n.x+'</span></button>'+
+        '<div class="nfside"><span class="tm">'+esc(n.t)+'</span><button class="ibtn" data-nm="'+n.id+'" aria-label="More options for this notification">'+IC2.more+'</button></div></div>';}).join("")
+      :'<div class="empty"><h3>No notifications</h3><p>'+(nf==="all"?"You’re all caught up.":"Nothing in this filter right now.")+'</p></div>';
+  }
+  function notifById(id){return NOTIFS.filter(function(n){return n.id===id;})[0];}
+  $("#nfPills").addEventListener("click",function(e){
+    var b=e.target.closest("[data-nf]"); if(!b) return; nf=b.getAttribute("data-nf");
+    each("#nfPills .pill",function(p){p.classList.toggle("on",p===b);}); renderNotifs();});
+  $("#nfSettings").addEventListener("click",function(){notPart("Notification settings");});
+
+  /* ---------- menus (Me, For Business, post "…", notification "…", messaging "…") ---------- */
+  var menuEl=document.createElement("div"); menuEl.className="menu"; menuEl.id="menu"; menuEl.hidden=true;
+  menuEl.setAttribute("role","menu"); document.body.appendChild(menuEl);
+  var menu={acts:[],anchor:null};
+  function openMenu(anchor,items,head){
+    if(menu.anchor===anchor&&!menuEl.hidden){closeMenu(true);return;}
+    closeMenu(false); menu.acts=[]; var h=head||"";
+    items.forEach(function(it){
+      if(it==="-"){h+='<div class="msep" role="separator"></div>';return;}
+      if(it.grp){h+='<div class="mgrp" role="presentation">'+esc(it.grp)+'</div>';return;}
+      var i=menu.acts.push(it.fn)-1;
+      h+= it.view ? '<button class="b-out b-sm mvp" role="menuitem" data-mi="'+i+'">'+esc(it.t)+'</button>'
+        : '<button class="mi" role="menuitem" data-mi="'+i+'"><span>'+esc(it.t)+(it.s?'<small>'+esc(it.s)+'</small>':'')+'</span></button>';});
+    menuEl.innerHTML=h; menuEl.hidden=false; menu.anchor=anchor; anchor.setAttribute("aria-expanded","true");
+    var r=anchor.getBoundingClientRect(), w=menuEl.offsetWidth, ht=menuEl.offsetHeight;
+    var left=Math.min(Math.max(8,r.right-w),window.innerWidth-w-8), top=r.bottom+4;
+    if(top+ht>window.innerHeight-8&&r.top-ht-4>8) top=r.top-ht-4;
+    menuEl.style.left=left+"px"; menuEl.style.top=Math.max(8,top)+"px";
+    var f=menuEl.querySelector("[data-mi]"); if(f) f.focus();
+  }
+  function closeMenu(refocus){
+    if(menuEl.hidden) return; menuEl.hidden=true; var a=menu.anchor; menu.anchor=null;
+    if(a){a.setAttribute("aria-expanded","false"); if(refocus&&document.body.contains(a)) a.focus();}
+  }
+  menuEl.addEventListener("click",function(e){
+    var b=e.target.closest("[data-mi]"); if(!b) return;
+    var fn=menu.acts[+b.getAttribute("data-mi")]; closeMenu(true); if(fn) fn();
+  });
+  menuEl.addEventListener("keydown",function(e){
+    var its=Array.prototype.slice.call(menuEl.querySelectorAll("[data-mi]")), i=its.indexOf(document.activeElement);
+    if(e.key==="ArrowDown"){e.preventDefault(); its[(i+1)%its.length].focus();}
+    else if(e.key==="ArrowUp"){e.preventDefault(); its[(i-1+its.length)%its.length].focus();}
+    else if(e.key==="Home"){e.preventDefault(); its[0].focus();}
+    else if(e.key==="End"){e.preventDefault(); its[its.length-1].focus();}
+    else if(e.key==="Tab"){closeMenu(true);}
+  });
+  document.addEventListener("click",function(e){
+    if(menuEl.hidden) return;
+    if(menuEl.contains(e.target)||(menu.anchor&&menu.anchor.contains(e.target))) return;
+    closeMenu(false);
+  },true);
+  var lastW=window.innerWidth;
+  window.addEventListener("resize",function(){if(window.innerWidth!==lastW){lastW=window.innerWidth; closeMenu(false);}});
+  window.addEventListener("scroll",function(){if(!menuEl.hidden&&!menuEl.contains(document.activeElement)) closeMenu(false);},{passive:true});
+
+  function meMenu(btn){var p=P[ME];
+    openMenu(btn,[
+      {t:"View Profile",view:true,fn:function(){openProfile(ME);}},
+      "-",{grp:"Account"},
+      {t:"Settings & Privacy",fn:function(){notPart("Settings & Privacy");}},
+      {t:"Help",fn:function(){notPart("Help");}},
+      {t:"Language",fn:function(){notPart("Language settings");}},
+      "-",{grp:"Manage"},
+      {t:"Posts & Activity",fn:function(){hv="mine"; hq=""; go("home");}},
+      {t:"Job Posting Account",fn:function(){notPart("Job posting");}},
+      "-",
+      {t:"Sign Out",fn:function(){notPart("Signing out");}}
+    ],'<div class="mhd">'+av(p)+'<div><div class="n">'+esc(p.name)+'</div><div class="r">'+esc(headline(p))+'</div></div></div>');
+  }
+  function bizMenu(btn){
+    openMenu(btn,[{grp:"For Business"},
+      {t:"Groups",s:"Communities you belong to",fn:function(){openList("Groups",PGROUPS);}},
+      {t:"Post a job",s:"Find the right candidates",fn:function(){notPart("Posting a job");}},
+      {t:"Advertise",s:"Reach customers on LinkedIn",fn:function(){notPart("Advertising");}},
+      {t:"Talent Insights",s:"Workforce and hiring data",fn:function(){notPart("Talent Insights");}},
+      {t:"Learning",s:"Courses for your team",fn:function(){notPart("LinkedIn Learning");}}]);
+  }
+  function toggleSave(po){
+    po.sv=!po.sv;
+    toast(po.pub?(po.sv?"Post saved. Find it in Saved items.":"Post removed from Saved items.")
+                :(po.sv?"Post saved to your internal saves.":"Post removed from your saves."));
+    render();
+  }
+  function postMenu(btn,po){
+    var mine=(po.a===ME), a=P[po.a], items=[
+      {t:po.sv?"Unsave":"Save",s:po.sv?"Remove from your saved items":(po.pub?"Save for later":"Save to your internal saves"),fn:function(){toggleSave(po);}}];
+    if(mine) items.push({t:"Delete post",s:"Remove it from the feed",fn:function(){po.hid="deleted"; render();}});
+    else {
+      items.push({t:po.pub?"Not interested":"Hide this post",s:"See fewer posts like this",fn:function(){po.hid="hidden"; render();}});
+      if(po.pub) items.push({t:(FOLLOW[po.a]?"Unfollow ":"Follow ")+a.name,fn:function(){toggleFollow(po.a);}});
+      items.push({t:"Report post",s:po.pub?"":"Goes to Google’s LinkedIn Inside admins",
+        fn:function(){toast("Thanks for flagging this. Reports aren’t sent in this prototype.");}});
+    }
+    openMenu(btn,items);
+  }
+  $("#dkMore").addEventListener("click",function(){
+    openMenu(this,[{t:"Manage conversations",fn:function(){go("messaging");}},
+      {t:"Set away message",fn:function(){notPart("Away messages");}},
+      {t:"Messaging settings",fn:function(){notPart("Messaging settings");}}]);});
+  $("#dkNew").addEventListener("click",openNewMsg);
+
+  /* ---------- nav and routing ---------- */
+  var NAVR={"Home":"home","My Network":"network","Jobs":"jobs","Messaging":"messaging","Notifications":"notifications","Inside":"inside"};
+  var VIEWS=["home","network","jobs","messaging","notifications","inside"];
+  var TITLES={home:"Feed | LinkedIn",network:"My Network | LinkedIn",jobs:"Jobs | LinkedIn",messaging:"Messaging | LinkedIn",
+              notifications:"Notifications | LinkedIn",inside:"LinkedIn Inside | Google"};
+  var cur="home", pendPost=null;
+  function go(r){ if(location.hash.slice(1)===r) route(); else location.hash=r; }
+  function route(){
+    var r=location.hash.replace(/^#\/?/,""); if(VIEWS.indexOf(r)<0) r="home";
+    cur=r; closeMenu(false);
+    VIEWS.forEach(function(v){$("#v-"+v).hidden=(v!==r);});
+    each(".gitem[data-nav]",function(b){var on=NAVR[b.getAttribute("data-nav")]===r;
+      b.classList.toggle("sel",on); if(on) b.setAttribute("aria-current","page"); else b.removeAttribute("aria-current");});
+    document.title=TITLES[r]; document.body.className="r-"+r;
+    $("#gs").value=r==="inside"?fs.value:(r==="home"?hq:"");
+    $("#gs").setAttribute("placeholder",r==="inside"?"I'm looking for…":"Search");
+    if(r==="home") renderHome();
+    if(r==="network") renderNetwork();
+    if(r==="jobs") renderJobs();
+    if(r==="messaging"){ if(!$("#convo").hidden) closeConvo(); renderMsgList(); renderMsgThread(); }
+    if(r==="notifications"){ $("#notifDot").hidden=true; renderNotifs(); }
+    if(r==="inside") render();
+    window.scrollTo(0,0);
+    if(pendPost&&r==="home"){
+      var pp=pendPost; pendPost=null; hv="feed"; hq=""; $("#gs").value=""; renderHome();
+      var el=document.querySelector('#homeFeed [data-p="'+pp.id+'"]');
+      if(el){
+        if(pp.open){var w=el.querySelector(".cwrap"); if(w) w.hidden=false;}
+        window.scrollTo(0,el.getBoundingClientRect().top+window.pageYOffset-76);
+        el.classList.add("flash"); setTimeout(function(){el.classList.remove("flash");},1800);
+      }
+    }
+  }
+  window.addEventListener("hashchange",route);
+
+  document.addEventListener("click",function(e){
+    var nv=e.target.closest("[data-nav]");
+    if(nv){ var n=nv.getAttribute("data-nav");
+      if(NAVR[n]) go(NAVR[n]); else if(n==="Me") meMenu(nv); else if(n==="For Business") bizMenu(nv); else notPart(n);
+      return; }
+    if(e.target.closest(".jpub")){ openComposer("public"); return; }
+    var pm=e.target.closest(".pmore");
+    if(pm){ var pa=pm.closest("[data-p]"), pp=pa&&findPost(pa.getAttribute("data-p")); if(pp) postMenu(pm,pp); return; }
+    var un=e.target.closest(".jundo");
+    if(un){ var up=findPost(un.getAttribute("data-p")); if(up){up.hid=null; render();
+      var back=document.querySelector('[data-p="'+up.id+'"] .pmore'); if(back) back.focus();} return; }
+    if(e.target.closest("#hBack")){ hv="feed"; hq=""; $("#gs").value=""; renderHome(); return; }
+    var cn=e.target.closest(".jcon"); if(cn){ toggleConn(cn.getAttribute("data-con")); return; }
+    var iv=e.target.closest("[data-inv]");
+    if(iv){ var iid=iv.getAttribute("data-per"), inv=INV.filter(function(i){return i.id===iid;})[0];
+      if(iv.getAttribute("data-inv")==="accept"){ inv.st="accepted"; CONN[iid]="c"; toast("You and "+P[iid].name+" are now connected."); }
+      else { inv.st="ignored"; toast("Invitation from "+P[iid].name+" ignored."); }
+      renderNetwork(); var nx=$("#netInv").querySelector("button:not(.opro)")||$("#netInv").querySelector("button"); if(nx) nx.focus(); return; }
+    var mn=e.target.closest("[data-mn]");
+    if(mn){ var k=mn.getAttribute("data-mn");
+      if(k==="conn") openPeople("Connections",connIds(),"","This prototype shows a sample of your connections.");
+      else if(k==="follow") openPeople("Following",Object.keys(FOLLOW).filter(function(id){return FOLLOW[id];}).sort(byName),
+        "You’re not following anyone yet. Use Follow on a post, profile, or the Home page.");
+      else openList({groups:"Groups",events:"Events",pages:"Pages",news:"Newsletters"}[k],{groups:PGROUPS,events:PEVENTS,pages:PAGES,news:NEWS}[k]);
+      return; }
+    var jj=e.target.closest(".jjob"); if(jj){ closeM("listModal"); openJob(jj.getAttribute("data-j")); return; }
+    var js=e.target.closest("[data-js]"); if(js){ toggleJob(js.getAttribute("data-js")); return; }
+    if(e.target.closest(".japply")){ toast("Applications aren’t sent in this prototype. Nothing was submitted."); return; }
+    var mt=e.target.closest("[data-mt]"); if(mt){ selectThread(mt.getAttribute("data-mt")); return; }
+    var nw=e.target.closest(".jnew"); if(nw){ closeM("listModal"); startMsg(nw.getAttribute("data-per")); return; }
+    var ng=e.target.closest("[data-ngo]");
+    if(ng){ var no=notifById(ng.getAttribute("data-ngo")); no.un=false;
+      if(no.post) pendPost={id:no.post,open:!!no.open}; go(no.go); return; }
+    var nm=e.target.closest("[data-nm]");
+    if(nm){ var nn=notifById(nm.getAttribute("data-nm"));
+      openMenu(nm,[{t:nn.un?"Mark as read":"Mark as unread",fn:function(){nn.un=!nn.un; renderNotifs();
+          var b2=document.querySelector('[data-nm="'+nn.id+'"]'); if(b2) b2.focus();}},
+        {t:"Delete notification",fn:function(){NOTIFS.splice(NOTIFS.indexOf(nn),1); renderNotifs(); toast("Notification deleted.");
+          var b3=document.querySelector("#nfList [data-ngo]"); if(b3) b3.focus();}}]);
+      return; }
+  });
+
+  $("#hkSaved").addEventListener("click",function(){hv=hv==="saved"?"feed":"saved"; renderHome();});
+  $("#hkGroups").addEventListener("click",function(){openList("Groups",PGROUPS);});
+  $("#hkEvents").addEventListener("click",function(){openList("Events",PEVENTS);});
+  $("#hkNews").addEventListener("click",function(){openList("Newsletters",NEWS);});
+  $("#jbMy").addEventListener("click",openMyJobs);
+  $("#jbMy2").addEventListener("click",openMyJobs);
+  function openMyJobs(){
+    var L=savedJobs(); $("#listTtl").textContent="My jobs";
+    $("#listBody").innerHTML=L.length?L.map(function(j){
+      return '<button class="lrow jjob" data-j="'+j.id+'"><div class="jlogo" style="background:'+j.col+';width:48px;height:48px;font-size:20px" aria-hidden="true">'+esc(j.c.charAt(0))+'</div>'+
+        '<span><span class="n">'+esc(j.t)+'</span><br><span class="s">'+esc(j.c)+' · '+esc(j.loc)+'</span></span></button>';}).join("")
+      :'<div class="lempty">No saved jobs yet. Use the bookmark on a job to save it here.</div>';
+    openM("listModal");
+  }
+  $("#jbPrefs").addEventListener("click",function(){
+    openList("Job preferences",[{t:"Job titles",s:"Product Manager · Senior Product Manager · Product Strategy Lead"},
+      {t:"Locations",s:"Los Angeles, California · Remote (US)"},{t:"Workplace",s:"On-site · Hybrid · Remote"},
+      {t:"Open to work",s:"Off"}],"Preferences can’t be edited in this prototype.");});
+
+  /* fill the Home profile card and shared footers */
+  ["#hAv","#hCompAv"].forEach(function(s){var e=$(s); e.style.background=LOOK[ME].bg; e.innerHTML=face(ME);});
+  $("#hName").textContent=P[ME].name; $("#hTitle").textContent=headline(P[ME]); $("#hOffice").textContent=P[ME].office;
+  var FOOT=document.querySelector(".sitefoot").outerHTML;
+  each(".footslot",function(s){s.innerHTML=FOOT;});
+  renderAdd(); renderDock(); msgBadge();
+
+  rails(); render(); route();
 })();
 </script>
 </body>
